@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개인 블로그</title>
+  </head>
+  <body>
+    <!--헤더-->
+  <div id="header"
+    class="border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50">
+    <div class="flex items-center">
+      <button id="menuBtn"
+        class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-center items-center h-12 w-12 m-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 flex justify-center items-center" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
+        <a href="./index.html" class="cursor-pointer">
+          <img class="w-6 h-6 sm:w-[32px] sm:h-[32px]" src="https://img.icons8.com/tiny-color/32/code.png" alt="code" />
+        </a>
+        <h1 class="hidden sm:block text-2xl">
+          개인 개발 블로그
+        </h1>
+        <h1 class="block text-xl sm:hidden">개발 블로그</h1>
+      </div>
+      <div class="relative flex justify-end items-center flex-grow mr-5 gap-2">
+        <div id="searchWrap" class="w-0 overflow-hidden transition-all duration-300 ease-out">
+          <input id="searchInput" type="text"
+            class="w-60 h-10 rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-200 pl-4 pr-4 placeholder-gray-500"
+            placeholder="검색어를 입력해주세요." />
+        </div>
+        <button id="searchBtn"
+          class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700"><img
+            class="ml-auto" width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/search--v1.png"
+            alt="search--v1" /></button>
+      </div>
+
+      <div class="relative ml-auto mr-10 w-8 h-8 hidden sm:flex">
+        <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative">
+          <!-- 큰 원 -->
+          <div id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2
+            w-12 h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11
+            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
+            dark:border-gray-600 dark:bg-gray-800"></div>
+          <!-- 작은 원 -->
+          <div class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10
+            border-gray-400 bg-white shadow-sm
+            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
+            dark:border-gray-600 dark:bg-gray-800"></div>
+
+          <!-- moon 아이콘 -->
+          <div class="duration-300 ease-out">
+            <img id="moon_light"
+              class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
+              src="https://img.icons8.com/ios-filled/50/do-not-disturb-2.png" alt="sun--v1" />
+            <img id="moon_dark" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
+              src="../img/moon-dark.png" alt="sun--v1" />
+          </div>
+
+          <!-- sun 아이콘 -->
+          <div class="duration-300 ease-out">
+            <img id="sun_light" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
+              src="https://img.icons8.com/ios-filled/50/sun--v1.png" alt="do-not-disturb-2" />
+            <img id="sun_dark"
+              class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
+              src="../img/sun-dark.png" alt="do-not-disturb-2" />
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+<!--메인-->
+  <div id="main" class="maincontainer border pt-16">
+    <!--메뉴바-->
+    <div id="menuBar"
+      class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11">
+      <nav class="flex flex-col h-full w-full">
+        <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
+          <p class="text-2xl ml-5">메뉴</p>
+          <button id="menuExitBtn"
+            class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5">
+            <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/delete-sign--v1.png"
+              alt="delete-sign--v1" />
+          </button>
+        </div>
+        <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
+          <li><a href="/index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
+          <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500">About</a></li>
+          <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500">DevLog</a></li>
+          <li><a href="/pages/wtf.html" class="hover:text-gray-500 dark:hover:text-gray-500">wtf</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--비디오 섹션-->
+    <div class="relative w-full h-100">
+      <video class="absolute w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted loop></video>
+      <div class="absolute w-full h-full bg-black/50"></div>
+      <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
+        <h2 class="p-10 text-5xl">코드로 배우고 공유하다.</h2>
+        <p class="pl-10 text-2xl">Front-End 개발자의 성장 기록</p>
+        <p class="pl-10 text-2xl">최신 기술과 프로젝트 경험을 기록합니다.</p>
+      </div>
+    </div>
+
+    <!--카테고리 버튼-->
+    <div class="relative w-full h-15 border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex items-center">
+      <nav>
+        <ul class="inline-flex gap-4 ml-5">
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">전체</button>
+          </li>
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">HTML</button>
+          </li>
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">JavaScript</button>
+          </li>
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">React</button>
+          </li>
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">TypeScript</button>
+          </li>
+          <li><button
+              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">알고리즘</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--컨텐츠 섹션-->
+    <div class="relative w-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200 min-h-screen p-10 space-y-4">
+      <div class="mx-auto max-w-[1400px] grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a class="group" href="https://hyeeoooook.tistory.com/" target="_blank" rel="noopener noreferrer">
+          <article
+            class="border border-gray-400 shadow-sm rounded-lg h-110 flex flex-col justify-start dark:border-gray-600 group-hover:border-blue-500">
+            <div class="border-b border-gray-300 w-full aspect-[16/9] overflow-hidden rounded-t-lg">
+              <img src="../img/Tistory.jpg"
+                class="relative object-cover w-full h-full rounded-t-lg group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="m-5 flex flex-col gap-5 min-h-[120px]">
+              <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Blog</div>
+              <h2 class="text-xl group-hover:text-blue-400">개인의 기술들을 정리해 놓은 블로그</h2>
+              <p class="text-xs">개발 기간동안 배우고, 다룬 내용들을 정리하고 느꼈던 감정과 생각들을 정리하여 기록합니다.</p>
+            </div>
+            <div class="mb-3 border-t border-gray-300 dark:border-gray-500 w-[90%] mx-auto mt-auto"></div>
+            <div
+              class="mb-3 text-gray-800 text-center rounded-b-lg w-full h-10 text-2xl bg-gray-100 dark:bg-gray-800 dark:text-gray-200 flex justify-center items-center">
+              Tistory
+            </div>
+          </article>
+        </a>
+        <a class="group" href="https://github.com/DoHyuk-Centric" target="_blank" rel="noopener noreferrer">
+          <article
+            class="border border-gray-400 shadow-sm rounded-lg h-110 flex flex-col justify-start dark:border-gray-600 group-hover:border-blue-500">
+            <div class="border-b border-gray-300 flex justify-center w-full aspect-[16/9] overflow-hidden rounded-t-lg">
+              <img class="relative object-contain w-[95%] rounded-t-lg group-hover:scale-105 transition-transform duration-500 hidden dark:block" src="../img/GitHub_Lockup_Light.svg" alt="github"/>
+              <img class="relative object-contain w-[95%] rounded-t-lg group-hover:scale-105 transition-transform duration-500 block dark:hidden" src="../img/GitHub_Lockup_Dark.svg" alt="github"/>
+            </div>
+            <div class="m-5 flex flex-col gap-5 min-h-[120px]">
+              <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Github</div>
+              <h2 class="text-xl group-hover:text-blue-400">프로젝트와 코드 저장소</h2>
+              <p class="text-xs">개인 프로젝트와 학습용 코드들을 정리하여 관리합니다.</p>
+            </div>
+            <div class="mb-3 border-t border-gray-300 dark:border-gray-500 w-[90%] mx-auto mt-auto"></div>
+            <div
+              class="mb-3 text-gray-800 text-center rounded-b-lg w-full h-10 text-2xl bg-gray-100 dark:bg-gray-800 dark:text-gray-200 flex justify-center items-center">
+              Github
+            </div>
+          </article>
+        </a>
+        <a href="https://github.com/">
+          <article class="border rounded-lg h-64 flex justify-center items-center">Github</article>
+        </a>
+        <a href="https://github.com/">
+          <article class="border rounded-lg h-64 flex justify-center items-center">Github</article>
+        </a>
+        <a href="https://github.com/">
+          <article class="border rounded-lg h-64 flex justify-center items-center">Github</article>
+        </a>
+        <a href="https://github.com/">
+          <article class="border rounded-lg h-64 flex justify-center items-center">Github</article>
+        </a>
+        <article class="border rounded-lg h-64 flex justify-center items-center">Github</article>
+      </div>
+    </div>
+
+    <div class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
+      <div class="flex items-center gap-3 p-10">
+        <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
+        <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
+        <h1 class="text-xl block sm:hidden">개발 블로그</h1>
+      </div>
+      <div class="p-10 flex-grow text-right">
+        <p>© 2025 개인 개발 블로그. All rights reserved.</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/components/darkmode/darkmode_index.js" defer></script>
+    <script src="/components/searchBtn.js"></script>
+    <script src="/components/menuBtn.js"></script>
+  </body>
+</html>

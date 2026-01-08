@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../tailwindcss/dist/output.css">
+    <title>개인 개발 블로그 - 회고록</title>
+</head>
+
+<body>
+    <!--헤더-->
+    <div id="header"
+        class="border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center">
+            <button id="menuBtn"
+                class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-center items-center h-12 w-12 m-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 flex justify-center items-center" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
+                <a href="./index.html" class="cursor-pointer">
+                    <img class="w-6 h-6 sm:w-[32px] sm:h-[32px]" src="https://img.icons8.com/tiny-color/32/code.png"
+                        alt="code" />
+                </a>
+                <h1 class="hidden sm:block text-2xl">
+                    개인 개발 블로그
+                </h1>
+                <h1 class="block text-xl sm:hidden">개발 블로그</h1>
+            </div>
+            <div class="relative flex justify-end items-center flex-grow mr-5 gap-2">
+                <div id="searchWrap" class="w-0 overflow-hidden transition-all duration-300 ease-out">
+                    <input id="searchInput" type="text"
+                        class="w-60 h-10 rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-200 pl-4 pr-4 placeholder-gray-500"
+                        placeholder="검색어를 입력해주세요." />
+                </div>
+                <button id="searchBtn"
+                    class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700"><img
+                        class="ml-auto" width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/search--v1.png"
+                        alt="search--v1" /></button>
+            </div>
+
+            <div class="relative ml-auto mr-10 w-8 h-8 hidden sm:flex">
+                <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative">
+                    <!-- 큰 원 -->
+                    <div id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2
+            w-12 h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11
+            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
+            dark:border-gray-600 dark:bg-gray-800"></div>
+                    <!-- 작은 원 -->
+                    <div class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10
+            border-gray-400 bg-white shadow-sm
+            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
+            dark:border-gray-600 dark:bg-gray-800"></div>
+
+                    <!-- moon 아이콘 -->
+                    <div class="duration-300 ease-out">
+                        <img id="moon_light"
+                            class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
+                            src="https://img.icons8.com/ios-filled/50/do-not-disturb-2.png" alt="sun--v1" />
+                        <img id="moon_dark"
+                            class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
+                            src="../img/moon-dark.png" alt="sun--v1" />
+                    </div>
+
+                    <!-- sun 아이콘 -->
+                    <div class="duration-300 ease-out">
+                        <img id="sun_light"
+                            class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
+                            src="https://img.icons8.com/ios-filled/50/sun--v1.png" alt="do-not-disturb-2" />
+                        <img id="sun_dark"
+                            class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
+                            src="../img/sun-dark.png" alt="do-not-disturb-2" />
+                    </div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--메인-->
+    <div id="main" class="maincontainer border pt-16">
+        <!--메뉴바-->
+        <div id="menuBar"
+            class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11">
+            <nav class="flex flex-col h-full w-full">
+                <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
+                    <p class="text-2xl ml-5">메뉴</p>
+                    <button id="menuExitBtn"
+                        class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5">
+                        <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/delete-sign--v1.png"
+                            alt="delete-sign--v1" />
+                    </button>
+                </div>
+                <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
+                    <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
+                    <li><a href="./about.html" class="hover:text-gray-500 dark:hover:text-gray-500">About</a></li>
+                    <li><a href="./devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500">DevLog</a></li>
+                    <li><a href="" class="hover:text-gray-500 dark:hover:text-gray-500">연락처</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!--비디오 섹션-->
+        <div class="relative w-full h-100">
+            <video class="absolute w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted loop></video>
+            <div class="absolute w-full h-full bg-black/50"></div>
+            <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
+                <h2 class="p-10 text-5xl">DevLog 개인 회고록</h2>
+                <p class="pl-10 text-2xl">배움간에 생각의 흐름들을 정리</p>
+            </div>
+        </div>
+
+        <!--컨텐츠 섹션-->
+        <div
+            class="text-gray-800 relative w-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200 min-h-screen p-10 space-y-4">
+            <div class="grid grid-cols-3 gap-3 max-w-[1400px] mx-auto">
+                <aside class="border shadow-xl rounded-2xl col-span-2 p-5">
+                    <div>
+                        <h1 class="text-3xl">회고록</h1>
+                        <div class="border-b mt-5 border-gray-300"></div>
+                        <ul class="border-b border-r border-l border-gray-300 pt-3 p-5">
+                            <li>2025년 회고록</li>
+                            <li>2024년 회고록</li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside class="border max-w-[400px] ml-auto shadow-xl rounded-2xl bg-white dark:bg-gray-800">
+                    <div class="flex flex-col justify-center items-center gap-5 p-15">
+                        <div class="flex w-60 h-60 border rounded-full"></div>
+                        <div id="sign_in">
+                            <div class="text-center">
+                                <h2 class="text-bold text-3xl mb-3">NickName</h2>
+                                <p class="text-gray-500 text-xl">나는 개발자입니다.</p>
+                            </div>
+                            <div class="flex flex-grow justify-center items-center gap-4">
+                                <button
+                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</button>
+                                <button
+                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</button>
+                            </div>
+                        </div>
+
+                        <!--로그인 안되어있을때 오픈-->
+                        <div id="sign_out">
+                            <div class="flex flex-grow justify-center items-center gap-4 hidden mt-5">
+                                <button
+                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</button>
+                                <button
+                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--달력-->
+                    <div class="flex flex-col justify-center items-center m-2">
+                        <div class="border rounded-xl w-90 p-2 bg-gray-100 dark:bg-gray-700">
+                            <div class="relative flex w-full z-10">
+                                <button id="prevMonthBtn"
+                                    class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">
+                                    &lt; </button>
+                                    <div class="ml-auto flex gap-5 h-5 mb-2">
+                                        <button id="calendar_Year" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
+                                        <div id="calendar_Year_choice" class="absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-30"></div>
+                                        <button id="calendar_Month" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
+                                    </div>
+                                <button id="nextMonthBtn"
+                                    class="rounded-xl w-10 cursor-pointer justify-end ml-auto hover:bg-gray-300 dark:hover:bg-gray-600">
+                                    &gt;
+                                </button>
+                            </div>
+                            <div class="w-full flex-col mt-2">
+                                <div class="grid grid-cols-7 text-center mt-2 border-b border-gray-300 dark:border-gray-600 pb-2">
+                                    <div class="text-red-500 dark:text-red-400">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div class="text-blue-500 dark:text-blue-400">토</div>
+                                </div>
+                                <div id="calendar_day" class="grid grid-cols-7 text-center gap-y-8 mt-2 mb-2">
+                                    
+
+                                    <!--날짜 들어가는 곳-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <div class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
+            <div class="flex items-center gap-3 p-10">
+                <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
+                <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
+                <h1 class="text-xl block sm:hidden">개발 블로그</h1>
+            </div>
+            <div class="p-10 flex-grow text-right">
+                <p>© 2026 개인 개발 블로그. All rights reserved.</p>
+            </div>
+        </div>
+        <script type="module" src="/components/devLog/calender.js" defer></script>
+        <script type="module" src="/components/darkmode/darkmode_index.js" defer></script>
+        <script src="/components/searchBtn.js"></script>
+        <script src="/components/menuBtn.js"></script>
+        <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
