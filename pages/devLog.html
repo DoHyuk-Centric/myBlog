@@ -164,8 +164,9 @@
                                     &lt; </button>
                                     <div class="ml-auto flex gap-5 h-5 mb-2">
                                         <button id="calendar_Year" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
-                                        <div id="calendar_Year_choice" class="hidden absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-30"></div>
+                                        <div id="calendar_Year_choice" class="hidden opacity-100 absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-30"></div>
                                         <button id="calendar_Month" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
+                                        <div id="calendar_Month_choice" class="opacity-0 transition-all absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-0 duration-500"></div>
                                     </div>
                                 <button id="nextMonthBtn"
                                     class="rounded-xl w-10 cursor-pointer justify-end ml-auto hover:bg-gray-300 dark:hover:bg-gray-600">
@@ -185,7 +186,7 @@
                 </aside>
             </div>
         </div>
-
+     </div>
         <div class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
             <div class="flex items-center gap-3 p-10">
                 <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
@@ -197,8 +198,8 @@
             </div>
         </div>
         <script src="/components/devLog/calendarYearBtn.js"></script>
-        <script type="module" src="/components/devLog/calender.js" defer></script>
-        <script type="module" src="/components/darkmode/darkmode_index.js" defer></script>
+        <script type="module" src="/components/devLog/calender.js"></script>
+        <script type="module" src="/components/darkmode/darkmode_index.js"></script>
         <script src="/components/searchBtn.js"></script>
         <script src="/components/menuBtn.js"></script>
         <script type="module" src="/src/main.js"></script>

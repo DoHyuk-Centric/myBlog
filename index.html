@@ -42,33 +42,33 @@
       <div class="relative ml-auto mr-10 w-8 h-8 hidden sm:flex">
         <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative">
           <!-- 큰 원 -->
-          <div id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2
+          <span id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2
             w-12 h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11
             group-hover:bg-gray-100 dark:group-hover:bg-gray-700
-            dark:border-gray-600 dark:bg-gray-800"></div>
+            dark:border-gray-600 dark:bg-gray-800"></span>
           <!-- 작은 원 -->
-          <div class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10
+          <span class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10
             border-gray-400 bg-white shadow-sm
             group-hover:bg-gray-100 dark:group-hover:bg-gray-700
-            dark:border-gray-600 dark:bg-gray-800"></div>
+            dark:border-gray-600 dark:bg-gray-800"></span>
 
           <!-- moon 아이콘 -->
-          <div class="duration-300 ease-out">
+          <span class="duration-300 ease-out">
             <img id="moon_light"
               class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
               src="https://img.icons8.com/ios-filled/50/do-not-disturb-2.png" alt="sun--v1" />
             <img id="moon_dark" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
               src="../img/moon-dark.png" alt="sun--v1" />
-          </div>
+          </span>
 
           <!-- sun 아이콘 -->
-          <div class="duration-300 ease-out">
+          <span class="duration-300 ease-out">
             <img id="sun_light" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
               src="https://img.icons8.com/ios-filled/50/sun--v1.png" alt="do-not-disturb-2" />
             <img id="sun_dark"
               class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
               src="../img/sun-dark.png" alt="do-not-disturb-2" />
-          </div>
+          </span>
         </button>
       </div>
 
@@ -142,7 +142,7 @@
             class="border border-gray-400 shadow-sm rounded-lg h-110 flex flex-col justify-start dark:border-gray-600 group-hover:border-blue-500">
             <div class="border-b border-gray-300 w-full aspect-[16/9] overflow-hidden rounded-t-lg">
               <img src="../img/Tistory.jpg"
-                class="relative object-cover w-full h-full rounded-t-lg group-hover:scale-105 transition-transform duration-500" />
+                class="relative object-cover w-full h-full rounded-t-lg group-hover:scale-105 transition-transform duration-500" alt="Tistory 블로그로 이동하는 이미지" />
             </div>
             <div class="m-5 flex flex-col gap-5 min-h-[120px]">
               <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Blog</div>
@@ -202,8 +202,10 @@
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/components/darkmode/darkmode_index.js" defer></script>
+    <script type="module" src="/components/darkmode/darkmode_index.js"></script>
     <script src="/components/searchBtn.js"></script>
     <script src="/components/menuBtn.js"></script>
+  </div>
+  
   </body>
 </html>
