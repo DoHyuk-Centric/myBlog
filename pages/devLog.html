@@ -159,14 +159,33 @@
                     <div class="flex flex-col justify-center items-center m-2">
                         <div class="border rounded-xl w-90 p-2 bg-gray-100 dark:bg-gray-700">
                             <div class="relative flex w-full z-10">
-                                <button id="prevMonthBtn"
-                                    class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">
-                                    &lt; </button>
+                                <button id="prevMonthBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600"> &lt; </button>
                                     <div class="ml-auto flex gap-5 h-5 mb-2">
                                         <button id="calendar_Year" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
-                                        <div id="calendar_Year_choice" class="hidden opacity-100 absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-30"></div>
                                         <button id="calendar_Month" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
-                                        <div id="calendar_Month_choice" class="opacity-0 transition-all absolute border bg-gray-300 top-10 left-1/2 -translate-x-1/2 w-60 h-0 duration-500"></div>
+                                        <div id="calendar_YearMonth_choice" class="opacity-100 rounded-b-2xl h-89 transition-all absolute dark:bg-gray-700 bg-gray-100 top-10 left-1/2 -translate-x-1/2 w-89 duration-500">
+                                            <div id="calendar_YearMonth_contents" class= "overflow-hidden flex justify-center items-center p-0 m-0 h-full max-w-full dark:text-black dark:text-white">
+                                                <div id="calendarYearcontents" class=" flex place-items-center gap-5">
+                                                    <button id="calendarYearLeftBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&lt;</button>
+                                                    <span id="calendarYearText" class="border flex justify-center items-center border-gray-400 rounded-xl h-15 w-25"></span>
+                                                    <button id="calendarYearRightBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&gt;</button>
+                                                </div>
+                                                <div id="calendarMonthcontents" class="hidden grid grid-cols-4 place-items-center gap-5">
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">1월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">2월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">3월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">4월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">5월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">6월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">7월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">8월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">9월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">10월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">11월</button>
+                                                    <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">12월</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 <button id="nextMonthBtn"
                                     class="rounded-xl w-10 cursor-pointer justify-end ml-auto hover:bg-gray-300 dark:hover:bg-gray-600">

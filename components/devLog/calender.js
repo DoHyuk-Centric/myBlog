@@ -1,5 +1,21 @@
 let date = new Date();
 
+calendarContentsYearSelector();
+/** 년도 추가 함수 */
+function calendarContentsYearSelector() {
+  const calendarYearLeftBtn = document.getElementById("calendarYearLeftBtn");
+  const calendarYearRightBtn = document.getElementById("calendarYearRightBtn");
+
+  calendarYearLeftBtn.addEventListener("click", () => {
+    date.setFullYear(date.getFullYear() - 1);
+    renderCalendar();
+  });
+  calendarYearRightBtn.addEventListener("click", () => {
+    date.setFullYear(date.getFullYear() + 1);
+    renderCalendar();
+  });
+}
+
 function renderCalendar() {
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -8,12 +24,16 @@ function renderCalendar() {
   const calendar_Year = document.getElementById("calendar_Year");
   const calendar_Month = document.getElementById("calendar_Month");
   const calendar_day = document.getElementById("calendar_day");
+
+  const calendarYearText = document.getElementById("calendarYearText");
+
   calendar_day.innerHTML = "";
 
   const firstDay = new Date(year, month, 1).getDay();
   const lastDay = new Date(year, month + 1, 0).getDate();
   const prevLastDay = new Date(year, month, 0).getDate();
 
+  calendarYearText.textContent = year;
   calendar_Year.textContent = year;
   calendar_Month.textContent = month + 1;
 
