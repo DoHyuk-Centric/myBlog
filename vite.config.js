@@ -10,6 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "pages/about.html"),
         devLog: resolve(__dirname, "pages/devLog.html"),
+        login: resolve(__dirname, "pages/login.html"),
       },
     },
   },

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../tailwindcss/dist/output.css">
     <title>개인 개발 블로그 - 회고록</title>
 </head>
 
@@ -136,19 +135,22 @@
                                 <h2 class="text-bold text-3xl mb-3">NickName</h2>
                                 <p class="text-gray-500 text-xl">나는 개발자입니다.</p>
                             </div>
-                            <div class="flex flex-grow justify-center items-center gap-4">
-                                <button
-                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</button>
-                                <button
-                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</button>
-                            </div>
+
+                        </div>
+                        
+                        <!-- 로그인 후에 오픈 -->
+                        <div class="hidden flex flex-grow justify-center items-center gap-4">
+                            <button
+                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</button>
+                            <button
+                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</button>
                         </div>
 
                         <!--로그인 안되어있을때 오픈-->
                         <div id="sign_out">
-                            <div class="flex flex-grow justify-center items-center gap-4 hidden mt-5">
-                                <button
-                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</button>
+                            <div class="flex flex-grow justify-center items-center gap-4 mt-5">
+                                <a href="./login.html"
+                                    class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
                                 <button
                                     class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</button>
                             </div>
