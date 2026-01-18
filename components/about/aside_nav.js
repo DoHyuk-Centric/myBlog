@@ -1,43 +1,41 @@
-const mainContainer = document.querySelector(".maincontainer");
-
-mainContainer.addEventListener("scroll", () => {
-  const section = [
-    document.getElementById("introduction_section_1"),
-    document.getElementById("introduction_section_2"),
-    document.getElementById("introduction_section_3"),
-    document.getElementById("introduction_section_4"),
-    document.getElementById("introduction_section_5"),
-    document.getElementById("introduction_section_6"),
-  ];
-  const asideNav = document.getElementById("aside_nav");
-  const index = getCurrentSectionIndex(mainContainer.scrollTop);
+navControler();
+function navControler(){
+  const mainContainer = document.querySelector(".maincontainer");
+  const section = document.querySelectorAll(".maincontainer section");
   const asideBtn = document.querySelectorAll(".about_aside_btn");
 
-  if (index !== -1) {
-    actionAsideNav(index);
-  }
+  const sections = document.querySelectorAll(".maincontainer section");
 
-  function getCurrentSectionIndex(scrollTop) {
-    for (let i = 0; i < section.length; i++) {
-      const currentScroll = section[i];
-      const nextScroll = section[i + 1];
+  let isFirstLoad = true;
 
-      if (!nextScroll && scrollTop >= currentScroll.offsetTop) {
-        return i;
-      }
-      if (
-        scrollTop >= currentScroll.offsetTop &&
-        scrollTop < nextScroll.offsetTop
-      ) {
-        return i;
-      }
+  const observerOptions = {
+    root: mainContainer,
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    if (isFirstLoad) {
+      actionAsideNav(1, asideBtn);
+      isFirstLoad = false;
+      return;
     }
-    return -1;
-  }
 
-  function actionAsideNav(index) {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        const sectionNum = Array.from(sections).indexOf(entry.target) + 1;
+        actionAsideNav(sectionNum, asideBtn);
+      }
+    });
+  }, observerOptions);
+
+  section.forEach((sec) => {
+    observer.observe(sec);
+  });
+}
+
+  function actionAsideNav(sectionNum, asideBtn) {
     asideBtn.forEach((btn, i) => {
-      if (i === index) {
+      if (i === sectionNum - 1) {
         btn.classList.remove("w-[15px]");
         btn.classList.add("w-[30px]");
       } else {
@@ -46,4 +44,3 @@ mainContainer.addEventListener("scroll", () => {
       }
     });
   }
-});

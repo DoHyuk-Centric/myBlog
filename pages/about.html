@@ -9,7 +9,7 @@
 
 <body class="overflow-hidden">
     <!--헤더-->
-    <div id="header"
+    <header id="header"
         class="h-20 border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50">
         <div class="flex items-center">
             <button id="menuBtn"
@@ -78,27 +78,27 @@
             </div>
 
         </div>
-    </div>
-    <!--메뉴바-->
-    <div id="menuBar"
-        class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11">
-        <nav class="flex flex-col h-full w-full">
-            <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
-                <p class="text-2xl ml-5">메뉴</p>
-                <button id="menuExitBtn"
-                    class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5">
-                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/delete-sign--v1.png"
-                        alt="delete-sign--v1" />
-                </button>
-            </div>
-            <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
-                <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
-                <li><a href="./about.html" class="hover:text-gray-500 dark:hover:text-gray-500">About</a></li>
-                <li><a href="./devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500">DevLog</a></li>
-                <li><a href="" class="hover:text-gray-500 dark:hover:text-gray-500">연락처</a></li>
-            </ul>
-        </nav>
-    </div>
+        <!--메뉴바-->
+        <div id="menuBar"
+            class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11">
+            <nav class="flex flex-col h-full w-full">
+                <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
+                    <p class="text-2xl ml-5">메뉴</p>
+                    <button id="menuExitBtn"
+                        class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5">
+                        <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/delete-sign--v1.png"
+                            alt="delete-sign--v1" />
+                    </button>
+                </div>
+                <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
+                    <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
+                    <li><a href="./about.html" class="hover:text-gray-500 dark:hover:text-gray-500">About</a></li>
+                    <li><a href="./devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500">DevLog</a></li>
+                    <li><a href="" class="hover:text-gray-500 dark:hover:text-gray-500">연락처</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!--네비게이션-->
     <aside id="aside_nav"
@@ -112,10 +112,10 @@
     </aside>
 
     <!--메인-->
-    <div class="maincontainer h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
-        <section id="introduction_section_1" class="snap-start h-screen">
+    <main id="maincontainer" class="maincontainer h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+        <section id="introduction_section_1" class="snap-start h-full">
             <!--비디오 섹션-->
-            <div class="relative w-full h-screen overflow-hidden">
+            <header class="relative w-full h-screen overflow-hidden">
                 <video class="absolute inset-0 w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted
                     loop></video>
                 <div class="absolute w-full h-full bg-black/50"></div>
@@ -123,20 +123,38 @@
                     <h2 class="p-10 text-5xl">Introduction</h2>
                     <p class="pl-10 text-2xl">Front-End Developer</p>
                 </div>
-            </div>
+            </header>
         </section>
 
-
-        <div class="bg-gray-300 dark:bg-gray-700 text-black dark:text-white flex flex-col gap-12">
-            <section id="introduction_section_2" class="snap-start h-screen pt-20">
-                <div class="h-full flex flex-col gap-4 justify-center items-center">
-                    <h2 class="text-3xl">개념보다 동작을 기준으로 이해합니다.</h2>
-                    <p class="text-xl">문법 설명보다 브라우저에서 실제로 어떻게 렌더링·동작하는지를 먼저 확인합니다.</p>
-                    <p class="text-xl">프로젝트 과정에서 발생하는 문제를 결과 → 원인 → 구조 순서로 분석합니다.</p>
-                    <p class="text-xl">“왜 이렇게 동작하는가”를 기준으로 코드를 수정합니다.</p>
+        <div class="bg-gray-300 dark:bg-gray-700 text-black dark:text-white flex flex-col"> 
+            <section id="introduction_section_2" class="snap-start h-screen pt-20 justify-center items-center flex">
+                <img width="400" class="rounded-2xl shadow-lg mr-10" src="../img/cookie.jpg" alt="고양이 사진" />          
+                <div class="flex flex-col rounded-lg shadow-lg gap-4 bg-gray-200 text-black p-10">
+                    <h2 class="text-3xl mb-5">김도혁</h2>
+                    <nav class="grid gap-10">
+                        <ul class="text-xl gap-10 flex items-center">
+                            <img width="45" height="45" class="w-[45px] h-[45px]" src="../img/edu.png" alt="학력 이미지" />
+                            <li class="flex flex-col gap-3">
+                                <p>세명대 컴퓨터학부 졸업 <span class="text-sm">(2017 ~ 2022)</span></p>
+                                <p>멋쟁이사자 부트캠프 17th <span class="text-sm">(2026.01 ~ )</span></p>
+                            </li>
+                        </ul>
+                        <ul class="text-xl gap-10 flex items-center">
+                            <img width="44" height="44" class="w-[44px] h-[44px] ml-[1px]" src="../img/career.png" alt="경력 이미지" />
+                            <li class="flex flex-col gap-3">
+                                <p>ROTC 60기 중위 전역 <span class="text-sm">(2022 ~ 2025)</span></p>
+                            </li>
+                        </ul>
+                        <ul class="text-xl gap-10 flex items-center">
+                            <img width="45" height="45" class="w-[45px] h-[45px]" src="../img/tech.png" alt="기술 이미지" />
+                            <li class="flex flex-col gap-3">
+                                <p class="text-xl">Stack : HTML, CSS, JavaScript, React</p>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </section>
-            <section id="introduction_section_3" class="snap-start h-screen pt-20">
+            <section id="introduction_section_3" class="snap-start h-screen pt-20 justify-center items-center flex">
                 <div class="flex flex-col gap-4">
                     <h2 class="text-3xl">UI/UX 관점의 프론트엔드 사고를 지향합니다.</h2>
                     <p class="text-xl">다크모드, 모달, 드롭다운, 햄버거 메뉴 등 사용자 인터랙션 요소를 직접 구현하며 구조를 이해합니다.</p>
@@ -144,7 +162,7 @@
                     <p class="text-xl">실제 서비스(UI)를 분석하고, 이를 HTML/CSS/JS로 재구현하려는 방식을 사용합니다.</p>
                 </div>
             </section>
-            <section id="introduction_section_4" class="snap-start h-screen pt-20">
+            <section id="introduction_section_4" class="snap-start h-screen pt-20 justify-center items-center flex">
                 <div class="flex flex-col gap-4">
                     <h2 class="text-3xl">협업을 매우 중요하게 생각하며, 다른 영역의 방식도 이해하려고 노력하고 공부합니다.</h2>
                     <p class="text-xl">프론트엔드 관점에 국한되지 않고, 백엔드 API 흐름과 역할을 함께 고려합니다.</p>
@@ -152,7 +170,7 @@
                     <p class="text-xl">다른 영역의 구현 방식을 파악해 의사소통 비용을 줄이는 개발자를 지향합니다.</p>
                 </div>
             </section>
-            <section id="introduction_section_5" class="snap-start h-screen pt-20">
+            <section id="introduction_section_5" class="snap-start h-screen pt-20 justify-center items-center flex">
                 <div class="flex flex-col gap-4">
                     <h2 class="text-3xl">문제해결 능력을 키우기 위해 노력하고 있습니다.</h2>
                     <p class="text-xl">오류가 발생하면 즉시 해결책을 찾기보다 재현 → 원인 파악 → 해결 과정을 거칩니다.</p>
@@ -161,26 +179,26 @@
                 </div>
             </section>
         </div>
-    </div>
-    
-        <section id="introduction_section_6" class="snap-start h-screen pt-20">
-            <div class="footer flex h-full dark:bg-gray-900 dark:text-gray-200">
-                <div class="flex items-center gap-3 p-10">
-                    <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
-                    <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
-                    <h1 class="text-xl block sm:hidden">개발 블로그</h1>
-                </div>
-                <div class="p-10 flex flex-grow items-center justify-end">
-                    <p>© 2025 개인 개발 블로그. All rights reserved.</p>
-                </div>
-            </div>
+        
+        <section id="introduction_section_6" class="snap-start h-screen">
+                <footer class="footer flex h-full dark:bg-gray-900 dark:text-gray-200">
+                    <div class="flex items-center gap-3 p-10">
+                        <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
+                        <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
+                        <h1 class="text-xl block sm:hidden">개발 블로그</h1>
+                    </div>
+                    <div class="p-10 flex flex-grow items-center justify-end">
+                        <p>© 2025 개인 개발 블로그. All rights reserved.</p>
+                    </div>
+                </footer>
         </section>
-    </div>
-    <script type="module" src="/components/about/aside_nav.js" defer></script>
-    <script type="module" src="/components/darkmode/darkmode_index.js" defer></script>
+    </main>
+    
+
+    <script type="module" src="/components/about/aside_nav.js"></script>
+    <script type="module" src="/components/darkmode/darkmode_index.js"></script>
     <script src="/components/searchBtn.js"></script>
     <script src="/components/menuBtn.js"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
-
 </html>
