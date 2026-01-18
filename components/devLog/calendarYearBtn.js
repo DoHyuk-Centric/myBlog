@@ -1,3 +1,5 @@
+let currentMode = null;
+
 function calendarButtonControler() {
   const calendar_YearMonth_choice = document.getElementById(
     "calendar_YearMonth_choice"
@@ -12,7 +14,6 @@ function calendarButtonControler() {
     "calendarMonthcontents"
   );
 
-  let currentMode = null;
 
   function calendarButtonClick(e) {
     e.stopPropagation();
@@ -40,11 +41,6 @@ function calendarButtonControler() {
       calendarMonthcontents.classList.remove("hidden");
       calendarYearcontents.classList.add("hidden");
     });
-    monthselectBtn.addEventListener("click", (e) => {
-      if(e.target.tagName === "BUTTON"){
-        console.log("버튼 눌림", e.target.textContent);
-      }
-    })
 
     if (e.currentTarget === yearBtn) {
       currentMode = "year";
@@ -70,7 +66,3 @@ function calendarButtonControler() {
   monthBtn.addEventListener("click", calendarButtonClick);
 }
 calendarButtonControler();
-
-function calendarContentsSelector() {
-  calendarYearcontents.classList.remove("hidden");
-}

@@ -64,7 +64,7 @@ function createCurrentDay(calendar_day, lastDay, year, month) {
         "absolute",
         "left-1/2",
         "-translate-x-1/2",
-        "-bottom-1"
+        "-bottom-1",
       );
       newDay.style.position = "relative";
       newDay.appendChild(dot);
@@ -98,16 +98,42 @@ function createNextMonthDay(calendar_day) {
 function calendarControler() {
   const prevMonth_Btn = document.getElementById("prevMonthBtn");
   const nextMonth_Btn = document.getElementById("nextMonthBtn");
+  const monthselectBtn = document.getElementById("calendarMonthcontents");
+  
+  // 월 선택 버튼
+  monthselectBtn.addEventListener("click", (e) => {
+    const button = e.target.closest("button");
+    const month = button.querySelector("span").textContent;
+    if (e.target.tagName === "BUTTON") {
+      date.setMonth(Number(month) - 1);
+      renderCalendar();
+      calendar_tapControler();
+    }
+  });
 
+  // 이전 달 버튼
   prevMonth_Btn.addEventListener("click", (e) => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar();
   });
 
+  // 다음 달 버튼
   nextMonth_Btn.addEventListener("click", (e) => {
     date.setMonth(date.getMonth() + 1);
     renderCalendar();
   });
+}
+
+/** 달력 월 선택 버튼 클릭시 currentMode 초기화와 탭 닫기 */
+function calendar_tapControler() {
+  const calendar_YearMonth_choice = document.getElementById("calendar_YearMonth_choice");
+
+  calendar_YearMonth_choice.classList.remove("h-full", "opacity-100");
+  calendar_YearMonth_choice.classList.add("h-0");
+
+  currentMode = null;
+
+  return;
 }
 
 function calendarPrevColorChange(calendar_day, day) {
@@ -134,7 +160,7 @@ function calendarNextColorChange(calendar_day, nextDay) {
     nextDay.classList.add(
       "text-blue-300",
       "dark:text-blue-400",
-      "dark:opacity-60"
+      "dark:opacity-60",
     );
   } else {
     nextDay.classList.add("text-gray-400");
