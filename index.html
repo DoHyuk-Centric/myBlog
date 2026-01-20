@@ -89,9 +89,11 @@
               alt="delete-sign--v1" />
           </button>
         </div>
-        <div class="flex justify-center items-center gap-30 pl-10 pr-10 pt-4 pb-4 text-lg border-b border-gray-700">
-          <a class="hover:text-gray-500 dark:hover:text-gray-500" href="./login.html">로그인</a>
-          <a class="hover:text-gray-500 dark:hover:text-gray-500" href="./signup.html">회원가입</a>
+        <div class="flex items-center pt-4 pb-4 text-lg border-b border-gray-700">
+            <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500">로그아웃</button>
+            <button id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500">내정보</button>
+            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./login.html">로그인</a>
+            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./signup.html">회원가입</a>
         </div>
         <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
           <li><a href="/index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
@@ -211,6 +213,7 @@
     <script type="module" src="/components/darkmode/darkmode_index.js"></script>
     <script src="/components/searchBtn.js"></script>
     <script src="/components/menuBtn.js"></script>
-  
+    <script type="module" src="/components/login/logOut.js"></script>
+    <script type="module" src="/components/login/loginState.js"></script>
   </body>
 </html>
