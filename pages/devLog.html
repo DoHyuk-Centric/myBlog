@@ -145,7 +145,7 @@
                         </div>
                         
                         <!-- 로그인 후에 오픈 -->
-                        <div id="DevLogActionSignedIn" class="flex flex-grow justify-center items-center gap-4">
+                        <div id="DevLogActionSignedIn" class="hidden flex flex-grow justify-center items-center gap-4">
                             <button
                                 class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</button>
                             <button
@@ -153,7 +153,7 @@
                         </div>
 
                         <!--로그인 안되어있을때 오픈-->
-                        <div id="DevLogActionSignedOut" class="flex flex-grow justify-center items-center gap-4 mt-5">
+                        <div id="DevLogActionSignedOut" class="hidden flex flex-grow justify-center items-center gap-4 mt-5">
                             <a href="./login.html"
                                 class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
                             <a href="./signup.html"
@@ -230,7 +230,8 @@
         <script type="module" src="/src/main.js"></script>
         <script type="module" src="/components/login/logOut.js"></script>
         <script type="module" src="/components/login/loginState.js"></script>
-        <script type="module" src="/components/login/devLog_loginState.js"></script>
+        <script src="/components/devLog/login/devLoginCheck.js"></script>
+        <script src="/components/nav/navLoginTextControler.js"></script>
 </body>
 
 </html>

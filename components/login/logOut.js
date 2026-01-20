@@ -6,5 +6,6 @@ logOutHandler();
 function logOutHandler(){
     document.getElementById("logout").addEventListener("click", () => {
         signOut(auth);
+        window.location.href = "index.html";
     })
 }
