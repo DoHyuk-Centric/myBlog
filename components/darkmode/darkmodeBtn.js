@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (currentTheme === "dark") {
     document.documentElement.classList.add("dark");
+    darkmodeBtn.setAttribute("aria-pressed", "true");
+  }
+  else{
+    darkmodeBtn.setAttribute("aria-pressed", "false");
   }
 
   darkmodeBtn.addEventListener("click", () => {

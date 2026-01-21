@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HeaderHtml</title>
+  </head>
+  <body>
+    <!--헤더-->
+    <header
+      id="header"
+      class="h-20 border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50"
+    >
+      <div class="flex items-center">
+        <button
+          id="menuBtn"
+          class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-center items-center h-12 w-12 m-5"
+          aria-label="메뉴버튼"
+          aria-expanded="false"
+          aria-controls="menuBar"
+        >
+          <!-- 다크 모드일때 -->
+          <img class="hidden dark:block" width="40" height="40" src="../img/mode/dark/menubar_dark.png" alt="" />
+
+          <!-- 라이트 모드일때 -->
+          <img class="block dark:hidden" width="40" height="40" src="../img/mode/light/menubar_light.png" alt="" />
+        </button>
+
+        <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
+          <a href="./index.html" class="cursor-pointer">
+            <img
+              class="w-6 h-6 sm:w-[32px] sm:h-[32px]"
+              src="https://img.icons8.com/tiny-color/32/code.png"
+              alt="메인로고"
+            />
+          </a>
+          <h1 class="text-2xl">
+            <span class="hidden sm:block">개인 개발 블로그</span>
+            <span class="block sm:hidden text-xl">개발 블로그</span>
+          </h1>
+        </div>
+        <div class="relative flex justify-end items-center flex-grow mr-5 gap-2">
+          <button id="searchBtn" class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+            <!-- 다크 모드 -->
+            <img class="ml-auto hidden dark:block" width="40" height="40"  src="../img/mode/dark/search_dark.png" alt="검색" />
+            <!-- 라이트 모드 -->
+            <img class="ml-auto bolck dark:hidden" width="40" height="40"  src="../img/mode/light/search_light.png" alt="검색" />
+          </button>
+          <div
+            id="searchWrap"
+            class="w-0 overflow-hidden transition-all duration-300 ease-out"
+          >
+            <input
+              id="searchInput"
+              type="text"
+              class="w-60 h-10 rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-200 pl-4 pr-4 placeholder-gray-500"
+              placeholder="검색어를 입력해주세요."
+              aria-label="검색어 입력"
+            />
+          </div>
+        </div>
+
+        <div class="relative ml-auto mr-10 w-8 h-8 hidden sm:flex">
+          <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative" aria-label="다크 모드" aria-pressed="false">
+            <!-- 큰 원 -->
+            <span id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11 group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
+            <!-- 작은 원 -->
+            <span class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10 border-gray-400 bg-white shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
+
+            <!-- moon 아이콘 -->
+            <div class="duration-300 ease-out">
+              <!-- 다크 모드 -->
+              <img id="moon_light" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="../img/mode/light/moon_light.png" alt=""/>
+              <!-- 라이트 모드 -->
+              <img id="moon_dark" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="../img/mode/dark/moon_dark.png" alt=""/>
+            </div>
+
+            <!-- sun 아이콘 -->
+            <div class="duration-300 ease-out">
+              <!-- 라이트모드 -->
+              <img id="sun_dark" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="../img/mode/dark/sun_dark.png" alt=""/>
+              <!-- 다크모드 -->
+              <img id="sun_light" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="../img/mode/light/sun_light.png" alt=""/>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!--메뉴바-->
+      <div id="menuBar" class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11" inert aria-hidden="true">
+        <aside class="flex flex-col h-full w-full">
+          <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
+            <h2 class="text-2xl ml-5">메뉴</h2>
+            <button id="menuExitBtn" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5" aria-label="메뉴 닫기">
+              <!-- 다크 모드 -->
+              <img class="hidden dark:block" width="30" height="30" src="../img/mode/dark/delete_dark.png" alt=""/>
+              <!-- 라이트 모드 -->
+              <img class="block dark:hidden" width="30" height="30" src="../img/mode/light/delete_light.png" alt=""/>
+            </button>
+          </div>
+          <div class="flex items-center pt-4 pb-4 text-lg border-b border-gray-700">
+            <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="로그아웃">로그아웃</button>
+            <button id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="내정보">내정보</button>
+            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./login.html" aria-label="로그인">로그인</a>
+            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./signup.html" aria-label="회원가입">회원가입</a>
+          </div>
+          <nav>
+            <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
+              <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
+              <li><a href="./about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
+              <li><a href="./devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
+              <li><a href="" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="연락처 이동">연락처</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </header>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="../components/menuBtn.js"></script>
+    <script type="module" src="../components/a11y_menuBtn.js"></script>
+    <script type="module" src="/components/darkmode/darkmode_index.js"></script>
+    <script src="/components/searchBtn.js"></script>
+  </body>
+</html>
