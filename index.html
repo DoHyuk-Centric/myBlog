@@ -8,15 +8,9 @@
   </head>
   <body>
 
-      <div id="header-placeholder"></div>
-
-  <script>
-    fetch('/pages/header.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
-      });
-  </script>
+    <!-- 헤더 -->
+    <div id="header-placeholder"></div>
+      
  
 <!--메인-->
   <main id="main" class="maincontainer">
@@ -126,6 +120,7 @@
       </div>
     </footer>
     <!-- <script type="module" src="/src/main.js"></script> -->
+    <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
   </body>
 </html>

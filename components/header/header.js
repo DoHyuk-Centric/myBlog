@@ -1,2 +1,2 @@
-import "./menu.js"
 import "./login.js"
+import "./menu.js"

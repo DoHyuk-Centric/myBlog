@@ -2,7 +2,7 @@ function menuHandler() {
   const menuBtn = document.getElementById("menuBtn");
   const menuExitBtn = document.getElementById("menuExitBtn");
   const menuBar = document.getElementById("menuBar");
-
+  
   let lastFocusElement = null;
 
   // 메뉴가 열려있는지 판단
