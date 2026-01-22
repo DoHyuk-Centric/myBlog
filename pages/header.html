@@ -101,14 +101,14 @@
           <div class="flex items-center pt-4 pb-4 text-lg border-b border-gray-700">
             <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="로그아웃">로그아웃</button>
             <button id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="내정보">내정보</button>
-            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./login.html" aria-label="로그인">로그인</a>
-            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./signup.html" aria-label="회원가입">회원가입</a>
+            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="/pages/login.html" aria-label="로그인">로그인</a>
+            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="/pages/signup.html" aria-label="회원가입">회원가입</a>
           </div>
           <nav>
             <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
-              <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
-              <li><a href="./about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
-              <li><a href="./devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
+              <li><a href="/index.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
+              <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
+              <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
               <li><a href="" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="연락처 이동">연락처</a></li>
             </ul>
           </nav>
@@ -116,10 +116,13 @@
       </div>
     </header>
 
+    
     <script type="module" src="/src/main.js"></script>
     <script src="../components/menuBtn.js"></script>
-    <script type="module" src="../components/a11y_menuBtn.js"></script>
     <script type="module" src="/components/darkmode/darkmode_index.js"></script>
+    <script type="module" src="/components/login/logOut.js"></script>
+    <script type="module" src="/components/login/loginState.js"></script>
+    <script src="/components/nav/navLoginTextControler.js"></script>
     <script src="/components/searchBtn.js"></script>
   </body>
 </html>

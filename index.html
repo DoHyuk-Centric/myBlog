@@ -4,109 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>개인 블로그</title>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <!--헤더-->
-  <header id="header"
-    class="border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50">
-    <div class="flex items-center">
-      <button id="menuBtn"
-        class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-center items-center h-12 w-12 m-5" aria-label="메뉴 열기">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 flex justify-center items-center" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
 
-      <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
-        <a href="./index.html" class="cursor-pointer">
-          <img class="w-6 h-6 sm:w-[32px] sm:h-[32px]" src="https://img.icons8.com/tiny-color/32/code.png" alt="홈페이지 로고" />
-        </a>
-        <h1 class="hidden sm:block text-2xl">
-          개인 개발 블로그
-        </h1>
-        <h1 class="block text-xl sm:hidden">개발 블로그</h1>
-      </div>
-      <div class="relative flex justify-end items-center flex-grow mr-5 gap-2">
-        <div id="searchWrap" class="w-0 overflow-hidden transition-all duration-300 ease-out">
-          <form id="searchData" action="submit"></form>
-          <input id="searchInput" type="text"
-            class="w-60 h-10 rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-200 pl-4 pr-4 placeholder-gray-500"
-            placeholder="검색어를 입력해주세요." form="searchData" />
-        </div>
-        <button id="searchBtn"
-          class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700"><img
-            class="ml-auto" width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/search--v1.png"
-            alt="search--v1" /></button>
-      </div>
+      <div id="header-placeholder"></div>
 
-      <div class="relative ml-auto mr-10 w-8 h-8 hidden sm:flex">
-        <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative" aria-label="다크 모드 전환">
-          <!-- 큰 원 -->
-          <span id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2
-            w-12 h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11
-            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
-            dark:border-gray-600 dark:bg-gray-800" aria-hidden="true"></span>
-          <!-- 작은 원 -->
-          <span class="absolute left-8 top-2 border rounded-full w-8 h-8 z-10
-            border-gray-400 bg-white shadow-sm
-            group-hover:bg-gray-100 dark:group-hover:bg-gray-700
-            dark:border-gray-600 dark:bg-gray-800" aria-hidden="true"></span>
-
-          <!-- moon 아이콘 -->
-          <span class="duration-300 ease-out" aria-hidden="true">
-            <img id="moon_light"
-              class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
-              src="https://img.icons8.com/ios-filled/50/do-not-disturb-2.png" alt="비어있는 달 이미지" />
-            <img id="moon_dark" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
-              src="../img/moon-dark.png" alt="꽉찬 달 이미지" />
-          </span>
-
-          <!-- sun 아이콘 -->
-          <span class="duration-300 ease-out" aria-hidden="true">
-            <img id="sun_light" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out"
-              src="https://img.icons8.com/ios-filled/50/sun--v1.png" alt="비어있는 해 이미지" />
-            <img id="sun_dark"
-              class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out"
-              src="../img/sun-dark.png" alt="꽉찬 해 이미지" />
-          </span>
-        </button>
-      </div>
-
-    </div>
-  </header>
+  <script>
+    fetch('/pages/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
+  </script>
+ 
 <!--메인-->
-  <main id="main" class="maincontainer border pt-16">
-    <!--메뉴바-->
-    <div id="menuBar"
-      class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-100 h-full z-11">
-      <nav class="flex flex-col h-full w-full">
-        <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
-          <p class="text-2xl ml-5">메뉴</p>
-          <button id="menuExitBtn"
-            class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5">
-            <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/delete-sign--v1.png"
-              alt="delete-sign--v1" />
-          </button>
-        </div>
-        <div class="flex items-center pt-4 pb-4 text-lg border-b border-gray-700">
-            <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500">로그아웃</button>
-            <button id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500">내정보</button>
-            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./login.html">로그인</a>
-            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./signup.html">회원가입</a>
-        </div>
-        <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
-          <li><a href="/index.html" class="hover:text-gray-500 dark:hover:text-gray-500">Home</a></li>
-          <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500">About</a></li>
-          <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500">DevLog</a></li>
-          <li><a href="/pages/wtf.html" class="hover:text-gray-500 dark:hover:text-gray-500">연락처</a></li>
-        </ul>
-      </nav>
-    </div>
-
+  <main id="main" class="maincontainer">
     <!--비디오 섹션-->
-    <section class="relative w-full h-100">
-      <video class="absolute w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted loop></video>
+    <section class="relative w-full h-100 mt-16">
+      <video width="1920" height="1080" class="absolute w-full h-full object-cover" src="../video/mainvideo3.mp4" autoplay muted loop></video>
       <div class="absolute w-full h-full bg-black/50"></div>
       <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
         <h2 class="p-10 text-5xl">코드로 배우고 공유하다.</h2>
@@ -209,12 +125,7 @@
         <p>© 2025 개인 개발 블로그. All rights reserved.</p>
       </div>
     </footer>
-    <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/components/darkmode/darkmode_index.js"></script>
-    <script src="/components/searchBtn.js"></script>
-    <script src="/components/menuBtn.js"></script>
-    <script type="module" src="/components/login/logOut.js"></script>
-    <script type="module" src="/components/login/loginState.js"></script>
-    <script src="/components/nav/navLoginTextControler.js"></script>
+    <!-- <script type="module" src="/src/main.js"></script> -->
+    <script type="module" src="/components/header/header.js"></script>
   </body>
 </html>

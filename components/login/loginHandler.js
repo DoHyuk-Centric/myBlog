@@ -14,7 +14,7 @@ function loginHandler() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("GitHub 로그인 성공", result.user);
-        window.location.href = "index.html";
+        window.location.href = "/";
       })
       .catch((error) => {
         console.error(error.code, error.message);
@@ -25,7 +25,7 @@ function loginHandler() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Google 로그인 성공", result.user);
-        window.location.href = "index.html";
+        window.location.href = "/";
       })
       .catch((error) => {
         console.error(error.code, error.message);
