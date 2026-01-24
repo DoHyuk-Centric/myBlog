@@ -12,13 +12,13 @@
     <div id="header-placeholder"></div>
 
     <!--메인-->
-    <div id="main" class="maincontainer border pt-16">
+    <main id="main" class="maincontainer border pt-16">
         <!--비디오 섹션-->
         <div class="relative w-full h-100">
             <video class="absolute w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted loop></video>
             <div class="absolute w-full h-full bg-black/50"></div>
             <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
-                <h2 class="p-10 text-5xl">DevLog 개인 회고록</h2>
+                <h1 class="p-10 text-5xl">DevLog 개인 회고록</h1>
                 <p class="pl-10 text-2xl">배움간에 생각의 흐름들을 정리</p>
             </div>
         </div>
@@ -26,18 +26,33 @@
         <!--컨텐츠 섹션-->
         <div
             class="text-gray-800 relative w-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200 min-h-screen p-10 space-y-4">
-            <div class="grid grid-cols-3 gap-3 max-w-[1400px] mx-auto">
-                <aside class="border shadow-xl rounded-2xl col-span-2 p-5">
+            <div class="sm:grid sm:grid-cols-3 gap-3 max-w-[1400px] mx-auto">
+                <aside class="border shadow-xl bg-white dark:bg-gray-800 rounded-2xl col-span-2 p-5">
+                    <!-- 게시물 -->
                     <div>
-                        <h1 class="text-3xl">회고록</h1>
-                        <div class="border-b mt-5 border-gray-300"></div>
-                        <ul class="border-b border-r border-l border-gray-300 pt-3 p-5">
-                            <li>2025년 회고록</li>
-                            <li>2024년 회고록</li>
+                        <h2 class="text-3xl pb-2 border-gray-300 border-b">회고록</h2>
+                        <ul id="posts-container" class="pt-3 p-5">
+                            <li>
+                                <!-- <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-4 mb-4 bg-white dark:bg-gray-800 shadow-md">
+                                    <a class="flex-col" href="/">
+                                        <div class="flex justify-end flex-col sm:justify-center">
+                                            <div class="flex justify-between sm:justify-start">
+                                                <h3 class="text-3xl font-bold mb-2">제목</h3>
+                                                <time class="text-sm text-gray-500 sm:ml-auto" datetime="2026-01-01">2026-01-01</time>
+                                            </div>
+                                            <div class="flex">
+                                                <p class="border mr-5 mb-2">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                                                <img class="object-cover rounded-2xl border border-gray-300 dark:border-gray-700 ml-auto" width="150" height="150" src="../img/cutecat.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article> -->
+                            </li>
                         </ul>
                     </div>
                 </aside>
-                <aside class="border max-w-[400px] ml-auto shadow-xl rounded-2xl bg-white dark:bg-gray-800">
+
+                <aside class="hidden sm:block border max-w-[400px] ml-auto shadow-xl rounded-2xl bg-white dark:bg-gray-800">
                     <div class="flex flex-col justify-center items-center gap-5 p-15">
                         <div class="flex w-60 h-60 border rounded-full"></div>
                         <div id="sign_in">
@@ -49,11 +64,11 @@
                         </div>
                         
                         <!-- 로그인 후에 오픈 -->
-                        <div id="DevLogActionSignedIn" class="hidden flex flex-grow justify-center items-center gap-4">
-                            <button
-                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</button>
-                            <button
-                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</button>
+                        <div id="DevLogActionSignedIn" class="hidden flex flex-grow text-center leading-10 gap-4">
+                            <a href="./postCreate.html"
+                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</a>
+                            <a
+                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</a>
                         </div>
 
                         <!--로그인 안되어있을때 오픈-->
@@ -115,8 +130,8 @@
                 </aside>
             </div>
         </div>
-     </div>
-        <div class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
+     </main>
+        <footer class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
             <div class="flex items-center gap-3 p-10">
                 <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
                 <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
@@ -125,13 +140,13 @@
             <div class="p-10 flex-grow text-right">
                 <p>© 2026 개인 개발 블로그. All rights reserved.</p>
             </div>
-        </div>
+        </footer>
         <script src="/components/devLog/calendarYearBtn.js"></script>
         <script type="module" src="/components/header/innerHeader.js"></script>
         <script type="module" src="/components/header/header.js"></script>
         <script type="module" src="/components/devLog/calender.js"></script>
         <script src="/components/devLog/login/devLoginCheck.js"></script>
-        <script type="module" src="/components/devLog/supabaseTest.js"></script>
+        <script type="module" src="/components/devLog/postUpdate.js"></script>
 </body>
 
 </html>

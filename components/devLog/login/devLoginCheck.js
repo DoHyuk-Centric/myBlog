@@ -7,10 +7,10 @@ function devLoginCheck() {
   const isLogin = localStorage.getItem("isLogin") === "true";
 
   if (!isLogin) {
+    console.log("로그아웃 상태");
     DevLogActionSignedOut.classList.remove("hidden");
     DevLogActionSignedIn.classList.add("hidden");
   } else {
-    console.log("로그아웃 상태");
     DevLogActionSignedIn.classList.remove("hidden");
     DevLogActionSignedOut.classList.add("hidden");
   }
