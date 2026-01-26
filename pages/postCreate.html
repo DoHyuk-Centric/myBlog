@@ -1,30 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko-KR">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>글쓰기</title>
-</head>
-<body>
-    <div id="header-placeholder"></div>
+    <link rel="stylesheet" href="../src/style.css" />
+    <link rel="stylesheet" href="../src/scroll.css" />
+  </head>
+  <body>
+    <header id="header-placeholder"></header>
 
-    <main class="mt-20 bg-gray-300 dark:bg-gray-800 dark:text-white">
-        <h1>글쓰기</h1>
-        
-        <div class="flex">
-            <h2>제목</h2>
-            <input class="border" type="text" />
+    <main id="post-section" class="w-full h-[calc(100vh-5rem)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
+      <section class="scroll flex flex-col w-full min-h-0 p-4 overflow-y-auto">
+        <textarea id="title" class="min-h-15 p-2 w-full resize-none text-4xl mb-5 mt-5 overflow-hidden" rows="1" placeholder="제목을 입력하세요"></textarea>
+        <div class="flex mb-5">
+            <label for="category">카테고리</label>
+            <select class="dark:bg-gray-700 ml-10" name="category" id="category">
+              <option value="none">전체</option>
+              <option value="HTML">HTML</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="React">React</option>
+              <option value="TypeScript">TypeScript</option>
+              <option value="알고리즘">알고리즘</option>
+            </select>
         </div>
-        <div class="flex">
-            <h3>내용</h3>
-            <input class="border" type="text" name="" id="" />
+        <div class="h-full">
+          <textarea id="content" class="w-full flex-1 min-h-[calc(100vh-325px)] mb-15 resize-none overflow-hidden p-5" name="content" placeholder="내용을 입력해주세요."></textarea>
         </div>
-        
+        <div id="preview-input" class="dark:bg-gray-700 flex justify-between items-center duration-500 fixed w-full md:w-1/2 h-15 bottom-0 left-0">
+          <button class="cursor-pointer flex gap-3 justify-center items-center rounded-2xl ml-2 p-2 w-30 h-10 hover:bg-gray-200 dark:hover:bg-gray-600">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>나가기</span>
+          </button>
+          <div class="flex gap-10 mr-5 h-10">
+            <button class="cursor-pointer rounded-2xl p-2 w-25 h-10 hover:bg-gray-200 dark:hover:bg-gray-600">임시저장</button>
+            <button class="cursor-pointer rounded-2xl p-2 w-25 h-10 text-white hover:bg-purple-400 bg-purple-500 dark:bg-purple-700 dark:hover:bg-purple-600">개시하기</button>
+          </div>
+        </div>
 
+      </section>
+      <!-- 프리뷰 영역 -->
+      <div class="border-l border-gray-300 dark:border-gray-700 w-auto">
+        <aside id="preview-aside" class="fixed scroll top-20 right-0 h-[calc(100vh-5rem)] w-full md:w-1/2 transform transition-transform ease-in-out duration-500 overflow-y-auto translate-x-full md:translate-x-0 p-4 block md:block dark:bg-gray-800 dark:text-white">
+          <h1 id="preview-title" class="text-4xl font-bold mb-2 w-full"></h1>
+          <pre id="preview-content" class="whitespace-pre-wrap breack-word w-full"></pre>
+        </aside>
+      </div>
+      <button id="preview-toggle" class="fixed cursor-pointer bottom-20 md:bottom-4 duration-500 right-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
+        preview
+      </button>
     </main>
-    
-    <script src="/src/main.js"></script>
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
-</body>
+    <script type="module" src="/components/postCreate/previewcontroler.js"></script>
+  </body>
 </html>
