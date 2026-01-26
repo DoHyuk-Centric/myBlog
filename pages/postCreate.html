@@ -9,11 +9,10 @@
   </head>
   <body>
     <header id="header-placeholder"></header>
-
-    <main id="post-section" class="w-full h-[calc(100vh-5rem)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
-      <section class="scroll flex flex-col w-full min-h-0 p-4 overflow-y-auto">
-        <textarea id="title" class="min-h-15 p-2 w-full resize-none text-4xl mb-5 mt-5 overflow-hidden" rows="1" placeholder="제목을 입력하세요"></textarea>
-        <div class="flex mb-5">
+    <main id="post-section" class="w-full h-[calc(100vh-5rem)] grid grid-cols-1 md:grid-cols-2 mt-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
+      <section class="scroll flex flex-col w-full h-[calc(100vh-8.75rem)] p-4 overflow-hidden">
+        <textarea id="title" class="min-h-15 p-2 w-full break-words resize-none text-4xl mb-5 mt-5 overflow-hidden focus:outline-1 focus:outline-gray-600" rows="1" placeholder="제목을 입력하세요"></textarea>
+          <div class="flex mb-5">
             <label for="category">카테고리</label>
             <select class="dark:bg-gray-700 ml-10" name="category" id="category">
               <option value="none">전체</option>
@@ -23,11 +22,49 @@
               <option value="TypeScript">TypeScript</option>
               <option value="알고리즘">알고리즘</option>
             </select>
-        </div>
-        <div class="h-full">
-          <textarea id="content" class="w-full flex-1 min-h-[calc(100vh-325px)] mb-15 resize-none overflow-hidden p-5" name="content" placeholder="내용을 입력해주세요."></textarea>
-        </div>
-        <div id="preview-input" class="dark:bg-gray-700 flex justify-between items-center duration-500 fixed w-full md:w-1/2 h-15 bottom-0 left-0">
+          </div>
+          <div class="flex flex-wrap">
+            <button class="w-[48px] h-[48px] rounded-2xl text-[26px] text-center hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">H<span class="text-[12px]">1</span></button>
+            <button class="w-[48px] h-[48px] rounded-2xl text-[22px] text-center hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">H<span class="text-[12px]">2</span></button>
+            <button class="w-[48px] h-[48px] rounded-2xl text-[18px] text-center hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">H<span class="text-[12px]">3</span></button>
+            <button class="w-[48px] h-[48px] rounded-2xl text-[16px] text-center hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">H<span class="text-[12px]">4</span></button>
+
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><strong class="text-[20px]">B</strong></button>
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><em class="font-serif italic text-[20px]">I</em></button>
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="relative inline-block text-[20px] font-serif">T<span class="absolute left-0 right-0 top-1/2 h-[1.5px] bg-current"></span></span></button>
+
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">
+              <div class="flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6.5 17C5.1 17 4 15.9 4 14.5C4 13.4 4.7 12.4 5.7 12L7 11.4V7H11V12.5C11 15.5 8.9 17 6.5 17ZM16.5 17C15.1 17 14 15.9 14 14.5C14 13.4 14.7 12.4 15.7 12L17 11.4V7H21V12.5C21 15.5 18.9 17 16.5 17Z"/>
+                </svg>
+              </div>
+            </button>
+            
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">
+              <div class="flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 1 0-7l2-2a5 5 0 0 1 7 7l-1 1" />
+                  <path d="M14 11a5 5 0 0 1 0 7l-2 2a5 5 0 0 1-7-7l1-1" />
+                </svg>
+              </div>
+            </button>
+
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">
+              <div class="flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="20" height="20" rx="2" ry="2" />
+                  <path d="M3 17l6-6 4 4 3-3 5 5" />
+                  <circle cx="9" cy="9" r="1.5" />
+                </svg>
+              </div>
+            </button>
+            <button class="w-12 h-12 rounded-2xl dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer">&lt; &gt;</button>
+          </div>
+        <textarea id="content" class="scroll w-full flex-1 h-full overflow-y-auto resize-none focus:outline-1 focus:outline-gray-600 p-5" name="content" placeholder="내용을 입력해주세요."></textarea>
+      </section>
+      <!-- UX UI -->
+       <div id="preview-input" class="dark:bg-gray-700 flex justify-between items-center duration-500 fixed w-full md:w-1/2 h-15 bottom-0 left-0">
           <button class="cursor-pointer flex gap-3 justify-center items-center rounded-2xl ml-2 p-2 w-30 h-10 hover:bg-gray-200 dark:hover:bg-gray-600">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,24 +73,29 @@
           </button>
           <div class="flex gap-10 mr-5 h-10">
             <button class="cursor-pointer rounded-2xl p-2 w-25 h-10 hover:bg-gray-200 dark:hover:bg-gray-600">임시저장</button>
-            <button class="cursor-pointer rounded-2xl p-2 w-25 h-10 text-white hover:bg-purple-400 bg-purple-500 dark:bg-purple-700 dark:hover:bg-purple-600">개시하기</button>
+            <button id="button" class="cursor-pointer rounded-2xl p-2 w-25 h-10 text-white hover:bg-purple-400 bg-purple-500 dark:bg-purple-700 dark:hover:bg-purple-600">개시하기</button>
           </div>
         </div>
-
-      </section>
       <!-- 프리뷰 영역 -->
       <div class="border-l border-gray-300 dark:border-gray-700 w-auto">
         <aside id="preview-aside" class="fixed scroll top-20 right-0 h-[calc(100vh-5rem)] w-full md:w-1/2 transform transition-transform ease-in-out duration-500 overflow-y-auto translate-x-full md:translate-x-0 p-4 block md:block dark:bg-gray-800 dark:text-white">
-          <h1 id="preview-title" class="text-4xl font-bold mb-2 w-full"></h1>
-          <pre id="preview-content" class="whitespace-pre-wrap breack-word w-full"></pre>
+          <h1 id="preview-title" class="text-4xl break-words font-bold mb-2 w-full"></h1>
+          <div id="preview-content" class="prose max-w-none break-words w-full dark:prose-invert"></div>
         </aside>
       </div>
       <button id="preview-toggle" class="fixed cursor-pointer bottom-20 md:bottom-4 duration-500 right-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
         preview
       </button>
     </main>
+
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
-    <script type="module" src="/components/postCreate/previewcontroler.js"></script>
+    <script type="module" src="/components/postCreate/preview/previewcontroler.js"></script>
+
+    <!-- textarea input -->
+    <script type="module" src="../components/postCreate/inputcontent/contentScroll.js"></script>
+    
+    <!-- marked 사용(CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </body>
 </html>
