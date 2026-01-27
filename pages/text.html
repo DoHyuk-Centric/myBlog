@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글쓰기</title>
+    <link rel="stylesheet" href="../src/style.css" />
+    <link rel="stylesheet" href="../src/scroll.css" />
+  </head>
+  <body>
+    <header id="header-placeholder"></header>
+    <main
+      id="post-section"
+      class="w-full h-[calc(100vh-5rem)] mt-20 bg-gray-50 dark:bg-gray-800 dark:text-white"
+    >
+      <input class="border" type="file" id="imageInput" accept="image/*" />
+      <button class="border" id="uploadBtn">업로드</button>
+
+      <!-- 🔽 스토리지 리스트 -->
+      <ul
+        id="storageList"
+        class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4"
+      ></ul>
+    </main>
+
+    <script type="module" src="/src/supabase.js"></script>
+    <script type="module" src="/src/test.js"></script>
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+  </body>
+</html>
