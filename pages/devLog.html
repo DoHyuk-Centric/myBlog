@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>개인 개발 블로그 - 회고록</title>
-    <link rel="stylesheet" href="../src/style.css" />
-    <link rel="stylesheet" href="../src/scroll.css" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/scroll.css" />
 </head>
 
 <body class="scroll">
@@ -16,7 +16,7 @@
     <main id="main" class="maincontainer border pt-16">
         <!--비디오 섹션-->
         <div class="relative w-full h-100">
-            <video class="absolute w-full h-full object-cover" src="../video/mainvideo.mp4" autoplay muted loop></video>
+            <video class="absolute w-full h-full object-cover" src="/video/mainvideo3.mp4" autoplay muted loop></video>
             <div class="absolute w-full h-full bg-black/50"></div>
             <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
                 <h1 class="p-10 text-5xl">DevLog 개인 회고록</h1>
@@ -66,7 +66,7 @@
                         
                         <!-- 로그인 후에 오픈 -->
                         <div id="DevLogActionSignedIn" class="hidden flex flex-grow text-center leading-10 gap-4">
-                            <a href="./postCreate.html"
+                            <a href="/pages/postCreate.html"
                                 class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</a>
                             <a
                                 class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</a>
@@ -74,9 +74,9 @@
 
                         <!--로그인 안되어있을때 오픈-->
                         <div id="DevLogActionSignedOut" class="hidden flex flex-grow justify-center items-center gap-4 mt-5">
-                            <a href="./login.html"
+                            <a href="/pages/login.html"
                                 class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
-                            <a href="./signup.html"
+                            <a href="/pages/signup.html"
                                 class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</a>
                         </div>
                     </div>
