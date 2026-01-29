@@ -4,7 +4,7 @@ const listEl = document.getElementById("storageList");
 const uploadBtn = document.getElementById("uploadBtn");
 const imageInput = document.getElementById("imageInput");
 
-/* =========================
+/* ========================
    스토리지 목록 불러오기
 ========================= */
 async function loadStorageList() {

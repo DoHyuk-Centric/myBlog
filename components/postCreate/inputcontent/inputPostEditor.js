@@ -1,3 +1,5 @@
+import {imgInput} from "./imginput.js";
+
 function inputPostEditor() {
   const content = document.getElementById("content");
 
@@ -197,15 +199,33 @@ function inputPostEditor() {
   });
 
   // img 버튼 눌렀을경우 동작 구역
-  imgInputBtn.addEventListener("click", (e) => {
+  imgInputBtn.addEventListener("click", async(e) => {
     e.stopPropagation();
-    const isHidden = imgWrapper.classList.contains("hidden");
 
-    if (!isHidden) {
+    
+    
+    imgWrapper.classList.remove("hidden");
+    
+    try{
+      const start = content.selectionStart;
+      const end = content.selectionEnd;
+      const text = content.value;
+
+      const imgUrl = await imgInput();
       imgWrapper.classList.add("hidden");
-    } else {
-      imgWrapper.classList.remove("hidden");
+      const innerText = `![이미지 이름](${imgUrl})`;
+  
+      
+      content.value = text.slice(0, start) + "\n" + innerText + text.slice(end);
+      
+      const cursorPos = end + innerText.length + 1;
+      content.selectionStart = content.selectionEnd = cursorPos;
+      
+      content.focus();
+    }catch(err){
+      console.log(err);
     }
+    
   });
   imgAdd.addEventListener("click", (e) => {
     e.stopPropagation();
