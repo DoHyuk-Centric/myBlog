@@ -27,6 +27,9 @@ async function postUpdate() {
   data.forEach(post => {
     const postli = document.createElement("li");
     postli.className = "";
+
+    const showDate = post.created_at.split("T")[0];
+
     const imgUrlHtml = post.imageURL
     ? `<img class="object-cover rounded-2xl border border-gray-300 dark:border-gray-700 ml-auto" width="150" height="150" src="${post.imageURL}" alt="" />` : "";
 
@@ -36,7 +39,7 @@ async function postUpdate() {
           <div class="flex justify-end flex-col sm:justify-center">
             <div class="flex justify-between sm:justify-start">
               <h3 class="text-3xl font-bold mb-2">${post.title}</h3>
-              <time class="text-sm text-gray-500 sm:ml-auto" datetime="${post.date}">${post.date}</time>
+              <time class="text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
             </div>
             <div class="flex">
               <p class="mr-5 mb-2">${post.content}</p>
