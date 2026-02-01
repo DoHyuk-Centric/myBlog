@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개인 개발 블로그 - 회고록</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/scroll.css" />
+    <link rel="stylesheet" href="/src/post-layout.css" />
+  </head>
+
+  <body class="scroll">
+    <div id="header-placeholder"></div>
+
+    <!--메인-->
+    <main
+      id="main"
+      class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 h-screen mt-20"
+    >
+      <div class="post-hero">
+        <h1 class="post-title text-4xl mt-[50px]">제목</h1>
+        <div class="post-meta mt-[30px]">
+          <p class="post-author">작성자dsadsads</p>
+          <time class="post-date" datetime="2026-01-01">2026-01-01</time>
+        </div>
+        <button
+          class="post-moreBtn cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+          type="button">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <circle cx="5" cy="12" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="19" cy="12" r="2" />
+          </svg>
+        </button>
+        <button
+          class="post-correction cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+          type="button"
+        >
+          수정
+        </button>
+        <button
+          class="post-delete cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+          type="button"
+        >
+          삭제
+        </button>
+        <p class="post-contents mt-[50px]">내용</p>
+      </div>
+    </main>
+    <footer
+      class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
+    >
+      <div class="flex items-center gap-3 p-10">
+        <img
+          width="28"
+          height="28"
+          src="https://img.icons8.com/tiny-color/28/code.png"
+          alt="code"
+        />
+        <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
+        <h1 class="text-xl block sm:hidden">개발 블로그</h1>
+      </div>
+      <div class="p-10 flex-grow text-right">
+        <p>© 2026 개인 개발 블로그. All rights reserved.</p>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+  </body>
+</html>
