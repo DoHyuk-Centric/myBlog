@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/scroll.css" />
     <link rel="stylesheet" href="/src/post-layout.css" />
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+    <script type="module" src="/components/post/postLoad.js"></script>
   </head>
 
   <body class="scroll">
@@ -18,21 +21,25 @@
       class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 h-screen mt-20"
     >
       <div class="post-hero">
-        <h1 class="post-title text-4xl mt-[50px]">제목</h1>
+        <h1 id="post-title" class="post-title text-4xl mt-[50px]"></h1>
         <div class="post-meta mt-[30px]">
-          <p class="post-author">작성자dsadsads</p>
-          <time class="post-date" datetime="2026-01-01">2026-01-01</time>
+          <p id="post-author" class="post-author"></p>
+          <time id="post-date" class="post-date" datetime=""
+            ></time
+          >
         </div>
         <button
           class="post-moreBtn cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
-          type="button">
+          type="button"
+        >
           <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <circle cx="5" cy="12" r="2" />
             <circle cx="12" cy="12" r="2" />
             <circle cx="19" cy="12" r="2" />
@@ -50,7 +57,7 @@
         >
           삭제
         </button>
-        <p class="post-contents mt-[50px]">내용</p>
+        <p id="post-content" class="post-contents mt-[50px]"></p>
       </div>
     </main>
     <footer
@@ -70,8 +77,5 @@
         <p>© 2026 개인 개발 블로그. All rights reserved.</p>
       </div>
     </footer>
-    <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/components/header/innerHeader.js"></script>
-    <script type="module" src="/components/header/header.js"></script>
   </body>
 </html>

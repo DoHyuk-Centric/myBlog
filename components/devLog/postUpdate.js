@@ -35,7 +35,7 @@ async function postUpdate() {
 
     postli.innerHTML = `
       <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-4 mb-4 bg-white dark:bg-gray-800 shadow-md">
-        <a class="flex-col" href="${post.URL}">
+        <a class="flex-col" href="/pages/post.html?id=${post.id}">
           <div class="flex justify-end flex-col sm:justify-center">
             <div class="flex justify-between sm:justify-start">
               <h3 class="text-3xl font-bold mb-2">${post.title}</h3>

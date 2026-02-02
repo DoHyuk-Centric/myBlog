@@ -1,5 +1,5 @@
 import { supabase } from "../../src/supabase.js";
-
+import { currentUser } from "../login/firebase.js";
 
 function postCreate() {
     const title = document.getElementById("title");
@@ -17,6 +17,8 @@ export async function creatPostTable(title, content) {
         {
             title: title,
             content: content,
+            author_uid: currentUser.uid,
+            author_name: currentUser.displayName,
         },
     ]);
     
