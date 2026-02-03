@@ -42,7 +42,7 @@ async function postUpdate() {
               <time class="text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
             </div>
             <div class="flex">
-              <p class="mr-5 mb-2">${post.content}</p>
+              <p class="mr-5 mb-2 line-clamp-2">${post.content}</p>
               ${imgUrlHtml}
             </div>
           </div>

@@ -10,15 +10,16 @@
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
     <script type="module" src="/components/post/postLoad.js"></script>
+    <script type="module" src="/components/post/postDelete.js"></script>
   </head>
 
-  <body class="scroll">
+  <body class="scroll min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
 
     <!--메인-->
     <main
       id="main"
-      class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 h-screen mt-20"
+      class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 min-h-screen pb-20 mt-20"
     >
       <div class="post-hero">
         <h1 id="post-title" class="post-title text-4xl mt-[50px] mb-[50px]"></h1>
@@ -53,7 +54,7 @@
             >
               수정
             </button>
-            <button
+            <button id="postBtnDelete"
               class="post-delete cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
               type="button"
             >
@@ -61,7 +62,7 @@
             </button>
           </div>
         </div>
-        <p id="post-content" class="post-contents mt-[50px]"></p>
+        <div id="post-content" class="prose max-w-none dark:prose-invert post-contents mt-[50px]"></div>
       </div>
     </main>
     <footer

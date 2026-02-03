@@ -1,4 +1,6 @@
 import { supabase } from "../../src/supabase.js";
+import { blockAccess } from "../../src/404.js";
+import { marked } from "marked";
 
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
@@ -11,12 +13,15 @@ function renderTitle(title,content,showDate,author_name) {
 
   post_title.textContent = title;
   date.textContent = showDate;
-  post_content.textContent = content;
+  post_content.innerHTML = marked.parse(content);
   post_author.textContent = author_name;
 }
 
 async function postLoad() {
-  if (!postId) return;
+  if (!postId){
+    blockAccess();
+    return;
+  } 
 
   const { data, error } = await supabase
     .from("Posts")
@@ -24,8 +29,8 @@ async function postLoad() {
     .eq("id", postId)
     .single();
 
-  if (error) {
-    console.error(error);
+  if (error || !data) {
+    blockAccess();
     return;
   }
 
