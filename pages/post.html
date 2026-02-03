@@ -21,42 +21,46 @@
       class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 h-screen mt-20"
     >
       <div class="post-hero">
-        <h1 id="post-title" class="post-title text-4xl mt-[50px]"></h1>
-        <div class="post-meta mt-[30px]">
-          <p id="post-author" class="post-author"></p>
-          <time id="post-date" class="post-date" datetime=""
-            ></time
-          >
+        <h1 id="post-title" class="post-title text-4xl mt-[50px] mb-[50px]"></h1>
+        <div class="post-subtitle">
+          <div class="post-meta">
+            <p id="post-author" class="post-author"></p>
+            <time id="post-date" class="post-date" datetime=""
+              ></time
+            >
+          </div>
+          <div class="post-ButtonComponent">
+            <button
+              class="post-moreBtn cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+              type="button"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="5" cy="12" r="2" />
+                <circle cx="12" cy="12" r="2" />
+                <circle cx="19" cy="12" r="2" />
+              </svg>
+            </button>
+            <button
+              class="post-correction cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+              type="button"
+            >
+              수정
+            </button>
+            <button
+              class="post-delete cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
+              type="button"
+            >
+              삭제
+            </button>
+          </div>
         </div>
-        <button
-          class="post-moreBtn cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
-          type="button"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <circle cx="5" cy="12" r="2" />
-            <circle cx="12" cy="12" r="2" />
-            <circle cx="19" cy="12" r="2" />
-          </svg>
-        </button>
-        <button
-          class="post-correction cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
-          type="button"
-        >
-          수정
-        </button>
-        <button
-          class="post-delete cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl"
-          type="button"
-        >
-          삭제
-        </button>
         <p id="post-content" class="post-contents mt-[50px]"></p>
       </div>
     </main>

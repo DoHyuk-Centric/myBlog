@@ -5,42 +5,54 @@
   .post-title {
     grid-column: 2 / span 10;
   }
-  .post-meta {
-    grid-column: 2 / span 5;
+  .post-subtitle{
+    grid-column: 2 / span 10;
     display: flex;
-    gap: 20px;
-  }
-  .post-moreBtn {
-    display: none;
-  }
-  .post-correction {
-    grid-column: 10;
-  }
-  .post-delete {
-    grid-column: 11;
+    
+    justify-content: space-between;
+    
+    
+    
+    .post-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .post-ButtonComponent{
+      display: flex;
+      gap: 20px;
+      .post-moreBtn {
+        padding: 10px;
+        display: none;
+      }
+      .post-correction{
+        padding: 10px;
+        display: block;
+      }
+      .post-delete{
+        padding: 10px;
+        display: block;
+      }
+    }
   }
   .post-contents {
     grid-column: 2 / span 10;
   }
-  @media (max-width: 640px) {
-    .post-meta {
-      grid-column: 2 / span 12;
-      display: flex;
-      gap: 20px;
-    }
-    .post-moreBtn {
-      display: block;
-      grid-column: 11;
-      justify-self: center;
-      align-self: center;
-      padding-inline: 10px;
-      padding-block: 5px;
-    }
-    .post-correction {
-      display: none;
-    }
-    .post-delete {
-      display: none;
+
+  @media (width <= 640px) {
+    .post-subtitle{
+      .post-ButtonComponent{
+        .post-moreBtn {
+          display: block;
+        }
+        .post-correction{
+          display: none;
+        }
+        .post-delete{
+          display: none;
+        }
+      }
     }
   }
 }
