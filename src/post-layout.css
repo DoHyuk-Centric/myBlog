@@ -5,32 +5,30 @@
   .post-title {
     grid-column: 2 / span 10;
   }
-  .post-subtitle{
+  .post-subtitle {
     grid-column: 2 / span 10;
     display: flex;
-    
+
     justify-content: space-between;
-    
-    
-    
+
     .post-meta {
       display: flex;
       gap: 20px;
       align-items: center;
     }
 
-    .post-ButtonComponent{
+    .post-ButtonComponent {
       display: flex;
       gap: 20px;
       .post-moreBtn {
         padding: 10px;
         display: none;
       }
-      .post-correction{
+      .post-correction {
         padding: 10px;
         display: block;
       }
-      .post-delete{
+      .post-delete {
         padding: 10px;
         display: block;
       }
@@ -41,15 +39,15 @@
   }
 
   @media (width <= 640px) {
-    .post-subtitle{
-      .post-ButtonComponent{
+    .post-subtitle {
+      .post-ButtonComponent {
         .post-moreBtn {
           display: block;
         }
-        .post-correction{
+        .post-correction {
           display: none;
         }
-        .post-delete{
+        .post-delete {
           display: none;
         }
       }
