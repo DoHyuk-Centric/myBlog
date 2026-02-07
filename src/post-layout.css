@@ -73,10 +73,10 @@
     grid-column: 1 / span 6;
   }
   .post-aside-right{
-    grid-column: 8;
+    grid-column: 7 / span 2;
     position: sticky;
     top: 120px;
-    
+    margin-inline-start: 3.4375rem;
     align-self: start;
     
   }

@@ -5,23 +5,21 @@ import { marked } from "marked";
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
-function renderTitle(title,content,showDate,author_name) {
+function renderTitle(title, showDate, author_name) {
   const post_title = document.getElementById("post-title");
   const date = document.getElementById("post-date");
-  const post_content = document.getElementById("post-content");
   const post_author = document.getElementById("post-author");
 
   post_title.textContent = title;
   date.textContent = showDate;
-  post_content.innerHTML = marked.parse(content);
   post_author.textContent = author_name;
 }
 
 async function postLoad() {
-  if (!postId){
+  if (!postId) {
     blockAccess();
     return;
-  } 
+  }
 
   const { data, error } = await supabase
     .from("Posts")
@@ -36,7 +34,45 @@ async function postLoad() {
 
   const showDate = data.created_at.split("T")[0];
 
-  renderTitle(data.title, data.content, showDate, data.author_name);
+  postAsideInner(data.content);
+  renderTitle(data.title, showDate, data.author_name);
 }
 
 postLoad();
+
+function postAsideInner(content) {
+  const postAsideRight = document.getElementById("postAsideRight");
+  const postContent = document.getElementById("post-content");
+
+  // markdown → HTML
+  const html = marked.parse(content);
+  postContent.innerHTML = html; // 먼저 본문 렌더링
+
+  // DOMParser로 파싱
+  const headings = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6"); // 이미 DOM에 있음
+
+  postAsideRight.innerHTML = "";
+
+  headings.forEach((heading, index) => {
+    const level = heading.tagName.toLowerCase();
+    const text = heading.textContent;
+
+    const a = document.createElement("a");
+    a.textContent = text;
+    a.classList.add("line-clamp-1", "cursor-pointer","duration-300" ,"hover:dark:text-gray-400");
+
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const headerOffset = 120;
+      const elementPosition = heading.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    });
+
+    postAsideRight.appendChild(a);
+  });
+}
