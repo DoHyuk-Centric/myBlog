@@ -1,5 +1,4 @@
 import { supabase } from "../../src/supabase.js";
-import { currentUser } from "../login/firebase.js";
 
 function postCreate() {
   const title = document.getElementById("title");
@@ -11,29 +10,38 @@ function postCreate() {
     const Success = await creatPostTable(title.value, content.value);
 
     if (Success) {
-        window.location.href = "/pages/devlog.html";
-    }
-    else{
-        alert("게시글 저장에 실패했습니다.");
+      window.location.href = "/pages/devlog.html";
+    } else {
+      alert("게시글 저장에 실패했습니다.");
     }
   });
 }
 
 export async function creatPostTable(title, content) {
-  const { data, error } = await supabase.from("Posts").insert([
+  const {
+    data: { session },
+    error: sessionError,
+  } = await supabase.auth.getSession();
+
+  if(sessionError || !session){
+    console.error("로그인 상태 아님", sessionError);
+    return false;
+  }
+
+  const { error } = await supabase.from("Posts").insert([
     {
       title: title,
       content: content,
-      author_uid: currentUser.uid,
-      author_name: currentUser.displayName,
+      user_id : session.user.id,
     },
   ]);
 
   if (error) {
-    console.log("게시글 저장 실패", err);
+    console.log("게시글 저장 실패", error);
     return false;
   }
   return true;
 }
 
 postCreate();
+

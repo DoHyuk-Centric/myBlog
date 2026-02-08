@@ -1,13 +1,15 @@
 // 네비게이션 로그인, 로그아웃 버튼 텍스트 컨트롤러
+import { supabase } from "../../src/supabase.js";
 
 navLoginTextControler();
 
-function navLoginTextControler() {
+async function navLoginTextControler() {
   const loginBtn = document.getElementById("login");
   const logoutBtn = document.getElementById("logout");
   const userBtn = document.getElementById("user");
   const signupBtn = document.getElementById("signup");
 
+  const {data} = await supabase.auth.getSession();
   const isLogin = localStorage.getItem("isLogin") === "true";
 
   if (isLogin) {

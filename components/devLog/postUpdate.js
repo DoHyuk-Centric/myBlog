@@ -11,8 +11,6 @@ async function postUpdate() {
     return;
   }
 
-  console.log("데이터:", data);
-
   const container = document.getElementById("posts-container");
   if (!container) return;
 

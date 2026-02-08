@@ -5,14 +5,14 @@ import { marked } from "marked";
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
-function renderTitle(title, showDate, author_name) {
+function renderTitle(title, showDate, authorName) {
   const post_title = document.getElementById("post-title");
   const date = document.getElementById("post-date");
   const post_author = document.getElementById("post-author");
 
   post_title.textContent = title;
   date.textContent = showDate;
-  post_author.textContent = author_name;
+  post_author.textContent = authorName;
 }
 
 async function postLoad() {
@@ -23,11 +23,12 @@ async function postLoad() {
 
   const { data, error } = await supabase
     .from("Posts")
-    .select("title, content, created_at, author_name")
+    .select("title, content, created_at, profiles(display_name)")
     .eq("id", postId)
     .single();
-
-  if (error || !data) {
+    
+  if (error) {
+    console.error("게시글 로드 에러:", error);
     blockAccess();
     return;
   }
@@ -35,7 +36,7 @@ async function postLoad() {
   const showDate = data.created_at.split("T")[0];
 
   postAsideInner(data.content);
-  renderTitle(data.title, showDate, data.author_name);
+  renderTitle(data.title, showDate, data.profiles?.display_name || "익명");
 }
 
 postLoad();
@@ -59,7 +60,12 @@ function postAsideInner(content) {
 
     const a = document.createElement("a");
     a.textContent = text;
-    a.classList.add("line-clamp-1", "cursor-pointer","duration-300" ,"hover:dark:text-gray-400");
+    a.classList.add(
+      "line-clamp-1",
+      "cursor-pointer",
+      "duration-300",
+      "hover:dark:text-gray-400",
+    );
 
     a.addEventListener("click", (e) => {
       e.preventDefault();

@@ -1,5 +1,4 @@
 import { supabase } from "../../src/supabase.js";
-import { getUid } from "../post/firebaseUid.js";
 
 function postCreate() {
   const title = document.getElementById("title");
@@ -16,10 +15,9 @@ function postCreate() {
     }
 
     const Success = await creatPostTable(postId, title.value, content.value);
-    console.log("Update success?", Success);
 
     if (Success) {
-      //   window.location.href = `/pages/post.html?id=${postId}`;
+      window.location.href = `/pages/post.html?id=${postId}`;
     } else {
       alert("게시글 저장에 실패했습니다.");
     }
@@ -27,8 +25,8 @@ function postCreate() {
 }
 
 export async function creatPostTable(postId, title, content) {
-  const uid = getUid();
-  if (!uid) {
+  const{data:{session}, error:sessionError} = await supabase.auth.getSession();
+  if(sessionError || !session){
     alert("사용자 정보가 아직 로드되지 않았습니다.");
     return false;
   }
@@ -37,7 +35,6 @@ export async function creatPostTable(postId, title, content) {
     .from("Posts")
     .update({ title, content })
     .eq("id", postId)
-    .eq("author_uid", uid);
 
   if (error) {
     console.log("게시글 저장 실패", error);

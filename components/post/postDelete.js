@@ -4,9 +4,13 @@ import { supabase } from "../../src/supabase.js";
 deleteControler();
 
 function deleteControler(){
-    const postDeleteBtn = document.getElementById("postBtnDelete");
+    const postDeleteBtn_mobile = document.getElementById("postBtnDelete_mobile");
+    const postDeleteBtn_desk = document.getElementById("postBtnDelete_desk");
 
-    postDeleteBtn.addEventListener("click", () =>{
+    postDeleteBtn_mobile.addEventListener("click", () =>{
+        postDelete();    
+    })
+    postDeleteBtn_desk.addEventListener("click", () =>{
         postDelete();    
     })
 }
