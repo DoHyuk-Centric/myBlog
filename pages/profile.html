@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 정보 | 개인 블로그</title>
+    <link rel="stylesheet" href="/src/scroll.css" />
+    <link rel="stylesheet" href="/src/style/pencil.css" />
+    <link rel="stylesheet" href="/src/style/date.css" />
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script src="/components/profile/profileImgRendder.js"></script>
+    <script type="module" src="/components/profile/profileInputControler.js" defer></script>
+    <script type="module" src="/components/profile/profileInputData.js"></script>
+  </head>
+  <body class="h-screen bg-gray-200 dark:bg-gray-900 flex flex-col">
+    <!-- 헤더 -->
+    <header id="header-placeholder" class="w-full"></header>
+
+    <!-- 메인 -->
+    <main class="flex-1 flex justify-center items-center mt-20 p-4">
+      <!-- 티켓 형태 카드 -->
+      <div
+        class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl flex flex-col md:flex-row w-full max-w-5xl border border-gray-300 dark:border-gray-700 overflow-hidden"
+      >
+        <!-- 왼쪽: 프로필 영역 -->
+        <div
+          class="relative flex flex-col items-center justify-center w-full md:w-80 p-8 space-y-10 bg-gray-50 dark:bg-gray-900 overflow-hidden"
+        >
+          <!-- 프로필 이미지 -->
+          <div class="w-36 h-36 relative z-10">
+            <img
+              id="profile-image"
+              class="w-full h-full rounded-full border-4 border-gray-300 dark:border-gray-600 object-cover bg-white"
+              src=""
+              alt=""
+            />
+          </div>
+
+          <!-- 이미지 업로드 -->
+          <label
+            for="profile-img"
+            class="inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition cursor-pointer"
+            >사진 변경</label
+          >
+          <input
+            id="profile-img"
+            type="file"
+            class="hidden"
+            onchange="profileImgRendder(event)"
+          />
+
+          <div class="relative z-10 text-center md:text-start">
+            <h3
+              class="font-semibold text-lg hidden ml-5 md:block text-gray-800 dark:text-gray-200"
+            >
+              소개
+            </h3>
+            <div class="relative inline-block w-full">
+              <input
+                type="text"
+                id="profileIntroduce"
+                class="mt-4 border rounded-2xl px-5 min-w-70 min-h-20 dark:border-slate-700 text-gray-600 dark:text-gray-300"
+                disabled
+                placeholder="자기소개"
+              />
+              <button id="profileIntroduce_btn"
+                class="absolute cursor-pointer rounded-2xl p-3 top-8 group right-4 dark:text-slate-700 hover:dark:bg-gray-800"
+              >
+                <svg
+                  class="w-5 h-5 pencil"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path class="pencil-line" d="M12 20h9" />
+                  <path
+                    class="pencil-body"
+                    d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 중앙 점선 -->
+        <div
+          class="hidden md:block border-l-3 border-dashed border-gray-300 dark:border-gray-700"
+        ></div>
+        <div
+          class="block md:hidden border-t-3 border-dashed border-gray-300 dark:border-gray-700 w-full"
+        ></div>
+
+        <!-- 오른쪽 정보 영역 -->
+        <div class="flex-1 flex flex-col justify-center p-8 space-y-6">
+          <ul class="w-full text-gray-800 dark:text-gray-200">
+            <li
+              class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
+            >
+              <span class="font-semibold">아이디</span>
+              <span id="user-id" class="py-3 px-2"></span>
+            </li>
+            <li
+              class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
+            >
+              <span class="font-semibold">닉네임</span>
+              <input
+                id="profileNickName"
+                type="text"
+                class="text-end w-70 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
+                disabled
+                placeholder="닉네임"
+              />
+            </li>
+            <li class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700">
+              <span class="font-semibold">생년월일</span>
+              <input id="profileBirth" type="text" class="py-3 text-end placeholder:text-black dark:placeholder:text-white rounded" disabled placeholder="생년월일"/>
+            </li>
+            <li
+              class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
+            >
+              <span class="font-semibold">이메일</span>
+              <input
+                id="profileEmail"
+                type="email"
+                class="text-end w-70 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
+                disabled
+                placeholder="이메일"
+              />
+            </li>
+            <li
+              class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
+            >
+              <span class="font-semibold">전화번호</span>
+              <input
+                id="profileTellNum"
+                type="tel"
+                class="text-end w-70 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
+                disabled
+                placeholder="전화번호"
+              />
+            </li>
+          </ul>
+
+          <!-- 수정 버튼 -->
+          <button
+            id="profileCorrection"
+            class="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition self-end cursor-pointer"
+          >
+            정보 수정
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

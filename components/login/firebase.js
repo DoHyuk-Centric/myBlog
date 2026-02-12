@@ -16,11 +16,9 @@ export const auth = getAuth(app);
 
 export let currentUser = null;
 
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    console.log("로그인 안 됨");
-    return;
-  }
-
-  currentUser = user;
-});
+async function saveUserToFirebase(user) {
+  await set(ref(db, "users/" + user.uid), {
+    email: user.email,
+    created_at: new Date().toISOString(),
+  });
+}
