@@ -1,6 +1,7 @@
+// DB에 데이터 저장하는 함수
 import { supabase } from "../../src/supabase.js";
 
-export async function profileInputData(profileInput, introduce) {
+export async function profileInputData(profileInput) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -14,7 +15,7 @@ export async function profileInputData(profileInput, introduce) {
         birth: profileInput.birth.value,
         email: profileInput.email.value,
         tel: profileInput.tellNum.value,
-        introduce: introduce.value,
+        introduce: profileInput.introduce.value,
       },
       { onConflict: "id" },
     )

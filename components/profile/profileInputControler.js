@@ -4,13 +4,13 @@ import { profileInputData } from "./profileInputData.js";
 profileInputControler();
 
 async function profileInputControler() {
-    await profileInput();
-
+  await profileInput();
 }
 
 async function profileInput() {
   const userID = document.getElementById("user-id");
   const userEmail = await profileUserId();
+
   if (userID) userID.textContent = userEmail || "로그인 필요";
 
   const profileInput = {
@@ -18,13 +18,12 @@ async function profileInput() {
     birth: document.getElementById("profileBirth"),
     email: document.getElementById("profileEmail"),
     tellNum: document.getElementById("profileTellNum"),
+    introduce: document.getElementById("profileIntroduce"),
   };
-  const introduce = document.getElementById("profileIntroduce");
-  const introduceBtn = document.getElementById("profileIntroduce_btn");
+
   const correctionBtn = document.getElementById("profileCorrection");
 
-  introduceEvent(introduce, introduceBtn);
-  profileInputEvent(profileInput, correctionBtn, introduce);
+  profileInputEvent(profileInput, correctionBtn);
 }
 
 async function profileUserId() {
@@ -34,14 +33,8 @@ async function profileUserId() {
   return user?.email;
 }
 
-function introduceEvent(introduce, introduceBtn) {
-  introduceBtn.addEventListener("click", () => {
-    if (introduce.disabled) introduce.disabled = false;
-    else introduce.disabled = true;
-  });
-}
-
-function profileInputEvent(profileInput, correctionBtn, introduce) {
+function profileInputEvent(profileInput, correctionBtn) {
+  userProfileInfoRender(profileInput);
   let correctionIs = false;
 
   if (correctionBtn) {
@@ -56,10 +49,25 @@ function profileInputEvent(profileInput, correctionBtn, introduce) {
         Object.values(profileInput).forEach((input) => {
           if (input) input.disabled = true;
         });
-        profileInputData(profileInput, introduce);
+        profileInputData(profileInput);
         correctionIs = false;
         correctionBtn.textContent = "정보 수정";
       }
     });
   }
+}
+
+async function userProfileInfoRender(profileInput) {
+  const { data: userData } = await supabase.auth.getUser();
+  const { data, error } = await supabase
+    .from("userInfo")
+    .select("nickName, birth, email, tel, introduce")
+    .eq("id", userData.user.id)
+    .single();
+
+  profileInput.nickName.value = data.nickName;
+  profileInput.birth.value = data.birth;
+  profileInput.email.value = data.email;
+  profileInput.tellNum.value = data.tel;
+  profileInput.introduce.value = data.introduce;
 }
