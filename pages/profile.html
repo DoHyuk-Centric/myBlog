@@ -12,6 +12,7 @@
     <script type="module" src="/components/profile/profileImgRendder.js"></script>
     <script type="module" src="/components/profile/profileInputControler.js" defer></script>
     <script type="module" src="/components/profile/profileInputData.js"></script>
+    <script type="module" src="/components/profile/profileInnerBirth.js"></script>
   </head>
   <body class="h-screen bg-gray-200 dark:bg-gray-900 flex flex-col">
     <!-- 헤더 -->
@@ -99,7 +100,7 @@
             </li>
             <li class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700">
               <span class="font-semibold">생년월일</span>
-              <input id="profileBirth" type="text" class="py-3 text-end placeholder:text-black dark:placeholder:text-white rounded" disabled placeholder="생년월일"/>
+              <input id="profileBirth" type="text" class="py-3 text-end placeholder:text-black dark:placeholder:text-white rounded" disabled inputmode="numeric" pattern="[0-9]*" placeholder="생년월일"/>
             </li>
             <li
               class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
