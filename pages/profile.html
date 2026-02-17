@@ -9,7 +9,7 @@
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
     <script type="module" src="/src/main.js"></script>
-    <script src="/components/profile/profileImgRendder.js"></script>
+    <script type="module" src="/components/profile/profileImgRendder.js"></script>
     <script type="module" src="/components/profile/profileInputControler.js" defer></script>
     <script type="module" src="/components/profile/profileInputData.js"></script>
   </head>
@@ -46,8 +46,8 @@
           <input
             id="profile-img"
             type="file"
+            accept="image/*"
             class="hidden"
-            onchange="profileImgRendder(event)"
           />
 
           <div class="relative z-10 text-center md:text-start">
