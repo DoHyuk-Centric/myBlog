@@ -1,4 +1,13 @@
+import { loadHolidays } from "./LoadHolidays.js";
+
 let date = new Date();
+
+initCalendar();
+async function initCalendar() {
+  await loadHolidays();
+  renderCalendar();
+  calendarControler();
+}
 
 calendarContentsYearSelector();
 /** 년도 추가 함수 */
@@ -24,10 +33,14 @@ function renderCalendar() {
   const calendar_Year = document.getElementById("calendar_Year");
   const calendar_Month = document.getElementById("calendar_Month");
   const calendar_day = document.getElementById("calendar_day");
+  const holiday = document.getElementById("calendarHoliday");
 
   const calendarYearText = document.getElementById("calendarYearText");
 
   calendar_day.innerHTML = "";
+
+  holiday.classList.add("hidden");
+  document.getElementById("calendarHolidayInfo").innerHTML = "";
 
   const firstDay = new Date(year, month, 1).getDay();
   const lastDay = new Date(year, month + 1, 0).getDate();
@@ -52,12 +65,41 @@ function createCurrentDay(calendar_day, lastDay, year, month) {
   const currentDay = currentDate.getDate();
 
   for (let i = 1; i <= lastDay; i++) {
+    const dateStr = `${year}${String(month + 1).padStart(2, "0")}${String(i).padStart(2, "0")}`;
     const newDay = document.createElement("div");
     newDay.textContent = i;
-    if (currentYear === year && currentMonth === month && i === currentDay) {
-      const dot = document.createElement("div");
-      dot.classList.add(
-        "w-3",
+    newDay.style.position = "relative";
+    newDay.classList.add("cursor-pointer");
+
+    if (window.holidaySet.has(dateStr)) {
+      const holidayDot = document.createElement("div");
+      holidayDot.classList.add(
+        "w-4",
+        "h-1",
+        "bg-red-500",
+        "rounded-full",
+        "absolute",
+        "left-1/2",
+        "-translate-x-1/2",
+        "-bottom-1",
+        "opacity-50",
+      );
+      holidayDot.style.bottom = "-3px";
+      newDay.appendChild(holidayDot);
+
+      newDay.addEventListener("click", () => {
+        addHolidayInfo(year, month)
+      });
+    }
+    if (
+      currentYear === year &&
+      currentMonth === month &&
+      i === currentDay &&
+      window.holidaySet.has(dateStr)
+    ) {
+      const todaydot = document.createElement("div");
+      todaydot.classList.add(
+        "w-4",
         "h-1",
         "bg-blue-500",
         "rounded-full",
@@ -66,10 +108,28 @@ function createCurrentDay(calendar_day, lastDay, year, month) {
         "-translate-x-1/2",
         "-bottom-1",
       );
-      newDay.style.position = "relative";
-      newDay.appendChild(dot);
+      todaydot.style.bottom = "-10px";
+      newDay.appendChild(todaydot);
+    } else if (
+      currentYear === year &&
+      currentMonth === month &&
+      i === currentDay
+    ) {
+      const todaydot = document.createElement("div");
+      todaydot.classList.add(
+        "w-4",
+        "h-1",
+        "bg-blue-500",
+        "rounded-full",
+        "absolute",
+        "left-1/2",
+        "-translate-x-1/2",
+        "-bottom-1",
+      );
+      todaydot.style.bottom = "-3px";
+      newDay.appendChild(todaydot);
     }
-    calendarCurrentColorChange(calendar_day, newDay);
+    calendarCurrentColorChange(calendar_day, newDay, dateStr);
     calendar_day.appendChild(newDay);
   }
 }
@@ -99,7 +159,7 @@ function calendarControler() {
   const prevMonth_Btn = document.getElementById("prevMonthBtn");
   const nextMonth_Btn = document.getElementById("nextMonthBtn");
   const monthselectBtn = document.getElementById("calendarMonthcontents");
-  
+
   // 월 선택 버튼
   monthselectBtn.addEventListener("click", (e) => {
     const button = e.target.closest("button");
@@ -126,7 +186,9 @@ function calendarControler() {
 
 /** 달력 월 선택 버튼 클릭시 currentMode 초기화와 탭 닫기 */
 function calendar_tapControler() {
-  const calendar_YearMonth_choice = document.getElementById("calendar_YearMonth_choice");
+  const calendar_YearMonth_choice = document.getElementById(
+    "calendar_YearMonth_choice",
+  );
 
   calendar_YearMonth_choice.classList.remove("h-full", "opacity-100");
   calendar_YearMonth_choice.classList.add("h-0");
@@ -145,7 +207,12 @@ function calendarPrevColorChange(calendar_day, day) {
   }
 }
 
-function calendarCurrentColorChange(calendar_day, newDay) {
+function calendarCurrentColorChange(calendar_day, newDay, dateStr) {
+  if (window.holidaySet.has(dateStr)) {
+    newDay.classList.add("text-red-500");
+    return;
+  }
+
   const dayOfweek = calendar_day.children.length % 7;
   if (dayOfweek === 0) {
     newDay.classList.add("text-red-500");
@@ -167,5 +234,32 @@ function calendarNextColorChange(calendar_day, nextDay) {
   }
 }
 
-renderCalendar();
-calendarControler();
+// 클릭 이벤트 발생
+function addHolidayInfo(year, month){
+  const holiday = document.getElementById("calendarHoliday");
+  const holidayInfo = document.getElementById("calendarHolidayInfo");
+  holidayInfo.innerHTML = "";
+
+  holiday.classList.toggle("hidden");
+
+  Object.entries(window.holidayMap).forEach(([dateStr, name]) => {
+    const holidayYear = Number(dateStr.slice(0,4));
+    const holidayMonth = Number(dateStr.slice(4,6)) - 1;
+
+    if (holidayYear === year && holidayMonth === month) {
+      const holiday_li = document.createElement("li");
+      const holiday__li__time = document.createElement("time");
+      const holiday__li__p = document.createElement("p");
+
+      holiday_li.classList.add("flex","gap-4");
+
+      holiday__li__time.textContent = dateStr.slice(-2) + "일";
+      holiday_li.appendChild(holiday__li__time);
+
+      holiday__li__p.textContent = name;
+      holiday_li.appendChild(holiday__li__p);
+
+      holidayInfo.appendChild(holiday_li);
+    }
+  });
+}

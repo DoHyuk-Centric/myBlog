@@ -23,12 +23,11 @@ Deno.serve(async (req) => {
       });
     }
 
-    const year = new Date().getFullYear();
-    const month = (new Date().getMonth() + 1).toString().padStart(2, "0");
+    const urlObj = new URL(req.url);
+    const year = urlObj.searchParams.get("year") || new Date().getFullYear().toString();
 
     // 공공데이터 포털 API 호출 (JSON으로 받으면 훨씬 편합니다!)
-    const apiUrl =
-      `http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo?solYear=${year}&solMonth=${month}&ServiceKey=${HOLIDAY_KEY}&_type=json`;
+    const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo?solYear=${year}&ServiceKey=${HOLIDAY_KEY}&_type=json&numOfRows=100`
 
     const res = await fetch(apiUrl);
     const data = await res.json(); // XML 대신 JSON으로 처리

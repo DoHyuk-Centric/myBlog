@@ -1,4 +1,7 @@
-async function loadHolidays() {
+window.holidaySet = new Set();
+window.holidayMap = {};
+
+export async function loadHolidays() {
   const url = 'https://dkbjmlifixnmptdvoaxi.supabase.co/functions/v1/get-holidays';
 
   try {
@@ -12,7 +15,12 @@ async function loadHolidays() {
     const holidayList = Array.isArray(items) ? items : [items]; // 공휴일이 하나일 때 처리
 
     holidayList.forEach(item => {
-      console.log(`날짜: ${item.locdate}, 이름: ${item.dateName}`);
+      const dateStr = String(item.locdate);   // "20260217" 형식
+      const name = item.dateName;             // "설날", "설연휴" 등
+      window.holidaySet.add(dateStr);
+      window.holidayMap[dateStr] = name;
+      
+      window.holidaySet.add(String(item.locdate));
     });
 
   } catch (error) {
