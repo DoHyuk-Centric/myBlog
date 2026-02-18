@@ -234,7 +234,6 @@ function calendarNextColorChange(calendar_day, nextDay) {
   }
 }
 
-// 클릭 이벤트 발생
 function addHolidayInfo(year, month){
   const holiday = document.getElementById("calendarHoliday");
   const holidayInfo = document.getElementById("calendarHolidayInfo");
