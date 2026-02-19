@@ -1,4 +1,3 @@
-import { supabase } from "../../src/supabase.js";
 import { checkPostOwner } from "../crud/checkPostOwner.js";
 
 postCorrectionButtonEvent();

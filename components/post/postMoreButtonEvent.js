@@ -1,18 +1,37 @@
+import { checkPostOwner } from "../crud/checkPostOwner.js";
+
 postMoreButtonEvent();
 
 function postMoreButtonEvent() {
+  const params = new URLSearchParams(window.location.search);
+  const postId = params.get("id");
   const moreBtn = document.getElementById("postMoreBtn");
-  const Event = document.getElementById("postMoreBtnEvent");
+  const moreBtnEvent = document.getElementById("postMoreBtnEvent");
+  const postBtnCorrection_desk = document.getElementById(
+    "postBtnCorrection_desk",
+  );
+  const postBtnDelete_desk = document.getElementById("postBtnDelete_desk");
+
+  async function hiddenButton(postId) {
+    const isOwner = await checkPostOwner(postId);
+    if (!isOwner) {
+      if (window.innerWidth > MOBILE_MAX_WIDTH) {
+        moreBtn.style.display = "none";
+      }
+      postBtnCorrection_desk.style.display = "none";
+      postBtnDelete_desk.style.display = "none";
+    }
+  }
 
   let isOpen = false;
   const MOBILE_MAX_WIDTH = 640;
 
   function open() {
-    Event.classList.remove("hidden", "pointer-events-none");
+    moreBtnEvent.classList.remove("hidden", "pointer-events-none");
 
     requestAnimationFrame(() => {
-      Event.classList.remove("opacity-0");
-      Event.classList.add("opacity-100");
+      moreBtnEvent.classList.remove("opacity-0");
+      moreBtnEvent.classList.add("opacity-100");
     });
 
     isOpen = true;
@@ -21,15 +40,15 @@ function postMoreButtonEvent() {
   function close() {
     if (!isOpen) return;
 
-    Event.classList.remove("opacity-100");
-    Event.classList.add("opacity-0", "pointer-events-none");
+    moreBtnEvent.classList.remove("opacity-100");
+    moreBtnEvent.classList.add("opacity-0", "pointer-events-none");
 
-    Event.addEventListener(
+    moreBtnEvent.addEventListener(
       "transitionend",
       () => {
-        Event.classList.add("hidden");
+        moreBtnEvent.classList.add("hidden");
       },
-      { once: true }
+      { once: true },
     );
 
     isOpen = false;
@@ -41,26 +60,22 @@ function postMoreButtonEvent() {
     isOpen ? close() : open();
   });
 
-  // 내부 클릭 방지
-  Event.addEventListener("click", (e) => {
+  moreBtnEvent.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
-  // 바깥 클릭 시 닫기
   document.addEventListener("click", () => {
     close();
   });
 
-  // ✅ 640px 초과 시 강제 닫기
   function handleResize() {
     if (window.innerWidth > MOBILE_MAX_WIDTH) {
       close();
     }
   }
 
-  // resize 감지
   window.addEventListener("resize", handleResize);
 
-  // 최초 로드 시도 체크 (중요)
   handleResize();
+  hiddenButton(postId);
 }

@@ -6,13 +6,13 @@
     <title>개인 개발 블로그 - 게시글</title>
     <link rel="stylesheet" href="/src/scroll.css" />
     <link rel="stylesheet" href="/src/post-layout.css" />
+    <script type="module" src="/src/main.js"></script>
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
     <script type="module" src="/components/post/postLoad.js"></script>
     <script type="module" src="/components/post/postDelete.js"></script>
-    <script type="module" src="/components/post/postMoreButtonEvent.js"></script>
     <script type="module" src="/components/post/postCorrectionButtonEvent.js"></script>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/components/post/postMoreButtonEvent.js"></script>
   </head>
 
   <body class="scroll min-h-screen flex flex-col">
@@ -29,7 +29,7 @@
             id="post-title"
             class="post-title text-4xl mt-[50px] pb-[20px] bg-white dark:bg-gray-800 px-10 py-5 rounded-t-2xl"
           ></h1>
-          <div class="post-subtitle border-b-2 dark:border-b-4 bg-white dark:bg-gray-800 border-gray-200 border-dashed dark:border-solid dark:border-gray-700 px-10">
+          <div class="post-subtitle pb-2 border-b-2 dark:border-b-4 bg-white dark:bg-gray-800 border-gray-200 border-dashed dark:border-solid dark:border-gray-700 px-10">
             <div class="post-meta">
               <p id="post-author" class="post-author"></p>
               <time id="post-date" class="post-date" datetime=""></time>
