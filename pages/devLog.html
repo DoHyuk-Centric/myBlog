@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인 개발 블로그 - 회고록</title>
+    <title>DoHyek.dev - 회고록</title>
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/scroll.css" />
     <script type="module" src="../components/devLog/fetchProfile.js"></script>
 </head>
 
-<body class="scroll">
-    <div id="header-placeholder"></div>
-
+<body class="scroll font-[A2Z-SemiBold]">
     <!--메인-->
     <main id="main" class="maincontainer border pt-16">
         <!--비디오 섹션-->
@@ -74,11 +72,14 @@
                         </div>
 
                         <!--로그인 안되어있을때 오픈-->
-                        <div id="DevLogActionSignedOut" class="hidden flex flex-grow justify-center items-center gap-4 mt-5">
-                            <a href="/pages/login.html"
-                                class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
-                            <a href="/pages/signup.html"
-                                class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</a>
+                        <div id="DevLogActionSignedOut" class="hidden flex flex-col gap-4 text-center">
+                            <p class="text-sm text-gray-400 dark:text-gray-500">로그인후에 더 많은 기능을 이용해보세요!</p>
+                            <div class="flex flex-grow justify-center items-center gap-4 mt-5">
+                                <a href="/pages/login.html"
+                                    class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
+                                <a href="/pages/signup.html"
+                                    class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</a>
+                            </div>
                         </div>
                     </div>
                     <!--달력-->

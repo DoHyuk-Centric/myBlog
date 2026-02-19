@@ -3,16 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>개인 블로그</title>
-    <link rel="stylesheet" href="./src/style.css" />
+    <title>DoHyek.dev</title>
     <link rel="stylesheet" href="./src/scroll.css" />
+    <script type="module" src="./components/header/innerHeader.js"></script>
+    <script type="module" src="./components/header/header.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </head>
-  <body class="scroll">
-
-    <!-- 헤더 -->
-    <div id="header-placeholder"></div>
-      
- 
+  <body class="scroll font-[A2Z-SemiBold]">
 <!--메인-->
   <main id="main" class="maincontainer">
     <!--비디오 섹션-->
@@ -29,24 +26,24 @@
     <!--카테고리 버튼-->
     <section class="relative w-full h-15 border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex items-center">
       <nav aria-label="카테고리 필터">
-        <ul class="inline-flex gap-4 ml-5">
+        <ul class="inline-flex gap-4 ml-5 text-sm">
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">전체</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">전체</button>
           </li>
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">HTML</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">HTML</button>
           </li>
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">JavaScript</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">JavaScript</button>
           </li>
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">React</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">React</button>
           </li>
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">TypeScript</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">TypeScript</button>
           </li>
           <li><button
-              class="w-[88px] h-[36px] rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">알고리즘</button>
+              class="w-25 h-9 rounded-4xl bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer hover:bg-gray-300">알고리즘</button>
           </li>
         </ul>
       </nav>
@@ -120,8 +117,5 @@
         <p>© 2025 개인 개발 블로그. All rights reserved.</p>
       </div>
     </footer>
-    <!-- <script type="module" src="/src/main.js"></script> -->
-    <script type="module" src="./components/header/innerHeader.js"></script>
-    <script type="module" src="./components/header/header.js"></script>
   </body>
 </html>

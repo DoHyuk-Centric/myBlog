@@ -7,7 +7,11 @@ export default {
     "./src/**/*.js",     
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        A2Z: ["A2Z-SemiBold", "sans-serif"]
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

@@ -1,3 +1,12 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
+
+@font-face {
+	font-family: 'A2Z-SemiBold';
+	src: url('/font/A2Z-6SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'A2Z-Bold';
+	src: url('/font/A2Z-7Bold.ttf') format('truetype');
+}

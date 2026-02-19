@@ -4,11 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>글 수정</title>
-    <link rel="stylesheet" href="../src/style.css" />
     <link rel="stylesheet" href="../src/scroll.css" />
+    <script type="module" src="../components/header/innerHeader.js"></script>
+    <script type="module" src="../components/header/header.js"></script>
+    <script type="module" src="../components/postCreate/preview/previewcontroler.js"></script>
+
+    <!-- 버튼 상호작용 -->
+     <script type="module" src="../components/postCreate/inputcontent/inputPostEditor.js"></script>
+
+    <!-- textarea input -->
+    <script type="module" src="../components/postCreate/inputcontent/imginput.js"></script>
+    
+    <!-- marked 사용(CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- DB 정보 불러오기 -->
+    <script type="module" src="../components/postCreate/postCorrectionUpdate.js"></script>
+    <script type="module" src="../components/post/postCorrection.js"></script>
+    <script type="module" src="../src/main.js"></script>
   </head>
-  <body>
-    <header id="header-placeholder"></header>
+  <body class="scroll">
     <main id="post-section" class="w-full h-[calc(100vh-5rem)] grid grid-cols-1 md:grid-cols-2 mt-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
       <div id="imgWrapper" class="hidden z-1 fixed inset-0 flex items-center justify-center bg-black/40">
         <div id="imgAdd" class="w-[250px] rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg p-3 z-50">
@@ -109,22 +124,5 @@
         preview
       </button>
     </main>
-
-    <script type="module" src="../components/header/innerHeader.js"></script>
-    <script type="module" src="../components/header/header.js"></script>
-    <script type="module" src="../components/postCreate/preview/previewcontroler.js"></script>
-
-    <!-- 버튼 상호작용 -->
-     <script type="module" src="../components/postCreate/inputcontent/inputPostEditor.js"></script>
-
-    <!-- textarea input -->
-    <script type="module" src="../components/postCreate/inputcontent/imginput.js"></script>
-    
-    <!-- marked 사용(CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <!-- DB 정보 불러오기 -->
-     <script type="module" src="../components/postCreate/postCorrectionUpdate.js"></script>
-     <script type="module" src="../components/post/postCorrection.js"></script>
   </body>
 </html>
