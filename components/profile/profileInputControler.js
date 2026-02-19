@@ -11,7 +11,7 @@ async function profileInput() {
   const userID = document.getElementById("user-id");
   const userEmail = await profileUserId();
 
-  if (userID) userID.textContent = userEmail || "로그인 필요";
+  if (userID) userID.textContent = userEmail;
 
   const profileInput = {
     nickName: document.getElementById("profileNickName"),
@@ -30,6 +30,10 @@ async function profileUserId() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  if(!user){
+    window.location.href = "/pages/404.html";
+    return null;
+  }
   return user?.email;
 }
 
