@@ -4,7 +4,6 @@ import { supabase } from "../../src/supabase.js";
 loginHandler();
 
 function loginHandler() {
-
   document.getElementById("githubLogin").addEventListener("click", async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
