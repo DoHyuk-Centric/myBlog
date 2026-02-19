@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이용약관</title>
+    <script type="module" src="../src/main.js"></script>
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+    <script type="module" src="/components/login/policyHandler.js"></script>
+</head>
+<body class="pt-20 font-[A2Z-SemiBold]">
+    <main class="flex flex-col items-center justify-center h-[calc(100vh-80px)] bg-white dark:bg-gray-800 dark:text-white">
+        <article class="relative border w-200 flex flex-col gap-10 p-5 rounded-2xl">
+            <h1 class="text-4xl text-center">이용약관</h1>
+            <section>
+                <ol>
+                    <li class="mb-2"><p class="text-2xl">1. 서비스 이용</p></li>
+                    <li><p>본 블로그는 개발 기록과 개인 프로젝트 공유를 목적으로 운영됩니다.</p></li>
+                    <li><p>회원은 로그인 후 글 작성, 댓글 작성 등 기본 기능을 이용할 수 있습니다.</p></li>
+                </ol>
+            </section>
+            <section>
+                <ol>
+                    <li class="mb-2"><p class="text-2xl">2. 금지사항</p></li>
+                    <li><p>타인의 개인정보를 무단 수집하거나 공유하는 행위</p></li>
+                    <li><p>악성 코드, 광고, 스팸 등을 게시하는 행위</p></li>
+                    <li><p>타인의 명예를 훼손하는 글 작성</p></li>
+                </ol>
+            </section>
+            <section>
+                <ol>
+                    <li class="mb-2"><p class="text-2xl">3. 서비스 책임</p></li>
+                    <li><p>블로그 운영자는 게시글 내용에 대해 제한된 책임만을 가지며, 회원이 게시한 내용에 대한 법적 책임은 작성자에게 있습니다.</p></li>
+                </ol>
+            </section>
+            <section>
+                <ol>
+                    <li class="mb-2"><p class="text-2xl">4. 약관 동의</p></li>
+                    <li><p>회원은 로그인 시 본 약관과 개인정보처리방침에 동의한 것으로 간주됩니다.</p></li>
+                </ol>
+            </section>
+            <button id="exitButton" class="absolute top-8 right-8 cursor-pointer p-1 rounded-md hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="4" x2="20" y2="20"/>
+                    <line x1="20" y1="4" x2="4" y2="20"/>
+                </svg>
+            </button>
+        </article>
+    </main>
+</body>
+</html>
