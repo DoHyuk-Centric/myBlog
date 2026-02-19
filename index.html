@@ -14,13 +14,13 @@
   <main id="main" class="maincontainer">
     <!--비디오 섹션-->
     <section class="relative w-full h-100 mt-16">
-      <video width="1920" height="1080" class="absolute w-full h-full object-cover" src="./video/mainvideo3.mp4" autoplay muted loop></video>
-      <div class="absolute w-full h-full bg-black/50"></div>
+      <div class="absolute w-full h-full bg-linear-to-r from-black via-black/90 to-black/80 dark:from-blue-950 dark:via-blue-950/90 dark:to-blue-950/80"></div>
       <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
         <h2 class="p-10 text-5xl">코드로 배우고 공유하다.</h2>
         <p class="pl-10 text-2xl">Front-End 개발자의 성장 기록</p>
         <p class="pl-10 text-2xl">최신 기술과 프로젝트 경험을 기록합니다.</p>
       </div>
+      <button class="hidden md:block z-11 absolute w-12 h-12 top-20 right-[5%] rounded-full text-slate-700 bg-[radial-gradient(circle,white_40%,#ccc_60%,#000_100%)] shadow-xl backdrop-blur-sm cursor-pointer hover:animate-[squish_0.9s_ease-in-out] text-xl">?</button>
     </section>
 
     <!--카테고리 버튼-->
@@ -61,8 +61,8 @@
             </div>
             <div class="m-5 flex flex-col gap-5 min-h-[120px]">
               <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Blog</div>
-              <h3 class="text-xl group-hover:text-blue-400">개인의 기술들을 정리해 놓은 블로그</h3>
-              <p class="text-xs">개발 기간동안 배우고, 다룬 내용들을 정리하고 느꼈던 감정과 생각들을 정리하여 기록합니다.</p>
+              <h3 class="text-xl group-hover:text-blue-400">문제해결 과정을 정리해 놓은 블로그</h3>
+              <p class="text-xs">배우고, 다룬 내용들을 정리하고 느꼈던 감정과 생각의 흐름들을 정리하여 기록하는 방식을 추구합니다.</p>
             </div>
             <div class="mb-3 border-t border-gray-300 dark:border-gray-500 w-[90%] mx-auto mt-auto"></div>
             <div
@@ -113,7 +113,7 @@
         <h1 class="text-xl">DoHyek.dev</h1>
       </div>
       <div class="p-10 flex-grow text-right">
-        <p>© 2025 개인 개발 블로그. All rights reserved.</p>
+        <p>© 2026 개인 개발 블로그. All rights reserved.</p>
       </div>
     </footer>
   </body>

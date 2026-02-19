@@ -10,3 +10,26 @@
 	font-family: 'A2Z-Bold';
 	src: url('/font/A2Z-7Bold.ttf') format('truetype');
 }
+
+@keyframes squish {
+	0%, 100% {
+		transform: scale(1, 1);
+		border-radius: 50%;
+	}
+	20% {
+		transform: scale(1.1, 0.9);
+		border-radius: 45% 55% 50% 50%;
+	}
+	40% {
+		transform: scale(0.9, 1.1);
+		border-radius: 55% 45% 50% 50%;
+	}
+	60% {
+		transform: scale(1.05, 0.95);
+		border-radius: 48% 52% 50% 50%;
+	}
+	80% {
+		transform: scale(0.97, 1.03);
+		border-radius: 52% 48% 50% 50%;
+	}
+}
