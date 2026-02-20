@@ -7,19 +7,16 @@ async function navLoginTextControler() {
   const loginBtn = document.getElementById("login");
   const logoutBtn = document.getElementById("logout");
   const userBtn = document.getElementById("user");
-  const signupBtn = document.getElementById("signup");
 
   const {data} = await supabase.auth.getSession();
   const isLogin = localStorage.getItem("isLogin") === "true";
 
   if (isLogin) {
     loginBtn.style.display = "none";
-    signupBtn.style.display = "none";
     logoutBtn.style.display = "block";
     userBtn.style.display = "block";
   } else {
     loginBtn.style.display = "block";
-    signupBtn.style.display = "block";
     logoutBtn.style.display = "none";
     userBtn.style.display = "none";
   }

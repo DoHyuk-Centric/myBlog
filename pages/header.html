@@ -20,10 +20,10 @@
           aria-controls="menuBar"
         >
           <!-- 다크 모드일때 -->
-          <img class="hidden dark:block" width="40" height="40" src="../img/mode/dark/menubar_dark.png" alt="" />
+          <img class="hidden dark:block" width="40" height="40" src="/img/mode/dark/menubar_dark.png" alt="" />
 
           <!-- 라이트 모드일때 -->
-          <img class="block dark:hidden" width="40" height="40" src="../img/mode/light/menubar_light.png" alt="" />
+          <img class="block dark:hidden" width="40" height="40" src="/img/mode/light/menubar_light.png" alt="" />
         </button>
 
         <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
@@ -41,9 +41,9 @@
         <div class="relative flex justify-end items-center flex-grow mr-5 gap-2">
           <button id="searchBtn" class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700">
             <!-- 다크 모드 -->
-            <img class="ml-auto hidden dark:block" width="40" height="40"  src="./img/mode/dark/menubar_dark.png" alt="검색" />
+            <img class="ml-auto hidden dark:block" width="40" height="40"  src="/img/mode/dark/search_dark.png" alt="검색" />
             <!-- 라이트 모드 -->
-            <img class="ml-auto bolck dark:hidden" width="40" height="40"  src="./img/mode/light/search_light.png" alt="검색" />
+            <img class="ml-auto bolck dark:hidden" width="40" height="40"  src="/img/mode/light/search_light.png" alt="검색" />
           </button>
           <div
             id="searchWrap"
@@ -69,17 +69,17 @@
             <!-- moon 아이콘 -->
             <div class="duration-300 ease-out">
               <!-- 다크 모드 -->
-              <img id="moon_light" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="./img/mode/light/moon_light.png" alt=""/>
+              <img id="moon_light" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/light/moon_light.png" alt=""/>
               <!-- 라이트 모드 -->
-              <img id="moon_dark" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="./img/mode/dark/moon_dark.png" alt=""/>
+              <img id="moon_dark" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/moon_dark.png" alt=""/>
             </div>
 
             <!-- sun 아이콘 -->
             <div class="duration-300 ease-out">
               <!-- 라이트모드 -->
-              <img id="sun_dark" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="./img/mode/dark/sun_dark.png" alt=""/>
+              <img id="sun_dark" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/sun_dark.png" alt=""/>
               <!-- 다크모드 -->
-              <img id="sun_light" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="./img/mode/light/sun_light.png" alt=""/>
+              <img id="sun_light" width="30" height="30" class="absolute left-10 top-4 w-4 h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/light/sun_light.png" alt=""/>
             </div>
           </button>
         </div>
@@ -92,22 +92,21 @@
             <h2 class="text-2xl ml-5">메뉴</h2>
             <button id="menuExitBtn" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5" aria-label="메뉴 닫기">
               <!-- 다크 모드 -->
-              <img class="hidden dark:block" width="30" height="30" src="./img/mode/dark/delete_dark.png" alt=""/>
+              <img class="hidden dark:block" width="30" height="30" src="/img/mode/dark/delete_dark.png" alt=""/>
               <!-- 라이트 모드 -->
-              <img class="block dark:hidden" width="30" height="30" src="./img/mode/light/delete_light.png" alt=""/>
+              <img class="block dark:hidden" width="30" height="30" src="/img/mode/light/delete_light.png" alt=""/>
             </button>
           </div>
           <div class="flex items-center pt-4 pb-4 text-lg border-b border-gray-700">
             <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="로그아웃">로그아웃</button>
             <button type="button" id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="내정보">내정보</button>
-            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./pages/login.html" aria-label="로그인">로그인</a>
-            <a id="signup" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="./pages/signup.html" aria-label="회원가입">회원가입</a>
+            <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="/pages/login.html" aria-label="로그인">로그인</a>
           </div>
           <nav>
             <ul class="flex flex-col gap-12 mt-5 mb-5 text-2xl p-5">
-              <li><a href="./index.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
-              <li><a href="./pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
-              <li><a href="./pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
+              <li><a href="/" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
+              <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
+              <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
             </ul>
           </nav>
         </aside>
