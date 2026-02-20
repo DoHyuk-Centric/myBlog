@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/scroll.css" />
     <script type="module" src="../components/about/aside_nav.js"></script>
+    <script type="module" src="../components/animations/animation.js"></script>
 </head>
 
 <body class="overflow-hidden font-[A2Z-SemiBold]">
-    <div id="header-placeholder"></div>
-
     <!--네비게이션-->
     <aside id="aside_nav"
-        class="border bg-white dark:bg-gray-200 opacity-50 hover:opacity-100 duration-300 rounded-full w-[50px] h-[150px] gap-3 flex flex-col justify-center pr-2 items-end text-white fixed right-8 top-1/2 -translate-y-1/2 z-11">
+        class="hidden xl:flex border bg-white dark:bg-gray-200 opacity-50 hover:opacity-100 duration-300 rounded-full w-[50px] h-[150px] gap-3 flex-col justify-center pr-2 items-end text-white fixed right-8 top-1/2 -translate-y-1/2 z-11">
         <button class="about_aside_btn rounded-full duration-300 bg-blue-400 w-[30px] h-[6px]"></button>
         <button class="about_aside_btn rounded-full duration-300 bg-blue-400 w-[15px] h-[6px]"></button>
         <button class="about_aside_btn rounded-full duration-300 bg-blue-400 w-[15px] h-[6px]"></button>
@@ -28,41 +27,40 @@
     <main id="maincontainer" class="scroll maincontainer h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
         <section id="introduction_section_1" class="snap-start h-full">
             <!--비디오 섹션-->
-            <header class="relative w-full h-screen overflow-hidden">
-                <video class="absolute inset-0 w-full h-full object-cover" src="/video/mainvideo3.mp4" autoplay muted
-                    loop></video>
+            <header class="relative w-100vw h-screen overflow-hidden">
+                <div class="background-Animation"></div>
                 <div class="absolute w-full h-full bg-black/50"></div>
-                <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
-                    <h2 class="p-10 text-5xl">꾸준함은 무기다.</h2>
-                    <p class="pl-10 mb-2 text-2xl">Frontend Engineer</p>
+                <div class="absolute w-full h-full flex lg:left-[60vw] flex-col justify-center text-white z-10">
+                    <h2 id="aboutHeaderText" class="p-10 text-5xl">꾸준함은 무기다.</h2>
+                    <p id="aboutPText" class="pl-10 mb-2 text-2xl">Frontend Engineer</p>
                     <p class="pl-10 text-xl">clzlsdlwhgdk12@gmail.com</p>
                 </div>
             </header>
         </section>
 
         <div class="bg-gray-300 dark:bg-gray-700 text-black dark:text-white flex flex-col"> 
-            <section id="introduction_section_2" class="snap-start h-screen pt-20 justify-center items-center flex">
-                <img width="400" class="rounded-2xl shadow-lg mr-10" src="/img/cookie.jpg" alt="고양이 사진" />          
-                <div class="flex flex-col rounded-lg shadow-lg gap-4 bg-gray-200 text-black p-10">
-                    <h2 class="text-3xl mb-5">김도혁</h2>
-                    <nav class="grid gap-10">
-                        <ul class="text-xl gap-10 flex items-center">
-                            <img width="45" height="45" class="w-[45px] h-[45px]" src="/img/edu.png" alt="학력 이미지" />
+            <section id="introduction_section_2" class="snap-start h-screen pt-20 justify-center items-center flex flex-col gap-10 lg:flex-row lg:gap-0">
+                <img width="400" class="w-60 sm:w-100 rounded-2xl shadow-lg mr-0 md:mr-10" src="/img/cookie.jpg" alt="고양이 사진" />          
+                <div class="flex flex-col rounded-lg shadow-lg gap-1 sm:gap-4 bg-gray-200 text-black p-5 sm:p-10">
+                    <h2 class="text-xl sm:text-3xl mb-1 sm:mb-5">김도혁</h2>
+                    <nav class="grid gap-5 sm:gap-10">
+                        <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+                            <img width="45" height="45" class="w-[34px] h-[34px] sm:w-[45px] sm:h-[45px]" src="/img/edu.png" alt="학력 이미지" />
                             <li class="flex flex-col gap-3">
-                                <p>세명대 컴퓨터학부 졸업 <span class="text-sm">(2017 ~ 2022)</span></p>
-                                <p>멋쟁이사자 부트캠프 17th <span class="text-sm">(2026.01 ~ )</span></p>
+                                <p class="whitespace-nowrap">세명대 컴퓨터학부 졸업 <span class="text-xs sm:text-sm">(2017 ~ 2022)</span></p>
+                                <p class="whitespace-nowrap">멋쟁이사자 부트캠프 17th <span class="text-xs sm:text-sm">(2026.01 ~ )</span></p>
                             </li>
                         </ul>
-                        <ul class="text-xl gap-10 flex items-center">
-                            <img width="44" height="44" class="w-[44px] h-[44px] ml-[1px]" src="/img/career.png" alt="경력 이미지" />
+                        <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+                            <img width="44" height="44" class="w-[34px] h-[34px] sm:w-[44px] sm:h-[44px] ml-[1px]" src="/img/career.png" alt="경력 이미지" />
                             <li class="flex flex-col gap-3">
-                                <p>ROTC 60기 중위 전역 <span class="text-sm">(2022 ~ 2025)</span></p>
+                                <p class="whitespace-nowrap">ROTC 60기 중위 전역 <span class="text-xs sm:text-sm">(2022 ~ 2025)</span></p>
                             </li>
                         </ul>
-                        <ul class="text-xl gap-10 flex items-center">
-                            <img width="45" height="45" class="w-[45px] h-[45px]" src="/img/tech.png" alt="기술 이미지" />
+                        <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+                            <img width="45" height="45" class="w-[34px] h-[34px] sm:w-[45px] sm:h-[45px]" src="/img/tech.png" alt="기술 이미지" />
                             <li class="flex flex-col gap-3">
-                                <p class="text-xl">Stack : HTML, CSS, JavaScript, React</p>
+                                <p class="text-xs sm:text-xl whitespace-nowrap">Stack : HTML, CSS, JavaScript, React</p>
                             </li>
                         </ul>
                     </nav>
