@@ -1,11 +1,10 @@
 navControler();
 function navControler(){
   const mainContainer = document.querySelector(".maincontainer");
-  const section = document.querySelectorAll(".maincontainer section");
+  const section = document.querySelectorAll(`.maincontainer [id^="introduction_section_"]`);
   const asideBtn = document.querySelectorAll(".about_aside_btn");
 
-  const sections = document.querySelectorAll(".maincontainer section");
-
+  console.log(section);
   let isFirstLoad = true;
 
   const observerOptions = {
@@ -22,7 +21,7 @@ function navControler(){
 
     entries.forEach((entry) => {
       if(entry.isIntersecting){
-        const sectionNum = Array.from(sections).indexOf(entry.target) + 1;
+        const sectionNum = Array.from(section).indexOf(entry.target) + 1;
         actionAsideNav(sectionNum, asideBtn);
       }
     });
