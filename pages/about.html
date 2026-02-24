@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/src/scroll.css" />
     <script type="module" src="../components/about/aside_nav.js"></script>
     <script type="module" src="../components/animations/animation.js"></script>
+    <script type="module" src="../components/about/mobileButtonEvent.js"></script>
     <script
       type="module"
       src="../components/about/animation/cardDrag.js"
@@ -43,19 +44,18 @@
     <!--메인-->
     <main
       id="maincontainer"
-      class="scroll maincontainer h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory"
+      class="scroll maincontainer h-screen overflow-scroll scroll-smooth snap-y snap-mandatory"
     >
       <section id="introduction_section_1" class="snap-start h-full">
-        <!--비디오 섹션-->
         <header class="relative w-100vw h-screen overflow-hidden">
           <div class="background-Animation"></div>
           <div class="absolute w-full h-full bg-black/50"></div>
           <div
             class="absolute w-full h-full flex lg:left-[60vw] flex-col justify-center text-white z-10"
           >
-            <h2 id="aboutHeaderText" class="p-10 text-5xl">꾸준함은 무기다.</h2>
-            <p id="aboutPText" class="pl-10 mb-2 text-2xl">Frontend Engineer</p>
-            <p class="pl-10 text-xl">clzlsdlwhgdk12@gmail.com</p>
+            <h2 id="aboutHeaderText" class="pl-5 sm:pl-10 text-xl sm:text-3xl md:text-5xl">꾸준함은 무기다.</h2>
+            <p id="aboutPText" class="pl-5 sm:pl-10 mb-2 text-sm sm:text-xl md:text-2xl">Frontend Engineer</p>
+            <p class="pl-5 sm:pl-10 text-xs sm:text-xl">clzlsdlwhgdk12@gmail.com</p>
           </div>
         </header>
       </section>
@@ -69,59 +69,59 @@
         >
           <img
             width="400"
-            class="w-60 sm:w-100 rounded-2xl shadow-lg mr-0 md:mr-10"
+            class="w-60 sm:w-100 xl:w-150 rounded-2xl shadow-lg mr-0 md:mr-10"
             src="/img/cookie.jpg"
             alt="고양이 사진"
           />
           <div
-            class="flex flex-col rounded-lg shadow-lg gap-1 sm:gap-4 bg-gray-200 text-black p-5 sm:p-10"
+            class="flex flex-col rounded-lg shadow-lg gap-1 sm:gap-4 bg-gray-200 text-black p-5 sm:p-10 xl:p-20"
           >
-            <h2 class="text-xl sm:text-3xl mb-1 sm:mb-5">김도혁</h2>
+            <h2 class="text-xl sm:text-3xl xl:text-5xl mb-1 sm:mb-5">김도혁</h2>
             <nav class="grid gap-5 sm:gap-10">
-              <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+              <ul class="text-sm sm:text-xl xl:text-3xl gap-5 sm:gap-10 flex items-center">
                 <img
                   width="45"
                   height="45"
-                  class="w-[34px] h-[34px] sm:w-[45px] sm:h-[45px]"
+                  class="w-8.5 h-8.5 sm:w-11.25 sm:h-11.25 xl:w-15.5 xl:h-15.5"
                   src="/img/edu.png"
                   alt="학력 이미지"
                 />
                 <li class="flex flex-col gap-3">
                   <p class="whitespace-nowrap">
                     세명대 컴퓨터학부 졸업
-                    <span class="text-xs sm:text-sm">(2017 ~ 2022)</span>
+                    <span class="text-xs sm:text-sm xl:text-lg">(2017 ~ 2022)</span>
                   </p>
                   <p class="whitespace-nowrap">
                     멋쟁이사자 부트캠프 17th
-                    <span class="text-xs sm:text-sm">(2026.01 ~ )</span>
+                    <span class="text-xs sm:text-sm xl:text-lg">(2026.01 ~ )</span>
                   </p>
                 </li>
               </ul>
-              <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+              <ul class="text-sm sm:text-xl xl:text-3xl gap-5 sm:gap-10 flex items-center">
                 <img
                   width="44"
                   height="44"
-                  class="w-[34px] h-[34px] sm:w-[44px] sm:h-[44px] ml-[1px]"
+                  class="w-8.5 h-8.5 sm:w-11 sm:h-11 xl:w-15.25 xl:h-15.25 ml-px"
                   src="/img/career.png"
                   alt="경력 이미지"
                 />
                 <li class="flex flex-col gap-3">
                   <p class="whitespace-nowrap">
                     ROTC 60기 중위 전역
-                    <span class="text-xs sm:text-sm">(2022 ~ 2025)</span>
+                    <span class="text-xs sm:text-sm xl:text-lg">(2022 ~ 2025)</span>
                   </p>
                 </li>
               </ul>
-              <ul class="text-sm sm:text-xl gap-5 sm:gap-10 flex items-center">
+              <ul class="text-sm sm:text-xl xl:text-3xl gap-5 sm:gap-10 flex items-center">
                 <img
                   width="45"
                   height="45"
-                  class="w-[34px] h-[34px] sm:w-[45px] sm:h-[45px]"
+                  class="w-8.5 h-8.5 sm:w-11.25 sm:h-11.25 xl:w-15.5 xl:h-15.5"
                   src="/img/tech.png"
                   alt="기술 이미지"
                 />
                 <li class="flex flex-col gap-3">
-                  <p class="text-xs sm:text-xl whitespace-nowrap">
+                  <p class="text-xs sm:text-xl xl:text-3xl whitespace-nowrap">
                     Stack : HTML, CSS, JavaScript, React
                   </p>
                 </li>
@@ -130,45 +130,153 @@
           </div>
         </section>
         <section id="introduction_section_3" class="text-black snap-start flex items-center h-screen pt-20">
-          <div id="introduceCardSection" class="relative w-full h-[70%] flex">
+          <div class="relative dark:text-white w-full h-full flex justify-center items-center lg:hidden text-[10px]">
+            <section id="introduceMobileButton" class="flex flex-col dark:bg-slate-800 bg-[#f4f3ef] dark:border-slate-600 border-[#e2e0d8] w-[20%] h-[60%] justify-center items-center border-2 rounded-l-2xl">
+              <button data-target="01_project" class="rounded-tl-xl bg-[#e2e0d8] dark:bg-slate-900 text-[8px] sm:text-[12px] w-full flex-1"><p class="mb-1 text-[12px] sm:text-[16px] dark:text-[#eecd94]">01</p>블로그 프로젝트</button>
+              <button data-target="02_project" class="text-[8px] sm:text-[12px] w-full dark:border-slate-600 border-[#e2e0d8] border-b-2 border-t-2 flex-1"><p class="mb-1 text-[12px] sm:text-[16px] dark:text-[#eecd94]">02</p>기술스택 & 아키텍처</button>
+              <button data-target="03_project" class="rounded-bl-xl text-[8px] sm:text-[12px] w-full flex-1"><p class="mb-1 text-[12px] sm:text-[16px] dark:text-[#eecd94]">03</p>핵심기능 구현</button>
+            </section>
+            <section class="w-[60%] h-[60%] flex">
+              <div id="01_project" class="w-full p-5 flex justify-center bg-white dark:bg-slate-800 rounded-r-2xl dark:border-slate-600 border-[#e2e0d8] border-r-2 border-t-2 border-b-2">
+                <div class="flex flex-col justify-center">
+                  <span class="border rounded-2xl mb-1 py-0.5 px-1 w-max text-[6px] text-blue-500 bg-blue-50 dark:bg-slate-800">PROJECT</span>
+                  <h2>프로젝트명 : DoHyek.dev</h2>
+                  <p class="text-[8px] dark:text-amber-100 text-gray-400">기간 : 2025.12 ~ 2026.03 · 약 3개월</p>
+                  <div class="mt-2 border rounded-md border-[#e2e0d8] flex flex-col divide-y divide-[#e2e0d8] dark:border-slate-600 dark:divide-slate-600 dark:bg-slate-800 gap-1 bg-[#f4f3ef]">
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">계기</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>직접 유지보수 및 관리 가능</li>
+                        <li>velog 사용 중 느낀 불편함 개선</li>
+                        <li>Tistory의 동영상 콘텐츠 중단이후, 장기적으로 유지가 가능한 블로그 필요성 증대</li>
+                      </ul>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">개선점</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>Velog에서 글쓰기 버튼의 불안정함을 개선</li>
+                      </ul>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">영감</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>Tistory처럼 미리보기를 별도의 버튼을 누르지 않더라도 velog처럼 우측에 실시간 미리보기 제공</li>
+                        <li>개발자 친화적인 MarkDown 기반의 velog 글쓰기 UX</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="02_project" class="hidden w-full p-5 justify-center bg-white dark:bg-slate-800 rounded-r-2xl dark:border-slate-600 border-[#e2e0d8] border-r-2 border-t-2 border-b-2">
+                <div class="flex flex-col justify-center">
+                  <span class="border rounded-2xl mb-1 py-0.5 px-1 w-max text-[6px] text-green-500 bg-green-50 dark:bg-slate-800">STACK</span>
+                  <h2>기술스택 & 아키텍처</h2>
+                  <p class="text-[8px] dark:text-amber-100 text-gray-400">배포 : Vecel</p>
+                  <div class="mt-2 border rounded-md border-[#e2e0d8] flex flex-col divide-y divide-[#e2e0d8] dark:border-slate-600 dark:divide-slate-600 dark:bg-slate-800 gap-1 bg-[#f4f3ef]">
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">FrontEnd</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>VanillaJS</li>
+                        <li>Tailwind CSS</li>
+                        <li>Vite</li>
+                      </ul>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">BackEnd</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>Supabase(Auth, Stroage, DB)</li>
+                      </ul>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">트러블슈팅</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>Scroll Navigation 개선</li>
+                        <li>Menu UI + 접근성 통합 설계</li>
+                        <li>Async 제어 흐름 개선</li>
+                        <li>Firebase → Supabase Auth 마이그레이션</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="03_project" class="hidden w-full p-5 justify-center bg-white dark:bg-slate-800 rounded-r-2xl dark:border-slate-600 border-[#e2e0d8] border-r-2 border-t-2 border-b-2">
+                <div class="flex flex-col justify-center">
+                  <span class="border rounded-2xl mb-1 py-0.5 px-1 w-max text-[6px] text-purple-500 bg-purple-50 dark:bg-slate-800">FEATURE</span>
+                  <h2>핵심기능 구현</h2>
+                  <p class="text-[8px] dark:text-amber-100 text-gray-400">데이터 흐름 중심 설계</p>
+                  <div class="mt-2 border rounded-md border-[#e2e0d8] flex flex-col divide-y divide-[#e2e0d8] dark:border-slate-600 dark:divide-slate-600 dark:bg-slate-800 gap-1 bg-[#f4f3ef]">
+                    <div class="text-[8px] flex gap-1 divide-x divide-[#e2e0d8]">
+                      <div class="p-2 flex-1">
+                        <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">MarkDown</h3>
+                        <ul class="text-slate-600 dark:text-amber-50">
+                          <li>입력 → 파싱 → 실시간 미리보기 렌더링</li>
+                        </ul>
+                      </div>
+                      <div class="p-2 flex-1">
+                        <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">Auth</h3>
+                        <ul class="text-slate-600 dark:text-amber-50">
+                          <li>Auth 이벤트 기반 로그인 상태관리</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">비동기 & 상태흐름</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>저장 완료(await) 후 라우팅으로 데이터 유실 방지</li>
+                      </ul>
+                    </div>
+                    <div class="p-2 text-[8px]">
+                      <h3 class="text-[10px] text-[#c9a84c] dark:text-amber-400">렌더링 최적화</h3>
+                      <ul class="text-slate-600 dark:text-amber-50">
+                        <li>Scroll 이벤트 → Observer로 섹션 감지구조 변경</li>
+                        <li>메뉴 UI를 상태 기반으로 통합</li>
+                        <li>비동기 완료 후 라우팅 처리로 실행 흐름 제어 개선</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div id="introduceCardSection" class="relative w-full h-[70%] hidden lg:flex">
             <div class="card-drag-layer absolute inset-0 w-full">
               <div
-                class="introduce-card z-10 scale-100 absolute blur-none left-1/2 top-1/2 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 border flex flex-col gap-4 w-200 p-5 bg-white"
+                class="introduce-card z-10 scale-100 absolute blur-none left-1/2 top-1/2 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 border rounded-2xl flex flex-col gap-4 w-200 p-5 bg-white"
               >
-                <h2 class="text-xl sm:text-3xl text-center mb-2">
+                <h2 class="text-3xl text-center mb-2">
                   DoHyuk.dev 프로젝트
                 </h2>
-                <p class="text-sm sm:text-xl">주제 : 개인블로그</p>
-                <p class="text-sm sm:text-xl">
+                <p class="text-xl">주제 : 개인블로그</p>
+                <p class="text-xl">
                   기간 : 2025.12 ~ 2026.03(약 3개월)
                 </p>
                 <section
                   class="relative flex flex-col gap-5 border rounded-2xl p-5"
                 >
                   <div class="p-5 border rounded-2xl">
-                    <h3 class="text-sm sm:text-xl mb-1 sm:mb-5 text-center">
+                    <h3 class="text-xl mb-5 text-center">
                       계기
                     </h3>
                     <ul class="list-disc pl-3">
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         velog 사용 중 느꼈던 불편함을 개선
                       </li>
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         Tistory의 동영상 콘텐츠 중단 이후, 장기적으로 유지
                         가능한 블로그가 필요하다고 판단
                       </li>
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         직접 관리·유지보수 가능
                       </li>
                     </ul>
                   </div>
 
                   <div class="p-5 border rounded-2xl">
-                    <h3 class="text-sm sm:text-xl mb-1 sm:mb-5 text-center">
+                    <h3 class="text-xl mb-1 sm:mb-5 text-center">
                       개선점
                     </h3>
                     <ul class="list-disc pl-3">
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         이미지 버튼 클릭 시, 텍스트를 띄어 이미지 Markdown이
                         자동 삽입되도록 개선
                       </li>
@@ -176,15 +284,15 @@
                   </div>
 
                   <div class="p-5 border rounded-2xl">
-                    <h3 class="text-sm sm:text-xl mb-1 sm:mb-5 text-center">
+                    <h3 class="text-xl mb-1 sm:mb-5 text-center">
                       영감
                     </h3>
                     <ul class="list-disc pl-3">
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         Tistory처럼 별도 버튼을 누르지 않아도, velog처럼 우측에
                         실시간 미리보기를 제공
                       </li>
-                      <li class="text-xs sm:text-lg">
+                      <li class="text-lg">
                         개발자 친화적인 Markdown 기반의 velog 글쓰기 UX
                       </li>
                     </ul>
@@ -194,27 +302,27 @@
             </div>
             <div class="card-drag-layer absolute inset-0 w-full">
               <div
-                class="introduce-card z-9 scale-95 blur-xs absolute left-3/5 top-1/2 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 border flex flex-col gap-4 w-200 p-5 bg-white"
+                class="introduce-card z-9 scale-95 blur-xs absolute left-3/5 top-1/2 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 border rounded-2xl flex flex-col gap-4 w-200 p-5 bg-white"
               >
-                <h2 class="text-xl sm:text-3xl text-center mb-2">
+                <h2 class="text-3xl text-center mb-2">
                   기술 스택 & 아키텍처
                 </h2>
-                <p class="text-sm sm:text-xl">배포 : Vercel</p>
+                <p class="text-xl">배포 : Vercel</p>
                 <section
                   class="relative flex flex-col gap-5 border rounded-2xl p-5"
                 >
                   <div class="p-5 border rounded-2xl flex">
                     <div class="w-1/2">
-                      <h3 class="text-sm sm:text-xl mb-1 sm:mb-5">FrontEnd</h3>
+                      <h3 class="text-xl mb-5">FrontEnd</h3>
                       <ul class="list-disc pl-3">
-                        <li class="text-xs sm:text-lg">Vainlla JS</li>
-                        <li class="text-xs sm:text-lg">Tailwind CSS</li>
+                        <li class="text-lg">Vainlla JS</li>
+                        <li class="text-lg">Tailwind CSS</li>
                       </ul>
                     </div>
                     <div class="w-1/2">
-                      <h3 class="text-sm sm:text-xl mb-1 sm:mb-5">BackEnd</h3>
+                      <h3 class="text-xl mb-5">BackEnd</h3>
                       <ul class="list-disc pl-3">
-                        <li class="text-xs sm:text-lg">
+                        <li class="text-lg">
                           Supabase(Auth, Storage, DB)
                         </li>
                       </ul>
@@ -222,11 +330,11 @@
                   </div>
 
                   <div class="p-5 border rounded-2xl">
-                    <h3 class="text-sm sm:text-xl mb-1 sm:mb-5 text-center">
+                    <h3 class="text-xl mb-5 text-center">
                       트러블슈팅
                     </h3>
                     <ul class="list-disc pl-3 flex flex-col gap-5">
-                      <li class="text-xs sm:text-lg space-y-1">
+                      <li class="text-lg space-y-1">
                         <a
                           href="https://hyeeoooook.tistory.com/30"
                           target="_blank"
@@ -253,12 +361,12 @@
                           </svg>
                           Scroll Navigation 개선
                         </a>
-                        <p class="text-gray-500 text-[11px] sm:text-sm">
+                        <p class="text-gray-500 text-sm">
                           offsetTop 기반 조건식 → threshold 보정 →
                           IntersectionObserver 적용
                         </p>
                       </li>
-                      <li class="text-xs sm:text-lg space-y-1">
+                      <li class="text-lg space-y-1">
                         <a
                           href="https://hyeeoooook.tistory.com/33"
                           target="_blank"
@@ -285,11 +393,11 @@
                           </svg>
                           Menu UI + 접근성 통합 설계
                         </a>
-                        <p class="text-gray-500 text-[11px] sm:text-sm">
+                        <p class="text-gray-500 text-sm">
                           이벤트 분산 → 상태 기반 설계 통합
                         </p>
                       </li>
-                      <li class="text-xs sm:text-lg space-y-1">
+                      <li class="text-lg space-y-1">
                         <a
                           href="https://hyeeoooook.tistory.com/39"
                           target="_blank"
@@ -316,11 +424,11 @@
                           </svg>
                           Async 제어 흐름 개선
                         </a>
-                        <p class="text-gray-500 text-[11px] sm:text-sm">
+                        <p class="text-gray-500 text-sm">
                           비동기 완료 전 페이지 이동 문제 → await 기반 흐름 제어
                         </p>
                       </li>
-                      <li class="text-xs sm:text-lg space-y-1">
+                      <li class="text-lg space-y-1">
                         <a
                           href="https://hyeeoooook.tistory.com/40"
                           target="_blank"
@@ -347,7 +455,7 @@
                           </svg>
                           Firebase → Supabase Auth 마이그레이션
                         </a>
-                        <p class="text-gray-500 text-[11px] sm:text-sm">
+                        <p class="text-gray-500 text-sm">
                           Firebase Auth + Supabase DB 분리로 권한 제어 이슈 →
                           Supabase Auth로 통합(RLS 기반)
                         </p>
@@ -362,10 +470,10 @@
                 class="introduce-card z-9 scale-95 absolute blur-xs left-2/5 top-1/2 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 border flex flex-col gap-4 w-200 p-5 bg-white rounded-2xl shadow-lg"
               >
                 <div class="flex flex-col items-center gap-2">
-                  <h2 class="text-xl sm:text-3xl text-center">
+                  <h2 class="text-3xl text-center">
                     핵심 기능 & 구현
                   </h2>
-                  <p class="text-xs sm:text-base text-gray-500">
+                  <p class="text-base text-gray-500">
                     데이터 흐름 중심 설계
                   </p>
                 </div>
@@ -377,16 +485,16 @@
                     class="bg-white border rounded-2xl p-4 shadow-sm hover:shadow-md transition"
                   >
                     <div class="flex items-center justify-between mb-3">
-                      <h3 class="text-sm sm:text-xl font-semibold">Markdown</h3>
+                      <h3 class="text-xl font-semibold">Markdown</h3>
                       <span
-                        class="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100"
+                        class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100"
                       >
                         Editor
                       </span>
                     </div>
 
                     <ul
-                      class="list-disc pl-4 space-y-2 text-xs sm:text-sm text-gray-700"
+                      class="list-disc pl-4 space-y-2 text-sm text-gray-700"
                     >
                       <li>개발자 친화적인 Markdown 기반 작성 UX</li>
                       <li>입력 → 파싱 → 실시간 미리보기 렌더링</li>
@@ -398,18 +506,18 @@
                     class="bg-white border rounded-2xl p-4 shadow-sm hover:shadow-md transition"
                   >
                     <div class="flex items-center justify-between mb-3">
-                      <h3 class="text-sm sm:text-xl font-semibold">
+                      <h3 class="text-xl font-semibold">
                         인증 & 권한 설계
                       </h3>
                       <span
-                        class="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100"
+                        class="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100"
                       >
                         Auth
                       </span>
                     </div>
 
                     <ul
-                      class="list-disc pl-4 space-y-2 text-xs sm:text-sm text-gray-700"
+                      class="list-disc pl-4 space-y-2 text-sm text-gray-700"
                     >
                       <li>Auth 이벤트 기반 로그인 상태 관리</li>
                       <li>Posts–Profiles 관계 모델링으로 작성자 연결</li>
@@ -421,18 +529,18 @@
                     class="bg-white border rounded-2xl p-4 shadow-sm hover:shadow-md transition"
                   >
                     <div class="flex items-center justify-between mb-3">
-                      <h3 class="text-sm sm:text-lg font-semibold">
+                      <h3 class="text-lg font-semibold">
                         비동기 & 상태 흐름
                       </h3>
                       <span
-                        class="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100"
+                        class="text-xs px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100"
                       >
                         Flow
                       </span>
                     </div>
 
                     <ul
-                      class="list-disc pl-4 space-y-2 text-xs sm:text-sm text-gray-700"
+                      class="list-disc pl-4 space-y-2 text-sm text-gray-700"
                     >
                       <li>저장 완료(await) 후 라우팅으로 데이터 유실 방지</li>
                       <li>UI 토글 로직을 상태 기반(open/close)으로 통합</li>
@@ -441,34 +549,34 @@
                   </div>
 
                   <div
-                    class="bg-white/95 border border-gray-200 rounded-3xl p-5 sm:p-6 shadow-lg shadow-black/5 backdrop-blur-sm hover:shadow-xl hover:shadow-black/5 transition md:col-span-3"
+                    class="bg-white/95 border border-gray-200 rounded-3xl p-6 shadow-lg shadow-black/5 backdrop-blur-sm hover:shadow-xl hover:shadow-black/5 transition md:col-span-3"
                   >
                     <div class="flex items-center justify-between mb-4">
                       <h3
-                        class="text-sm sm:text-lg font-semibold text-gray-900 tracking-tight"
+                        class="text-lg font-semibold text-gray-900 tracking-tight"
                       >
                         랜더링 최적화
                       </h3>
 
                       <span
-                        class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-100 font-medium"
+                        class="text-xs px-2 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-100 font-medium"
                       >
-                        Feature
+                        Performance
                       </span>
                     </div>
 
                     <div class="flex">
                       <div
-                        class="rounded-l-2xl border flex flex-col justify-center border-gray-200 bg-gradient-to-b from-gray-50 to-white p-4"
+                        class="rounded-l-2xl border flex flex-col justify-center border-gray-200 bg-linear-to-b from-gray-50 to-white p-4"
                       >
                         <h3
-                          class="text-base sm:text-xl font-semibold text-gray-900 mb-2"
+                          class="text-xl font-semibold text-gray-900 mb-2"
                         >
                           이벤트 기반 구조 개선
                         </h3>
 
                         <p
-                          class="text-xs sm:text-sm text-gray-600 leading-relaxed"
+                          class="text-sm text-gray-600 leading-relaxed"
                         >
                           scroll 이벤트 중심 구조에서 Observer와 상태 기반
                           설계로 전환하며 UI 감지 및 변경 흐름을 단순화했습니다.
@@ -476,17 +584,17 @@
 
                         <div class="mt-4 flex flex-wrap gap-2">
                           <span
-                            class="text-[10px] sm:text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
+                            class="text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
                           >
                             IntersectionObserver
                           </span>
                           <span
-                            class="text-[10px] sm:text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
+                            class="text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
                           >
                             상태 기반 토글
                           </span>
                           <span
-                            class="text-[10px] sm:text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
+                            class="text-xs px-2 py-1 rounded-full border bg-white text-gray-700"
                           >
                             이벤트 통합
                           </span>
@@ -496,7 +604,7 @@
                       <div
                         class="rounded-r-2xl border border-gray-200 bg-white p-4"
                       >
-                        <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                        <ul class="space-y-2 text-sm text-gray-700">
                           <li class="flex gap-2">
                             <span
                               class="mt-[6px] h-1.5 w-1.5 rounded-full bg-purple-400 shrink-0"
@@ -537,7 +645,7 @@
                         </ul>
 
                         <div class="mt-4 pt-4 border-t border-gray-100">
-                          <p class="text-[10px] sm:text-xs text-gray-500">
+                          <p class="text-xs text-gray-500">
                             포인트: 기능 구현 이후 실행 흐름과 이벤트 구조를
                             재설계하며 UI 동작의 일관성과 안정성을 확보했습니다.
                           </p>
