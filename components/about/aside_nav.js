@@ -4,7 +4,6 @@ function navControler(){
   const section = document.querySelectorAll(`.maincontainer [id^="introduction_section_"]`);
   const asideBtn = document.querySelectorAll(".about_aside_btn");
 
-  console.log(section);
   let isFirstLoad = true;
 
   const observerOptions = {
