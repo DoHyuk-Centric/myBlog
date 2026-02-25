@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        A2Z: ["A2Z-SemiBold", "sans-serif"]
+        A2Z: ["A2Z-SemiBold", "sans-serif"],
+        xp: ['Tahoma', 'Dotum', 'Gulim', 'sans-serif'],
       },
     },
   },
