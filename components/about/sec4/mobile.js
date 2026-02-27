@@ -70,6 +70,7 @@ function mobile() {
 
   dock.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
+    if(!btn){return;}
     const app = btn.dataset.app;
 
     appActions[app]?.(app);
@@ -77,6 +78,7 @@ function mobile() {
 
   footer.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
+    if(!btn){return;}
     const action = btn.dataset.app;
     if (action === "mobileHamberger") {
       setOpen(false);
