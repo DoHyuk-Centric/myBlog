@@ -1,4 +1,4 @@
-function mobile() {
+export function initMobile() {
   const dock = document.querySelector("#mobileDock");
   const footer = document.querySelector("#mobileFooter");
 
@@ -96,5 +96,3 @@ function mobile() {
     setOpen(false);
   });
 }
-
-mobile();

@@ -1,5 +1,4 @@
-startClock();
-function startClock(){
+export function initGetTime(){
     getTime();
 
     const now = new Date();

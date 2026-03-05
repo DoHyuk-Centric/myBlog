@@ -1,4 +1,4 @@
-function desktop() {
+export function initDesktop() {
   const windowRoot = document.getElementById("winXpFolderContents");
   const windowDesktopRoot = document.getElementById("winXPContents");
   const headerComponents = document.querySelector("#winXpFolderButtonComponent");
@@ -127,5 +127,3 @@ function desktop() {
 
   navigateByAsideKey("winXpDesktop");
 }
-
-desktop();

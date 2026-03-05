@@ -1,5 +1,4 @@
-mobileButtonEvent();
-function mobileButtonEvent(){
+export function initMobileButtonEvent(){
     const container = document.querySelector("#introduceMobileButton");
     const buttons = Array.from(container.querySelectorAll("button"));
 

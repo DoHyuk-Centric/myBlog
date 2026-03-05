@@ -1,5 +1,7 @@
-navControler();
-function navControler(){
+const ACTIVE_WIDTH = "w-[30px]";
+const INACTIVE_WIDTH = "w-[15px]";
+
+export function initAsideNav(){
   const mainContainer = document.querySelector(".maincontainer");
   const section = document.querySelectorAll(`.maincontainer [id^="introduction_section_"]`);
   const asideBtn = document.querySelectorAll(".about_aside_btn");
@@ -29,16 +31,12 @@ function navControler(){
   section.forEach((sec) => {
     observer.observe(sec);
   });
-}
-
-  function actionAsideNav(sectionNum, asideBtn) {
-    asideBtn.forEach((btn, i) => {
-      if (i === sectionNum - 1) {
-        btn.classList.remove("w-[15px]");
-        btn.classList.add("w-[30px]");
-      } else {
-        btn.classList.remove("w-[30px]");
-        btn.classList.add("w-[15px]");
-      }
+  
+  function actionAsideNav(sectionNum, btns) {
+    btns.forEach((btn, i) => {
+      const isActive = i === sectionNum - 1;
+      btn.classList.toggle(ACTIVE_WIDTH, isActive);
+      btn.classList.toggle(INACTIVE_WIDTH, !isActive);
     });
   }
+}

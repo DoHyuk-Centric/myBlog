@@ -1,6 +1,4 @@
-animations();
-
-export function animations() {
+export function initCardDragAnimation() {
   cardDrag();
 }
 
