@@ -1,13 +1,14 @@
 function desktop() {
   const windowRoot = document.getElementById("winXpFolderContents");
+  const windowDesktopRoot = document.getElementById("winXPContents");
   const headerComponents = document.querySelector("#winXpFolderButtonComponent");
   const asideComponents = document.querySelector("#winXpFolerAside");
   const folderContents = document.getElementById("winXpFolderContents");
 
   const fullClasses = ["w-full", "h-251"];
   const windowClasses = [
-    "left-1/2","top-1/2","transition-transform",
-    "-translate-x-1/2","-translate-y-1/2","w-200","h-100"
+    "left-1/2", "top-1/2", "transition-transform",
+    "-translate-x-1/2", "-translate-y-1/2", "w-200", "h-100"
   ];
 
   function toggleFolderSize() {
@@ -22,7 +23,7 @@ function desktop() {
   }
 
   const headerActions = {
-    winXpMin: () => {},
+    winXpMin: () => { },
     winXpFolderDisplay: () => toggleFolderSize(),
     winXpExit: () => folderContents.classList.add("hidden"),
   };
@@ -89,14 +90,28 @@ function desktop() {
   };
 
   function openWindowIfNeeded(appKey) {
-    // 폴더 더블클릭 시 폴더 창 열기 같은 부가 동작을 여기서만 관리
-    if (appKey === "winXpFolder") folderContents.classList.remove("hidden");
-    else if (appKey === "winXpGithub") window.open("https://github.com/DoHyuk-Centric/myBlog", "_blank", "noopener,noreferrer");
+    folderContents.classList.remove("hidden");
+
+    if (appKey === "winXpGithub") window.open("https://github.com/DoHyuk-Centric/myBlog", "_blank", "noopener,noreferrer");
     else if (appKey === "winXpKakao") window.open("https://open.kakao.com/o/sPeTPrii", "_blank", "noopener,noreferrer");
-    else if (appKey === "winXpKakao") window.open("https://hyeeoooook.tistory.com/", "_blank", "noopener,noreferrer");
+    else if (appKey === "winXpChrome") window.open("https://hyeeoooook.tistory.com/", "_blank", "noopener,noreferrer");
   }
 
   windowRoot.addEventListener("dblclick", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+
+    const appKey = btn.dataset.app;
+
+    openWindowIfNeeded(appKey);
+
+    const asideKey = appKeyToAsideKey[appKey];
+    if (!asideKey) return;
+
+    navigateByAsideKey(asideKey);
+  });
+
+  windowDesktopRoot.addEventListener("dblclick", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
 
