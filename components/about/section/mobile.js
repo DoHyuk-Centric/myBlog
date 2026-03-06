@@ -2,43 +2,13 @@ export function initMobile() {
   const dock = document.querySelector("#mobileDock");
   const footer = document.querySelector("#mobileFooter");
 
-  const home = document.getElementById("moblieHome");
-  const contents = document.getElementById("moblieApp");
+  const home = document.getElementById("mobileHome");
+  const contents = document.getElementById("mobileApp");
 
   const appScreens = contents.querySelectorAll("[data-app]");
   const chromeScreen = contents.querySelector('[data-app="chrome"]');
 
-  const kakaoExit = document.getElementById("kakaoExit");
-  const gmailExit = document.getElementById("gmailExit");
-
   let isOpenApp = false;
-
-  const appActions = {
-    kakao: function (appName) {
-      setOpen(true);
-      changeMobileDisplay(appName);
-    },
-    gmail: function (appName) {
-      setOpen(true);
-      changeMobileDisplay(appName);
-    },
-    chrome: function (appName) {
-      setOpen(true);
-      changeMobileDisplay(appName);
-      if (!chromeScreen.querySelector("iframe")) {
-        chromeScreen.innerHTML = `
-            <iframe
-                class="w-full h-full border-0"
-                src="https://hyeeoooook.tistory.com/"
-            ></iframe>
-            `;
-      }
-    },
-    excel: function (appName) {
-      setOpen(true);
-      changeMobileDisplay(appName);
-    },
-  };
 
   function setOpen(next) {
     isOpenApp = next;
@@ -72,27 +42,25 @@ export function initMobile() {
     const btn = e.target.closest("button");
     if(!btn){return;}
     const app = btn.dataset.app;
+    if(!app){return;}
 
-    appActions[app]?.(app);
+    setOpen(true);
+    changeMobileDisplay(app);
+
+    if(app === "chrome" && !chromeScreen.querySelector("iframe")){
+      chromeScreen.innerHTML = `<iframe class="w-full h-full border-0" src="https://hyeeoooook.tistory.com/"></iframe>`;
+    }
   });
 
   footer.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if(!btn){return;}
     const action = btn.dataset.app;
-    if (action === "mobileHamberger") {
-      setOpen(false);
-    } else if (action === "mobileHome") {
-      setOpen(false);
-    } else if (action === "mobileBack") {
-      setOpen(false);
-    }
+    const closeActions = new Set(["mobileHamberger", "mobileHome", "mobileBack"]);
+    if(closeActions.has(action)) setOpen(false);
   });
 
-  kakaoExit.addEventListener("click", (e) => {
-    setOpen(false);
-  });
-  gmailExit.addEventListener("click", (e) => {
-    setOpen(false);
-  });
+  document.querySelectorAll("[data-exit]").forEach((btn) => {
+    btn.addEventListener("click", () => setOpen(false));
+  })
 }
