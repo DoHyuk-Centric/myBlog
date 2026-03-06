@@ -5,38 +5,41 @@ export function initCardDragAnimation() {
 function cardDrag() {
   let cards = Array.from(document.querySelectorAll(".introduce-card"));
   if (cards.length < 3) return;
-  const dragTarget = cards[0].closest(".card-drag-layer");
 
   // 마우스 변수
   let isDragging = false;
   let startX = 0;
-  let startY = 0;
   let currentX = 0;
-  let currentY = 0;
 
   const stage = document.getElementById("introduceCardSection");
   stage.addEventListener("mousedown", (e) => {
     isDragging = true;
     startX = e.clientX;
-    startY = e.clientY;
+    currentX = e.clientX;
+
+    cards[0].style.transition = "none";
   });
   stage.addEventListener("mousemove", (e) => {
     if(!isDragging) return;
 
     currentX = e.clientX;
-    currentY = e.clientY;
-
     const dx = currentX - startX;
-    const dy = currentY - startY;
+
+    cards[0].style.transform = `translateX(calc(${dx}px))`
   });
-  stage.addEventListener("mouseup", () => {
+
+  function handleDragEnd(){
     if(!isDragging) return;
 
     isDragging = false;
 
     const dx = currentX - startX;
 
+    cards[0].style.transition = "";
+    cards[0].style.transform = "";
+
     const threshold = 100;
+
     if(dx > threshold){
       rotatePrev(cards);
       applyLayout(cards);
@@ -45,7 +48,9 @@ function cardDrag() {
       rotateNext(cards);
       applyLayout(cards);
     }
-  })
+  }
+  stage.addEventListener("mouseup", handleDragEnd);
+  stage.addEventListener("mouseleave", handleDragEnd);
 }
 
 function rotateNext(cards) {
