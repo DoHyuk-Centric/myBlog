@@ -3,7 +3,7 @@ const INACTIVE_WIDTH = "w-[15px]";
 
 export function initAsideNav(){
   const mainContainer = document.querySelector(".maincontainer");
-  const section = document.querySelectorAll(`.maincontainer [id^="introduction_section_"]`);
+  const section = document.querySelectorAll(`[data-section="about"]`);
   const asideBtn = document.querySelectorAll(".about_aside_btn");
 
   let isFirstLoad = true;
