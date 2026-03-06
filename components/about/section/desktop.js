@@ -1,10 +1,4 @@
-export function initDesktop() {
-  const windowRoot = document.getElementById("winXpFolderContents");
-  const windowDesktopRoot = document.getElementById("winXPContents");
-  const headerComponents = document.querySelector("#winXpFolderButtonComponent");
-  const asideComponents = document.querySelector("#winXpFolerAside");
-  const folderContents = document.getElementById("winXpFolderContents");
-
+function initHeader(folderContents) {
   const fullClasses = ["w-full", "h-251"];
   const windowClasses = [
     "left-1/2", "top-1/2", "transition-transform",
@@ -27,12 +21,24 @@ export function initDesktop() {
     winXpFolderDisplay: () => toggleFolderSize(),
     winXpExit: () => folderContents.classList.add("hidden"),
   };
-
+  
+  const headerComponents = document.querySelector("#winXpFolderButtonComponent");
   headerComponents.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
     headerActions[btn.dataset.app]?.();
   });
+
+}
+
+function initAside() {
+  const asideKeyToViewKey = {
+    winXpDesktop: "desktop",
+    winXpMyfolder: "folder",
+    winXpMyComputer: "computer",
+    winXpMyNetwork: "network",
+    winXpTrash: "trash",
+  };
 
   const displays = {
     desktop: document.getElementById("winDisplayDesktop"),
@@ -41,6 +47,8 @@ export function initDesktop() {
     network: document.getElementById("winDisplayNetwork"),
     trash: document.getElementById("winDisplayTrash"),
   };
+
+  const asideComponents = document.querySelector("#winXpFolerAside");
 
   function showDisplay(viewKey) {
     Object.values(displays).forEach((display) => display.classList.add("hidden"));
@@ -54,14 +62,6 @@ export function initDesktop() {
     });
     activeButton?.querySelector("p")?.classList.add("bg-[#EDEADA]");
   }
-
-  const asideKeyToViewKey = {
-    winXpDesktop: "desktop",
-    winXpMyfolder: "folder",
-    winXpMyComputer: "computer",
-    winXpMyNetwork: "network",
-    winXpTrash: "trash",
-  };
 
   function navigateByAsideKey(asideKey) {
     const viewKey = asideKeyToViewKey[asideKey];
@@ -79,51 +79,51 @@ export function initDesktop() {
 
     navigateByAsideKey(btn.dataset.app);
   });
+  return {navigateByAsideKey};
+}
 
+function initAppIcons(folderContents, navigateByAsideKey){
   const appKeyToAsideKey = {
     winXpFolder: "winXpMyfolder",
     winXpMyCom: "winXpMyComputer",
     winXpNetwork: "winXpMyNetwork",
     winXpTrash: "winXpTrash",
-    winXpGithub: "winXpGithub",
-
   };
 
-  function openWindowIfNeeded(appKey) {
-    folderContents.classList.remove("hidden");
-
-    if (appKey === "winXpGithub") window.open("https://github.com/DoHyuk-Centric/myBlog", "_blank", "noopener,noreferrer");
-    else if (appKey === "winXpKakao") window.open("https://open.kakao.com/o/sPeTPrii", "_blank", "noopener,noreferrer");
-    else if (appKey === "winXpChrome") window.open("https://hyeeoooook.tistory.com/", "_blank", "noopener,noreferrer");
+  const externalLinks = {
+    winXpGithub: "https://github.com/DoHyuk-Centric/myBlog",
+    winXpKakao: "https://open.kakao.com/o/sPeTPrii",
+    winXpChrome: "https://hyeeoooook.tistory.com/",
   }
 
-  windowRoot.addEventListener("dblclick", (e) => {
+  function handleDoubleClick(e) {
     const btn = e.target.closest("button");
     if (!btn) return;
 
     const appKey = btn.dataset.app;
 
-    openWindowIfNeeded(appKey);
-
+    if(externalLinks[appKey]){
+      window.open(externalLinks[appKey], "_blank", "noopener,noreferrer");
+      return;
+    }
+    
+    folderContents.classList.remove("hidden");
     const asideKey = appKeyToAsideKey[appKey];
-    if (!asideKey) return;
+    if (asideKey) navigateByAsideKey(asideKey);
+  }
 
-    navigateByAsideKey(asideKey);
-  });
+  const windowDesktopRoot = document.getElementById("winXPContents");
+  folderContents.addEventListener("dblclick", handleDoubleClick);
+  windowDesktopRoot.addEventListener("dblclick", handleDoubleClick);
 
-  windowDesktopRoot.addEventListener("dblclick", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
+}
 
-    const appKey = btn.dataset.app;
+export function initDesktop() {
+  const folderContents = document.getElementById("winXpFolderContents");
 
-    openWindowIfNeeded(appKey);
-
-    const asideKey = appKeyToAsideKey[appKey];
-    if (!asideKey) return;
-
-    navigateByAsideKey(asideKey);
-  });
+  initHeader(folderContents);
+  const { navigateByAsideKey } = initAside();
+  initAppIcons(folderContents, navigateByAsideKey);
 
   navigateByAsideKey("winXpDesktop");
 }
