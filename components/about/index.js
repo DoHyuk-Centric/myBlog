@@ -1,7 +1,9 @@
 import { initAsideNav } from './aside_nav.js';
-import { initSection } from './section/section.js';
+import { mountHeader } from './sections/section-header.js';
+import { mountMockup } from './sections/section-mockup.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     initAsideNav();
-    initSection();
+    mountHeader();
+    mountMockup();
 });
