@@ -1,4 +1,5 @@
 import { initAsideNav } from './aside_nav.js';
+import { initBackgroundAnimation } from '../animations/backgroundAnimation.js'
 import { mountHeader } from './sections/section-header.js';
 import { mountProfile } from './sections/section-profile.js';
 import { mountProject } from './sections/section-project.js';
@@ -9,6 +10,7 @@ import { mountFooter } from './sections/section-footer.js';
 document.addEventListener("DOMContentLoaded", () => {
     initAsideNav();
     mountHeader();
+    initBackgroundAnimation();
     mountProfile();
     mountProject();
     mountMockup();
