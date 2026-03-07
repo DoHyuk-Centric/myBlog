@@ -1,4 +1,4 @@
-import { SECTION1_DATA } from "../data/section-header-Data.js";
+import { SECTION_HEADER_DATA } from "../data/section-header-Data.js";
 
 const backgroundLayer = () => `<div class="background-Animation"></div>`;
 
@@ -28,5 +28,5 @@ function buildSection1(data){
 
 export function mountHeader(){
     const section = document.getElementById("section-header");
-    section.innerHTML = buildSection1(SECTION1_DATA);
+    section.innerHTML = buildSection1(SECTION_HEADER_DATA);
 }
