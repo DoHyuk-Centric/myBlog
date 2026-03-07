@@ -1,4 +1,6 @@
 import { SECTION_HEADER_DATA } from "../data/section-header-Data.js";
+import { initBackgroundAnimation } from '../../animations/backgroundAnimation.js'
+import { initTextAnimation } from "../../animations/aboutTextAnimation.js";
 
 const backgroundLayer = () => `<div class="background-Animation"></div>`;
 
@@ -29,4 +31,7 @@ function buildHeader(data){
 export function mountHeader(){
     const section = document.getElementById("section-header");
     section.innerHTML = buildHeader(SECTION_HEADER_DATA);
+
+    initBackgroundAnimation();
+    initTextAnimation();
 }
