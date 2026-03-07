@@ -7,7 +7,7 @@
 
 ![Progress](https://img.shields.io/badge/index-80%25-ffffff)
 ![Progress](https://img.shields.io/badge/devLog-100%25-brightgreen)
-![Progress](https://img.shields.io/badge/about-80%25-brightgreen)
+![Progress](https://img.shields.io/badge/about-100%25-brightgreen)
 ![Progress](https://img.shields.io/badge/server-100%25-black)
 ![Progress](https://img.shields.io/badge/기능구현-90%25-1e90ff)
 ![Progress](https://img.shields.io/badge/API-100%25-ffcc00)
