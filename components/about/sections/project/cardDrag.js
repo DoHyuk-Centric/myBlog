@@ -11,7 +11,7 @@ function cardDrag() {
   let startX = 0;
   let currentX = 0;
 
-  const stage = document.getElementById("introduceCardSection");
+  const stage = document.getElementById("project-card-section");
   stage.addEventListener("mousedown", (e) => {
     isDragging = true;
     startX = e.clientX;
