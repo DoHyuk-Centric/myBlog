@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "index.html"),
+        home: resolve(__dirname, "pages/home.html"),
         about: resolve(__dirname, "pages/about.html"),
         devLog: resolve(__dirname, "pages/devLog.html"),
         login: resolve(__dirname, "pages/login.html"),
@@ -20,6 +21,7 @@ export default defineConfig({
         postCreate: resolve(__dirname, "pages/postCreate.html"),
         profile: resolve(__dirname, "pages/profile.html"),
         terms: resolve(__dirname, "pages/terms.html"),
+        test: resolve(__dirname, "pages/test.html"),
       },
     },
   },
