@@ -17,7 +17,7 @@ const textLayer = ({ tagline, role, email }) =>
         </p>
     </div>`;
 
-function buildSection1(data){
+function buildHeader(data){
     return `
         <header class="relative w-100vw h-screen overflow-hidden">
             ${backgroundLayer()}
@@ -28,5 +28,5 @@ function buildSection1(data){
 
 export function mountHeader(){
     const section = document.getElementById("section-header");
-    section.innerHTML = buildSection1(SECTION_HEADER_DATA);
+    section.innerHTML = buildHeader(SECTION_HEADER_DATA);
 }
