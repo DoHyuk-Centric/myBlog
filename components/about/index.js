@@ -1,0 +1,17 @@
+import { initAsideNav } from './aside_nav.js';
+import { mountHeader } from './sections/section-header.js';
+import { mountProfile } from './sections/section-profile.js';
+import { mountProject } from './sections/section-project.js';
+import { mountMockup } from './sections/section-mockup.js';
+import { mountArchitecture } from './sections/section-architecture.js';
+import { mountFooter } from './sections/section-footer.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+    initAsideNav();
+    mountHeader();
+    mountProfile();
+    mountProject();
+    mountMockup();
+    mountArchitecture();
+    mountFooter();
+});

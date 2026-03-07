@@ -1,6 +1,5 @@
-mobileButtonEvent();
-function mobileButtonEvent(){
-    const container = document.querySelector("#introduceMobileButton");
+export function initMobileButtonEvent(){
+    const container = document.querySelector("#project-mobile-tabs");
     const buttons = Array.from(container.querySelectorAll("button"));
 
     const contents = buttons.map((btn) => document.getElementById(btn.dataset.target)).filter(Boolean);
