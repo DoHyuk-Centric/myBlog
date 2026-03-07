@@ -3,6 +3,7 @@ import { mountHeader } from './sections/section-header.js';
 import { mountProfile } from './sections/section-profile.js';
 import { mountProject } from './sections/section-project.js';
 import { mountMockup } from './sections/section-mockup.js';
+import { mountArchitecture } from './sections/section-architecture.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     initAsideNav();
@@ -10,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     mountProfile();
     mountProject();
     mountMockup();
+    mountArchitecture();
 });
