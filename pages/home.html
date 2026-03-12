@@ -9,9 +9,11 @@
     <script type="module" src="../components/home/canvasStar.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="../components/home/fadeInContents.js"></script>
+    <script type="module" src="../components/home/fadeInLeftContents.js"></script>
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
     <script type="module" src="/components/animations/animation.js"></script>
+    <script type="module" src="/components/home/discordCopy.js"></script>
   </head>
   <body class="scroll font-[A2Z-SemiBold]">
     <div id="fadeOverlay" style="
@@ -25,10 +27,29 @@
   <main id="main" class="maincontainer">
     <section id="canvasStar" class="relative w-full h-1200 bg-black">
       <div class="absolute text-white top-60 left-1/2 -translate-x-1/2 text-xl md:text-5xl animate-bounce [animation-duration:2s]">↓</div>
-      <article class="absolute top-300 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 transition-all duration-700">
-        <article class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 [transition-delay:0ms]">첫번째</article>
-        <article class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 [transition-delay:150ms]">두번째</article>
-        <article class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 [transition-delay:300ms]">세번째</article>
+      <article class="absolute top-300 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-[0ms] rounded-2xl transition-all duration-700">
+        <h1 class="md:text-5xl text-center">블로그</h1>
+        <p class="md:text-2xl text-center mt-10">DoHyuk.dev</p>
+      </article>
+      <article class="absolute top-400 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-300ms rounded-2xl transition-all duration-700 flex gap-10 md:gap-30">
+        <a class="relative w-max h-max" href="https://github.com/DoHyuk-Centric" rel="noopener noreferrer" target="_blank">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/github.png" alt="깃허브 바로가기" />
+        </a>
+        <a class="relative w-max h-max" href="https://hyeeoooook.tistory.com/" rel="noopener noreferrer" target="_blank">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/blog.png" alt="블로그 바로가기" />
+        </a>
+        <button id="discordCopy" class="relative w-max h-max cursor-pointer" data-copy="llsll_1211">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/discord.png" alt="디스코드 아이디 복사" />
+        </button>
+      </article>
+      <article class="absolute top-600 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-300ms rounded-2xl transition-all duration-700">
+        <div>
+          안ㄴㄴ나나나
+        </div>
+
       </article>
     </section>
 
@@ -83,24 +104,11 @@
             </div>
           </article>
         </a>
-        <a href="/">
-          <article class="border rounded-lg h-64 flex justify-center items-center">공사중</article>
-        </a>
-        <a href="/">
-          <article class="border rounded-lg h-64 flex justify-center items-center">공사중</article>
-        </a>
-        <a href="/">
-          <article class="border rounded-lg h-64 flex justify-center items-center">공사중</article>
-        </a>
-        <a href="/">
-          <article class="border rounded-lg h-64 flex justify-center items-center">공사중</article>
-        </a>
-          <article class="border rounded-lg h-64 flex justify-center items-center">공사중</article>
       </div>
     </section>
   </main>
 
-    <footer class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
+    <footer class="footer flex bg-black text-gray-200">
       <div class="flex items-center gap-3 p-10">
         <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="홈페이지 로고" />
         <h1 class="text-xl">DoHyek.dev</h1>

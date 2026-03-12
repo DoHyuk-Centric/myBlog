@@ -6,6 +6,6 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target); // 한 번만 실행
     }
   });
-}, { threshold: 0.1 }); // 요소가 10% 보이면 실행
+}, { threshold: 0.5 }); // 요소가 10% 보이면 실행
 
 document.querySelectorAll(".scroll-reveal").forEach(el => observer.observe(el));
