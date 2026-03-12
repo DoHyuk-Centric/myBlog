@@ -9,7 +9,7 @@
     <!--헤더-->
     <header
       id="header"
-      class="h-15 sm:h-20 border-b border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-white fixed top-0 left-0 right-0 z-50 font-[A2Z-Bold]"
+      class="bg-white/30 hover:bg-white dark:bg-black/30 dark:hover:bg-slate-800 duration-200 dark:text-white fixed top-0 left-0 right-0 z-50 font-[A2Z-Bold]"
     >
       <div class="flex items-center">
         <button
@@ -27,7 +27,7 @@
         </button>
 
         <div class="sm:ml-1 text-2xl flex gap-4 justify-center items-center">
-          <a href="/" class="cursor-pointer">
+          <a href="./home.html" class="cursor-pointer">
             <img
               class="w-6 h-6 sm:w-8 sm:h-8"
               src="https://img.icons8.com/tiny-color/32/code.png"
@@ -37,26 +37,6 @@
           <h1 class="text-lg sm:text-2xl">
             <span>DoHyuk.dev</span>
           </h1>
-        </div>
-        <div class="relative hidden sm:flex justify-end items-center grow mr-5 gap-2">
-          <button id="searchBtn" class="cursor-pointer hover:border-white hover:rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-            <!-- 다크 모드 -->
-            <img class="ml-auto hidden dark:block" width="40" height="40"  src="/img/mode/dark/search_dark.png" alt="검색" />
-            <!-- 라이트 모드 -->
-            <img class="ml-auto bolck dark:hidden" width="40" height="40"  src="/img/mode/light/search_light.png" alt="검색" />
-          </button>
-          <div
-            id="searchWrap"
-            class="w-0 overflow-hidden transition-all duration-300 ease-out"
-          >
-            <input
-              id="searchInput"
-              type="text"
-              class="w-60 h-10 rounded-full bg-gray-100 dark:bg-gray-700 dark:text-gray-200 pl-4 pr-4 placeholder-gray-500"
-              placeholder="검색어를 입력해주세요."
-              aria-label="검색어 입력"
-            />
-          </div>
         </div>
 
         <div class="relative ml-auto mr-10 w-8 h-8 flex">
@@ -86,7 +66,7 @@
       </div>
 
       <!--메뉴바-->
-      <div id="menuBar" class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-15 sm:top-20 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-full sm:w-100 h-full z-11" inert aria-hidden="true">
+      <div id="menuBar" class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-15 sm:top-22 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-full sm:w-100 h-full z-11" inert aria-hidden="true">
         <aside class="flex flex-col h-full w-full">
           <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
             <h2 class="text-xl sm:text-2xl ml-5">메뉴</h2>
@@ -104,7 +84,7 @@
           </div>
           <nav>
             <ul class="flex flex-col gap-12 mt-2 mb-2 text-xl sm:mt-5 sm:mb-5 sm:text-2xl p-5">
-              <li><a href="/" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
+              <li><a href="/pages/home.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
               <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
               <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
             </ul>

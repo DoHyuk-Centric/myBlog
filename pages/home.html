@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoHyek.dev</title>
+    <link rel="stylesheet" href="/src/scroll.css" />
+    <script type="module" src="../components/fadein/fade-in.js"></script>
+    <script type="module" src="../components/home/canvasStar.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="../components/home/fadeInContents.js"></script>
+    <script type="module" src="../components/home/fadeInLeftContents.js"></script>
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+    <script type="module" src="/components/animations/animation.js"></script>
+    <script type="module" src="/components/home/discordCopy.js"></script>
+  </head>
+  <body class="scroll font-[A2Z-SemiBold]">
+    <div id="fadeOverlay" style="
+      position: fixed; inset: 0;
+      background: white;
+      opacity: 1;
+      transition: opacity 0.5s;
+      z-index: 9999;
+    "></div>
+<!--메인-->
+  <main id="main" class="maincontainer">
+    <section id="canvasStar" class="relative w-full h-1200 bg-black">
+      <div class="absolute text-white top-60 left-1/2 -translate-x-1/2 text-xl md:text-5xl animate-bounce [animation-duration:2s]">↓</div>
+      <article class="absolute top-300 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-[0ms] rounded-2xl transition-all duration-700">
+        <h1 class="md:text-5xl text-center">블로그</h1>
+        <p class="md:text-2xl text-center mt-10">DoHyuk.dev</p>
+      </article>
+      <article class="absolute top-400 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-300ms rounded-2xl transition-all duration-700 flex gap-10 md:gap-30">
+        <a class="relative w-max h-max" href="https://github.com/DoHyuk-Centric" rel="noopener noreferrer" target="_blank">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/github.png" alt="깃허브 바로가기" />
+        </a>
+        <a class="relative w-max h-max" href="https://hyeeoooook.tistory.com/" rel="noopener noreferrer" target="_blank">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/blog.png" alt="블로그 바로가기" />
+        </a>
+        <button id="discordCopy" class="relative w-max h-max cursor-pointer" data-copy="llsll_1211">
+          <span class="absolute inset-0 rounded-full animate-ping bg-white opacity-30 [animation-duration:5s]"></span>
+          <img class="w-6 h-6 md:w-12 md:h-12" src="../img/discord.png" alt="디스코드 아이디 복사" />
+        </button>
+      </article>
+      <article class="absolute top-600 left-1/2 -translate-x-1/2 text-white scroll-reveal opacity-0 translate-y-10 delay-300ms rounded-2xl transition-all duration-700">
+        <div>
+          안ㄴㄴ나나나
+        </div>
+
+      </article>
+    </section>
+
+    <section id="gravityContainer" class="relative w-full h-100 overflow-hidden">
+      <div class="absolute w-full h-full bg-linear-to-r from-black via-black/90 to-black/80 dark:from-blue-950 dark:via-blue-950/90 dark:to-blue-950/80"></div>
+      <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
+        <h2 class="p-10 text-5xl">코드로 배우고 공유하다.</h2>
+        <p class="pl-10 text-2xl">Front-End 개발자의 성장 기록</p>
+        <p class="pl-10 text-2xl">최신 기술과 프로젝트 경험을 기록합니다.</p>
+      </div>
+      <button id="gravityBtn" class="hidden md:flex z-11 absolute w-12 h-12 top-20 right-[5%] rounded-full text-slate-700 bg-[radial-gradient(circle,white_40%,#ccc_60%,#000_100%)] shadow-xl backdrop-blur-sm cursor-grab hover:animate-[squish_0.9s_ease-in-out] text-xl active:cursor-grabbing touch-none select-none justify-center items-center">?</button>
+    </section>
+
+    <!--컨텐츠 섹션-->
+    <section class="relative w-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200 min-h-screen p-10 space-y-4">
+      <div class="mx-auto max-w-[1400px] grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a class="group" href="https://hyeeoooook.tistory.com/" target="_blank" rel="noopener noreferrer">
+          <article
+            class="border border-gray-400 shadow-sm rounded-lg h-110 flex flex-col justify-start dark:border-gray-600 group-hover:border-blue-500">
+            <div class="border-b border-gray-300 w-full aspect-[16/9] overflow-hidden rounded-t-lg">
+              <img src="/img/Tistory.jpg"
+                class="relative object-cover w-full h-full rounded-t-lg group-hover:scale-105 transition-transform duration-500" alt="Tistory" />
+            </div>
+            <div class="m-5 flex flex-col gap-5 min-h-[120px]">
+              <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Blog</div>
+              <h3 class="text-xl group-hover:text-blue-400">문제해결 과정을 정리해 놓은 블로그</h3>
+              <p class="text-xs">배우고, 다룬 내용들을 정리하고 느꼈던 감정과 생각의 흐름들을 정리하여 기록하는 방식을 추구합니다.</p>
+            </div>
+            <div class="mb-3 border-t border-gray-300 dark:border-gray-500 w-[90%] mx-auto mt-auto"></div>
+            <div
+              class="mb-3 text-gray-800 text-center rounded-b-lg w-full h-10 text-2xl bg-gray-100 dark:bg-gray-800 dark:text-gray-200 flex justify-center items-center">
+              Tistory
+            </div>
+          </article>
+        </a>
+        <a class="group" href="https://github.com/DoHyuk-Centric" target="_blank" rel="noopener noreferrer">
+          <article
+            class="border border-gray-400 shadow-sm rounded-lg h-110 flex flex-col justify-start dark:border-gray-600 group-hover:border-blue-500">
+            <div class="border-b border-gray-300 flex justify-center w-full aspect-[16/9] overflow-hidden rounded-t-lg">
+              <img class="relative object-contain w-[95%] rounded-t-lg group-hover:scale-105 transition-transform duration-500 hidden dark:block" src="/img/GitHub_Lockup_Light.svg" alt="github"/>
+              <img class="relative object-contain w-[95%] rounded-t-lg group-hover:scale-105 transition-transform duration-500 block dark:hidden" src="/img/GitHub_Lockup_Dark.svg" alt="github"/>
+            </div>
+            <div class="m-5 flex flex-col gap-5 min-h-[120px]">
+              <div class="m-0 shadow-sm flex rounded-sm justify-center items-center bg-gradient-to-r from-sky-400 to-blue-600 text-white text-xs w-18 h-6 dark:from-sky-600 dark:to-blue-800">Github</div>
+              <h3 class="text-xl group-hover:text-blue-400">프로젝트와 코드 저장소</h3>
+              <p class="text-xs">개인 프로젝트와 학습용 코드들을 정리하여 관리합니다.</p>
+            </div>
+            <div class="mb-3 border-t border-gray-300 dark:border-gray-500 w-[90%] mx-auto mt-auto"></div>
+            <div
+              class="mb-3 text-gray-800 text-center rounded-b-lg w-full h-10 text-2xl bg-gray-100 dark:bg-gray-800 dark:text-gray-200 flex justify-center items-center">
+              Github
+            </div>
+          </article>
+        </a>
+      </div>
+    </section>
+  </main>
+
+    <footer class="footer flex bg-black text-gray-200">
+      <div class="flex items-center gap-3 p-10">
+        <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="홈페이지 로고" />
+        <h1 class="text-xl">DoHyek.dev</h1>
+      </div>
+      <div class="p-10 flex-grow text-right">
+        <p>© 2026 개인 개발 블로그. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
