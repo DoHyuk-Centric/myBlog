@@ -42,48 +42,48 @@
         <div class="relative ml-auto mr-10 w-8 h-8 flex">
           <button id="darkmode_btn" class="w-full h-full hover:cursor-pointer group relative" aria-label="다크 모드" aria-pressed="false">
             <!-- 큰 원 -->
-            <span id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11 group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
+            <span id="darkmode_toggle_position" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 bg-white border border-gray-400 rounded-full shadow-sm z-11 group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
             <!-- 작은 원 -->
-            <span class="absolute left-7 top-3 sm:left-8 sm:top-2 border rounded-full w-6 h-6 sm:w-8 sm:h-8 z-10 border-gray-400 bg-white shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
+            <span class="absolute left-7 top-3 md:left-8 md:top-2 border rounded-full w-6 h-6 md:w-8 md:h-8 z-10 border-gray-400 bg-white shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-700 dark:border-gray-600 dark:bg-gray-800"></span>
 
             <!-- moon 아이콘 -->
             <div class="duration-300 ease-out">
               <!-- 다크 모드 -->
-              <img id="moon_light" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 sm:w-8 sm:h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/light/moon_light.png" alt=""/>
+              <img id="moon_light" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 md:w-8 md:h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/light/moon_light.png" alt=""/>
               <!-- 라이트 모드 -->
-              <img id="moon_dark" width="30" height="30" class="absolute left-8 top-4 sm:left-10 sm:top-4 w-3 h-3 sm:w-4 sm:h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/moon_dark.png" alt=""/>
+              <img id="moon_dark" width="30" height="30" class="absolute left-8 top-4 md:left-10 md:top-4 w-3 h-3 md:w-4 md:h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/moon_dark.png" alt=""/>
             </div>
 
             <!-- sun 아이콘 -->
             <div class="duration-300 ease-out">
               <!-- 라이트모드 -->
-              <img id="sun_dark" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 sm:w-8 sm:h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/sun_dark.png" alt=""/>
+              <img id="sun_dark" width="40" height="40" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 md:w-8 md:h-8 z-11 transition-all duration-300 ease-out" src="/img/mode/dark/sun_dark.png" alt=""/>
               <!-- 다크모드 -->
-              <img id="sun_light" width="30" height="30" class="absolute left-8 top-4 sm:left-10 sm:top-4 w-3 h-3 sm:w-4 sm:h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/light/sun_light.png" alt=""/>
+              <img id="sun_light" width="30" height="30" class="absolute left-8 top-4 md:left-10 md:top-4 w-3 h-3 md:w-4 md:h-4 z-11 transition-all duration-300 ease-out" src="/img/mode/light/sun_light.png" alt=""/>
             </div>
           </button>
         </div>
       </div>
 
       <!--메뉴바-->
-      <div id="menuBar" class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-15 sm:top-22 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-full sm:w-100 h-full z-11" inert aria-hidden="true">
+      <div id="menuBar" class="fixed border-r border-gray-300 transform -translate-x-full transition-transform duration-300 ease-out top-15 md:top-22 left-0 bg-gray-100 dark:bg-gray-900 dark:text-white flex w-full md:w-100 h-full z-11" inert aria-hidden="true">
         <aside class="flex flex-col h-full w-full">
           <div class="border-b border-gray-700 bg-white dark:bg-gray-800 h-20 flex items-center">
-            <h2 class="text-xl sm:text-2xl ml-5">메뉴</h2>
+            <h2 class="text-xl md:text-2xl ml-5">메뉴</h2>
             <button id="menuExitBtn" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 hover:rounded ml-auto mr-5" aria-label="메뉴 닫기">
               <!-- 다크 모드 -->
-              <img class="hidden dark:block w-4 h-4 sm:w-7.5 sm:h-7.5" width="30" height="30" src="/img/mode/dark/delete_dark.png" alt=""/>
+              <img class="hidden dark:block w-4 h-4 md:w-7.5 md:h-7.5" width="30" height="30" src="/img/mode/dark/delete_dark.png" alt=""/>
               <!-- 라이트 모드 -->
-              <img class="block dark:hidden w-4 h-4 sm:w-7.5 sm:h-7.5" width="30" height="30" src="/img/mode/light/delete_light.png" alt=""/>
+              <img class="block dark:hidden w-4 h-4 md:w-7.5 md:h-7.5" width="30" height="30" src="/img/mode/light/delete_light.png" alt=""/>
             </button>
           </div>
-          <div class="flex items-center pt-2 pb-2 text-sm sm:pt-4 sm:pb-4 sm:text-lg border-b border-gray-700">
+          <div class="flex items-center pt-2 pb-2 text-sm md:pt-4 md:pb-4 md:text-lg border-b border-gray-700">
             <button id="logout" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="로그아웃">로그아웃</button>
             <button type="button" id="user" class="flex-1 hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" aria-label="내정보">내정보</button>
             <a id="login" class="flex-1 text-center hover:text-gray-500 hover:cursor-pointer dark:hover:text-gray-500" href="/pages/login.html" aria-label="로그인">로그인</a>
           </div>
           <nav>
-            <ul class="flex flex-col gap-12 mt-2 mb-2 text-xl sm:mt-5 sm:mb-5 sm:text-2xl p-5">
+            <ul class="flex flex-col gap-12 mt-2 mb-2 text-xl md:mt-5 md:mb-5 md:text-2xl p-5">
               <li><a href="/pages/home.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="Home 이동">Home</a></li>
               <li><a href="/pages/about.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="About 이동">About</a></li>
               <li><a href="/pages/devLog.html" class="hover:text-gray-500 dark:hover:text-gray-500" aria-label="DevLog 이동">DevLog</a></li>
