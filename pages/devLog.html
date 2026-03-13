@@ -8,154 +8,133 @@
     <link rel="stylesheet" href="/src/scroll.css" />
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/components/devLog/fetchProfile.js"></script>
+    <script type="module" src="/components/devLog/calendarYearBtn.js"></script>
+    <script type="module" src="/components/header/innerHeader.js"></script>
+    <script type="module" src="/components/header/header.js"></script>
+    <script type="module" src="/components/devLog/calender.js"></script>
+    <script type="module" src="/components/devLog/login/devLoginCheck.js"></script>
+    <script type="module" src="/components/devLog/postUpdate.js"></script>
 </head>
 
-<body class="scroll font-[A2Z-SemiBold]">
+<body class="scroll font-[A2Z-SemiBold] min-h-screen flex flex-col">
     <!--메인-->
-    <main id="main" class="maincontainer border pt-16">
-        <!--비디오 섹션-->
-        <div class="relative w-100vw h-100">
-            <div class="absolute w-full h-full bg-linear-to-r from-black via-black/90 to-black/80 dark:from-blue-950 dark:via-blue-950/90 dark:to-blue-950/80"></div>
-            <div class="absolute w-full h-full flex flex-col justify-center text-white z-10">
-                <h1 class="p-10 text-5xl">DevLog 개인 회고록</h1>
-                <p class="pl-10 text-2xl">배움간에 생각의 흐름들을 정리</p>
-            </div>
-        </div>
-
-        <!--컨텐츠 섹션-->
-        <div
-            class="text-gray-800 relative w-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200 min-h-screen p-10 space-y-4">
-            <div class="sm:grid sm:grid-cols-3 gap-3 max-w-[1400px] mx-auto">
-                <aside class="border shadow-xl bg-white dark:bg-gray-800 rounded-2xl col-span-2 p-5">
-                    <!-- 게시물 -->
-                    <div>
-                        <h2 class="text-3xl pb-2 border-gray-300 border-b">회고록</h2>
-                        <ul id="posts-container" class="pt-3 p-5">
-                            <li>
-                                <!-- <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-4 mb-4 bg-white dark:bg-gray-800 shadow-md">
-                                    <a class="flex-col" href="/">
-                                        <div class="flex justify-end flex-col sm:justify-center">
-                                            <div class="flex justify-between sm:justify-start">
-                                                <h3 class="text-3xl font-bold mb-2">제목</h3>
-                                                <time class="text-sm text-gray-500 sm:ml-auto" datetime="2026-01-01">2026-01-01</time>
-                                            </div>
-                                            <div class="flex">
-                                                <p class="border mr-5 mb-2">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
-                                                <img class="object-cover rounded-2xl border border-gray-300 dark:border-gray-700 ml-auto" width="150" height="150" src="../img/cutecat.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article> -->
-                            </li>
-                        </ul>
-                    </div>
+    <main id="main" class="maincontainer flex flex-col flex-1 bg-gray-100 dark:text-gray-200">
+        <div class="text-gray-800 flex-1 flex flex-col relative w-full dark:bg-gray-800 p-2 lg:p-10 space-y-4 dark:text-white">
+            <div class="lg:grid lg:grid-cols-3 w-full flex flex-col flex-1 gap-3 max-w-350 mx-auto mt-20">
+                <aside class="border shadow-xl flex-1 bg-white dark:bg-gray-800 rounded-2xl col-span-2 p-3 lg:p-5">
+                    <h2 class="text-xl lg:text-3xl pb-2 border-gray-300 border-b">게시물</h2>
+                    <ul id="posts-container" class="pt-2 p-1 lg:pt-3">
+                        <li><!-- 카드 --></li>
+                    </ul>
                 </aside>
 
-                <aside class="hidden sm:block border max-w-[400px] ml-auto shadow-xl rounded-2xl bg-white dark:bg-gray-800">
+                <div class="hidden lg:flex flex-col gap-3 w-90">
+                    <aside class="border shadow-xl rounded-2xl bg-white dark:bg-gray-800">
                     <div class="flex flex-col justify-center items-center gap-5 p-15">
                         <img id="profileImg" class="hidden flex w-60 h-60 border rounded-full" src="" alt="" />
                         <div id="sign_in">
-                            <div class="text-center">
-                                <h2 id="profileNickName" class="hidden text-bold text-3xl mb-3"></h2>
-                                <p id="profileIntroduce" class="hidden text-gray-500 text-xl"></p>
-                            </div>
-
+                        <div class="text-center">
+                            <h2 id="profileNickName" class="hidden text-bold text-3xl mb-3"></h2>
+                            <p id="profileIntroduce" class="hidden text-gray-500 text-xl"></p>
                         </div>
-                        
-                        <!-- 로그인 후에 오픈 -->
-                        <div id="DevLogActionSignedIn" class="hidden flex flex-grow text-center leading-10 gap-4">
-                            <a href="/pages/postCreate.html"
-                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</a>
-                            <a
-                                class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</a>
                         </div>
 
-                        <!--로그인 안되어있을때 오픈-->
+                        <div id="DevLogActionSignedIn" class="hidden flex text-center leading-10 gap-4">
+                        <a href="/pages/postCreate.html"
+                            class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">글쓰기</a>
+                        <a
+                            class="cursor-pointer border w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">수정</a>
+                        </div>
+
                         <div id="DevLogActionSignedOut" class="hidden flex flex-col gap-4 text-center">
-                            <p class="text-sm text-gray-400 dark:text-gray-500"><span class="text-purple-400 dark:text-purple-600">로그인</span> 후 더 많은 기능을 이용해 보세요!</p>
-                            <div class="flex flex-grow justify-center items-center gap-4 mt-5">
-                                <a href="/pages/login.html"
-                                    class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
-                                <a href="/pages/signup.html"
-                                    class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</a>
-                            </div>
+                        <p class="text-sm text-gray-400 dark:text-gray-500">
+                            <span class="text-purple-400 dark:text-purple-600">로그인</span> 후 더 많은 기능을 이용해 보세요!
+                        </p>
+                        <div class="flex justify-center items-center gap-4 mt-5">
+                            <a href="/pages/login.html"
+                            class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">로그인</a>
+                            <a href="/pages/signup.html"
+                            class="cursor-pointer border text-center content-center w-30 h-10 rounded-full border-gray-400 shadow-sm hover:bg-gray-300 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">회원가입</a>
+                        </div>
                         </div>
                     </div>
-                    <!--달력-->
-                    <div class="flex flex-col justify-center items-center m-2">
-                        <div class="border rounded-xl w-90 p-2 bg-gray-100 dark:bg-gray-700">
-                            <div class="relative flex w-full z-10">
-                                <button id="prevMonthBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600"> &lt; </button>
-                                    <div class="ml-auto flex gap-5 h-5 mb-2">
-                                        <button id="calendar_Year" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
-                                        <button id="calendar_Month" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
-                                    </div>
-                                <button id="nextMonthBtn"
-                                    class="rounded-xl w-10 cursor-pointer justify-end ml-auto hover:bg-gray-300 dark:hover:bg-gray-600">
-                                    &gt;
-                                </button>
+                    </aside>
+
+                    <aside class="border shadow-xl rounded-2xl bg-white dark:bg-gray-800">
+                    <div class="p-2">
+                        <div class="border rounded-xl p-2 bg-gray-100 dark:bg-gray-700">
+                        <div class="relative flex w-full z-10">
+                            <button id="prevMonthBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&lt;</button>
+                            <div class="ml-auto flex gap-5 h-5 mb-2">
+                            <button id="calendar_Year" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
+                            <button id="calendar_Month" class="hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl cursor-pointer hover:scale-110 w-10 h-8 duration-500"></button>
                             </div>
-                            <div id="calendar" class="relative w-full flex-col mt-2">
-                                <!-- 버튼 클릭시 나오는 탭 -->
-                                <div id="calendar_YearMonth_choice" class="z-10 opacity-0 rounded-b-2xl h-0 w-89 transition-all absolute dark:bg-gray-700 bg-gray-100 top-0 left-1/2 -translate-x-1/2 duration-500">
-                                    <div id="calendar_YearMonth_contents" class= "overflow-hidden flex justify-center items-center p-0 m-0 h-full max-w-full dark:text-black dark:text-white">
-                                        <div id="calendarYearcontents" class=" flex place-items-center gap-5">
-                                            <button id="calendarYearLeftBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&lt;</button>
-                                            <button id="calendarYearText" class="border cursor-pointer flex justify-center items-center border-gray-400 rounded-xl h-15 w-25"></button>
-                                            <button id="calendarYearRightBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&gt;</button>
-                                        </div>
-                                        <div id="calendarMonthcontents" class="hidden grid grid-cols-4 place-items-center gap-5">
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">1</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">2</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">3</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">4</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">5</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">6</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">7</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">8</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">9</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">10</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">11</span>월</button>
-                                            <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">12</span>월</button>
-                                        </div>
-                                    </div>
+                            <button id="nextMonthBtn"
+                            class="rounded-xl w-10 cursor-pointer justify-end ml-auto hover:bg-gray-300 dark:hover:bg-gray-600">&gt;</button>
+                        </div>
+
+                        <div id="calendar" class="relative w-full flex-col mt-2">
+                            <div id="calendar_YearMonth_choice"
+                            class="z-10 opacity-0 rounded-b-2xl h-0 w-full transition-all absolute dark:bg-gray-700 bg-gray-100 top-0 left-1/2 -translate-x-1/2 duration-500">
+                            <div id="calendar_YearMonth_contents"
+                                class="overflow-hidden flex justify-center items-center p-0 m-0 h-full max-w-full dark:text-white">
+                                <div id="calendarYearcontents" class="flex place-items-center gap-5">
+                                <button id="calendarYearLeftBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&lt;</button>
+                                <button id="calendarYearText" class="border cursor-pointer flex justify-center items-center border-gray-400 rounded-xl h-15 w-25"></button>
+                                <button id="calendarYearRightBtn" class="rounded-xl w-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600">&gt;</button>
                                 </div>
-                                <div class="grid grid-cols-7 text-center mt-2 border-b border-gray-300 dark:border-gray-600 pb-2">
-                                    <div class="text-red-500 dark:text-red-400">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div class="text-blue-500 dark:text-blue-400">토</div>
+
+                                <div id="calendarMonthcontents" class="hidden grid grid-cols-4 place-items-center gap-5">
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">1</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">2</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">3</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">4</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">5</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">6</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">7</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">8</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">9</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">10</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">11</span>월</button>
+                                <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">12</span>월</button>
                                 </div>
-                                <div id="calendar_day" class="grid grid-cols-7 text-center gap-y-8 mt-2 mb-2">
-                                    <!--날짜 들어가는 곳-->
-                                </div>
-                                <div id="calendarHoliday" class="holiday-info hidden mt-5 p-2 border-t border-gray-400 dark:border-gray-600 w-full flex gap-1">
-                                     <ul id="calendarHolidayInfo" class="pl-8 py-2 text-gray-600 dark:text-gray-400 flex flex-col gap-2 text-sm">
-                                        <!-- <li class="flex gap-4">
-                                            <time id="holiday" datetime="">16일</time>
-                                            <p id="holiday_text">설연휴</p>
-                                        </li> -->
-                                     </ul>
-                                </div>
+                            </div>
+                            </div>
+
+                            <div class="grid grid-cols-7 text-center mt-2 border-b border-gray-300 dark:border-gray-600 pb-2">
+                            <div class="text-red-500 dark:text-red-400">일</div>
+                            <div>월</div>
+                            <div>화</div>
+                            <div>수</div>
+                            <div>목</div>
+                            <div>금</div>
+                            <div class="text-blue-500 dark:text-blue-400">토</div>
+                            </div>
+
+                            <div id="calendar_day" class="grid grid-cols-7 text-center gap-y-8 mt-2 mb-2">
+                            <!-- 날짜 들어가는 곳 -->
+                            </div>
+
+                            <div id="calendarHoliday" class="holiday-info hidden mt-5 p-2 border-t border-gray-400 dark:border-gray-600 w-full flex gap-1">
+                            <ul id="calendarHolidayInfo" class="pl-8 py-2 text-gray-600 dark:text-gray-400 flex flex-col gap-2 text-sm">
+                            </ul>
                             </div>
                         </div>
+                        </div>
                     </div>
-                </aside>
+                    </aside>
+                </div>
             </div>
         </div>
      </main>
-        <footer class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
-            <div class="flex items-center gap-3 p-10">
-                <img width="28" height="28" src="https://img.icons8.com/tiny-color/28/code.png" alt="code" />
-                <h1 class="text-xl">DoHyek.dev</h1>
-            </div>
-            <div class="p-10 flex-grow text-right">
-                <p>© 2026 개인 개발 블로그. All rights reserved.</p>
-            </div>
-        </footer>
-        <script type="module" src="/components/devLog/calendarYearBtn.js"></script>
-        <script type="module" src="/components/header/innerHeader.js"></script>
-        <script type="module" src="/components/header/header.js"></script>
-        <script type="module" src="/components/devLog/calender.js"></script>
-        <script type="module" src="/components/devLog/login/devLoginCheck.js"></script>
-        <script type="module" src="/components/devLog/postUpdate.js"></script>
+    <footer class="footer flex flex-col sm:flex-row sm:justify-between sm:p-5 dark:bg-gray-900 dark:text-white gap-2 p-2">
+      <div class="flex items-center gap-3">
+        <img class="invert dark:invert-0" width="28" height="28" src="../img/catpaw.svg" alt="홈페이지 로고" />
+        <h4 class="text-xl">DoHyek.dev</h4>
+      </div>
+      <p class="sm:text-end">© 2026 개발 블로그. <span class="text-nowrap">All rights reserved.</span></p>
+    </footer>
+
 </body>
 
 </html>

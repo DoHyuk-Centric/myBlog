@@ -36,11 +36,11 @@ async function postUpdate() {
         <a class="flex-col" href="/pages/post.html?id=${post.id}">
           <div class="flex justify-end flex-col sm:justify-center">
             <div class="flex justify-between sm:justify-start">
-              <h3 class="text-3xl font-bold mb-2">${post.title}</h3>
-              <time class="text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
+              <h3 class="text-xl lg:text-3xl font-bold mb-2">${post.title}</h3>
+              <time class="text-[10px] lg:text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
             </div>
             <div class="flex">
-              <p class="mr-5 mb-2 line-clamp-2">${post.content}</p>
+              <p class="mr-1 lg:mr-5 lg:mb-2 text-sm lg:text-base line-clamp-2">${post.content}</p>
               ${imgUrlHtml}
             </div>
           </div>
