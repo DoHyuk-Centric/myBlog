@@ -2,7 +2,7 @@ import {initAuth} from "../../login/loginState.js";
 
 devLoginCheck();
 
-function devLoginCheck() {
+async function devLoginCheck() {
   const DevLogActionSignedIn = document.getElementById("DevLogActionSignedIn");
   const DevLogActionSignedOut = document.getElementById("DevLogActionSignedOut");
   const mobileWriteButton = document.getElementById("mobileWriteButton");
@@ -12,7 +12,7 @@ function devLoginCheck() {
     introduce: document.getElementById("profileIntroduce"),
   };
 
-  const session = initAuth();
+  const session = await initAuth();
 
   if (!session) {
     Object.values(userProfileState).forEach((profile) => {
