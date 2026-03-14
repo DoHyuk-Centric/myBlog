@@ -23,7 +23,7 @@ async function postLoad() {
 
   const { data, error } = await supabase
     .from("Posts")
-    .select("title, content, created_at, profiles(display_name)")
+    .select("title, content, created_at, userInfo(nickName)")
     .eq("id", postId)
     .single();
     
@@ -36,7 +36,7 @@ async function postLoad() {
   const showDate = data.created_at.split("T")[0];
 
   postAsideInner(data.content);
-  renderTitle(data.title, showDate, data.profiles?.display_name || "익명");
+  renderTitle(data.title, showDate, data.userInfo?.nickName || "익명");
 }
 
 postLoad();

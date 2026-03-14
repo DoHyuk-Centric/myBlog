@@ -1,11 +1,13 @@
 .post-layout{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  min-height: 100%;
 }
 .post-hero {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 2 / span 10;
+  min-height: 100%;
 
   .post-title {
     grid-column: 3 / span 6;
@@ -41,6 +43,7 @@
   }
   .post-body {
     grid-column: 3 / span 8;
+    min-height: calc(100vh - 160px - 120px);
   }
 
   @media (width <= 640px) {
