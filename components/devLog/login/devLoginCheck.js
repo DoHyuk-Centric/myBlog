@@ -1,3 +1,5 @@
+import {initAuth} from "../../login/loginState.js";
+
 devLoginCheck();
 
 function devLoginCheck() {
@@ -10,9 +12,9 @@ function devLoginCheck() {
     introduce: document.getElementById("profileIntroduce"),
   };
 
-  const isLogin = localStorage.getItem("isLogin") === "true";
+  const session = initAuth();
 
-  if (!isLogin) {
+  if (!session) {
     Object.values(userProfileState).forEach((profile) => {
       profile.classList.add("hidden");
     })
