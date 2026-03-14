@@ -15,7 +15,6 @@ function loginHandler() {
       console.error("Github 로그인 실패", error.message);
     }
   });
-
   document.getElementById("googleLogin").addEventListener("click", async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
