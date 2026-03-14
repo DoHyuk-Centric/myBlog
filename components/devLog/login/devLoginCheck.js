@@ -1,6 +1,8 @@
+import {initAuth} from "../../login/loginState.js";
+
 devLoginCheck();
 
-function devLoginCheck() {
+async function devLoginCheck() {
   const DevLogActionSignedIn = document.getElementById("DevLogActionSignedIn");
   const DevLogActionSignedOut = document.getElementById("DevLogActionSignedOut");
   const mobileWriteButton = document.getElementById("mobileWriteButton");
@@ -10,9 +12,9 @@ function devLoginCheck() {
     introduce: document.getElementById("profileIntroduce"),
   };
 
-  const isLogin = localStorage.getItem("isLogin") === "true";
+  const session = await initAuth();
 
-  if (!isLogin) {
+  if (!session) {
     Object.values(userProfileState).forEach((profile) => {
       profile.classList.add("hidden");
     })

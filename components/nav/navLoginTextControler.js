@@ -1,5 +1,5 @@
 // 네비게이션 로그인, 로그아웃 버튼 텍스트 컨트롤러
-import { supabase } from "../../src/supabase.js";
+import {initAuth} from "../login/loginState.js";
 
 navLoginTextControler();
 
@@ -8,10 +8,9 @@ async function navLoginTextControler() {
   const logoutBtn = document.getElementById("logout");
   const userBtn = document.getElementById("user");
 
-  const {data} = await supabase.auth.getSession();
-  const isLogin = localStorage.getItem("isLogin") === "true";
+  const session = await initAuth();
 
-  if (isLogin) {
+  if (session) {
     loginBtn.style.display = "none";
     logoutBtn.style.display = "block";
     userBtn.style.display = "block";
