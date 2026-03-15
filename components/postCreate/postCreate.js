@@ -7,7 +7,7 @@ function postCreate() {
   const temp_createPost = document.getElementById("temp_createPost");
 
   createPostTable.addEventListener("click", async () => {
-    const Success = await creatPostTable(title.value, content.value);
+    const Success = await postTableUpdate(title.value, content.value, 0);
 
     if (Success) {
       window.location.href = "/pages/devlog.html";
@@ -15,9 +15,19 @@ function postCreate() {
       alert("게시글 저장에 실패했습니다.");
     }
   });
+  temp_createPost.addEventListener("click", async() => {
+    const temp = await postTableUpdate(title.value, content.value, 1);
+
+    if(temp){
+      window.location.href = "/pages/devlog.html";
+    }
+    else{
+      alert("오류");
+    }
+  })
 }
 
-export async function creatPostTable(title, content) {
+export async function postTableUpdate(title, content, state) {
   const {
     data: { session },
     error: sessionError,
@@ -33,6 +43,7 @@ export async function creatPostTable(title, content) {
       title: title,
       content: content,
       user_id : session.user.id,
+      status : state,
     },
   ]);
 
