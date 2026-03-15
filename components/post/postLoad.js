@@ -5,14 +5,16 @@ import { marked } from "marked";
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
-function renderTitle(title, showDate, authorName) {
+function renderTitle(title, showDate, authorName, modifiedDate) {
   const post_title = document.getElementById("post-title");
   const date = document.getElementById("post-date");
   const post_author = document.getElementById("post-author");
+  const correctionDate = document.getElementById("postCorrectionTime");
 
   post_title.textContent = title;
   date.textContent = showDate;
   post_author.textContent = authorName;
+  correctionDate.textContent = modifiedDate;
 }
 
 async function postLoad() {
@@ -23,7 +25,7 @@ async function postLoad() {
 
   const { data, error } = await supabase
     .from("Posts")
-    .select("title, content, created_at, userInfo(nickName)")
+    .select("title, content, created_at, userInfo(nickName), modifiedDate")
     .eq("id", postId)
     .single();
     
@@ -33,10 +35,19 @@ async function postLoad() {
     return;
   }
 
+  let modifyDate = "";
+
+  if(data.modifiedDate && data.modifiedDate.split("T")[0] !== data.created_at.split("T")[0]){
+    const correctionInfo = document.getElementById("correctionInfo");
+    correctionInfo.classList.remove("hidden");
+    correctionInfo.classList.add("flex");
+    modifyDate = data.modifiedDate.split("T")[0];
+  }
+
   const showDate = data.created_at.split("T")[0];
 
   postAsideInner(data.content);
-  renderTitle(data.title, showDate, data.userInfo?.nickName || "익명");
+  renderTitle(data.title, showDate, data.userInfo?.nickName || "익명", modifyDate);
 }
 
 postLoad();
@@ -45,12 +56,10 @@ function postAsideInner(content) {
   const postAsideRight = document.getElementById("postAsideRight");
   const postContent = document.getElementById("post-content");
 
-  // markdown → HTML
   const html = marked.parse(content);
-  postContent.innerHTML = html; // 먼저 본문 렌더링
+  postContent.innerHTML = html;
 
-  // DOMParser로 파싱
-  const headings = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6"); // 이미 DOM에 있음
+  const headings = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
   postAsideRight.innerHTML = "";
 

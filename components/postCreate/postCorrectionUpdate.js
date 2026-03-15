@@ -33,7 +33,11 @@ export async function creatPostTable(postId, title, content) {
   
   const { data, error } = await supabase
     .from("Posts")
-    .update({ title, content })
+    .update({ 
+      title, 
+      content,
+      modifiedDate: new Date().toISOString(),
+     })
     .eq("id", postId)
 
   if (error) {

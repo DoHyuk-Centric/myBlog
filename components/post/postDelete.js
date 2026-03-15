@@ -24,7 +24,7 @@ async function deleteControler() {
 async function postDelete(postId) {
   const { error: deleteError } = await supabase
     .from("Posts")
-    .delete()
+    .update({"status": 2})
     .eq("id", postId);
 
   if (deleteError) {

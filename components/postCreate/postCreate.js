@@ -1,58 +1,108 @@
 import { supabase } from "../../src/supabase.js";
+import { handlerTempStorage } from "./loadTempStorage.js"
 
 function postCreate() {
   const title = document.getElementById("title");
   const content = document.getElementById("content");
   const createPostTable = document.getElementById("createPostTable");
-  const temp_createPost = document.getElementById("temp_createPost");
+  const tempCreatePost = document.getElementById("temp_createPost");
 
   createPostTable.addEventListener("click", async () => {
-    const Success = await postTableUpdate(title.value, content.value, 0);
+    const success = await savePost(title.value, content.value, 0);
 
-    if (Success) {
+    if (success) {
       window.location.href = "/pages/devlog.html";
     } else {
       alert("게시글 저장에 실패했습니다.");
     }
   });
-  temp_createPost.addEventListener("click", async() => {
-    const temp = await postTableUpdate(title.value, content.value, 1);
 
-    if(temp){
-      window.location.href = "/pages/devlog.html";
-    }
-    else{
+  tempCreatePost.addEventListener("click", async () => {
+    const success = await savePost(title.value, content.value, 1);
+
+    if (success) {
+      showToast("임시저장 되었습니다!");
+      handlerTempStorage();
+    } else {
       alert("오류");
     }
-  })
+  });
 }
 
-export async function postTableUpdate(title, content, state) {
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+
+  toast.classList.remove("opacity-0");
+  toast.classList.add("opacity-100");
+
+  setTimeout(() => {
+    toast.classList.remove("opacity-100");
+    toast.classList.add("opacity-0");
+  }, 2000);
+}
+
+async function savePost(title, content, state) {
   const {
     data: { session },
     error: sessionError,
   } = await supabase.auth.getSession();
 
-  if(sessionError || !session){
+  if (sessionError || !session) {
     console.error("로그인 상태 아님", sessionError);
     return false;
   }
 
-  const { error } = await supabase.from("Posts").insert([
-    {
-      title: title,
-      content: content,
-      user_id : session.user.id,
-      status : state,
-    },
-  ]);
-
-  if (error) {
-    console.log("게시글 저장 실패", error);
+  if (title.trim() === "" || content.trim() === "") {
+    showToast("내용이 없습니다!");
     return false;
   }
+
+  const params = new URLSearchParams(location.search);
+  const postId = params.get("id");
+
+  if (postId) {
+    const { error: updateError } = await supabase
+      .from("Posts")
+      .update({
+        title,
+        content,
+        status: state,
+      })
+      .eq("id", postId)
+      .eq("user_id", session.user.id);
+
+    if (updateError) {
+      console.error("게시글 수정 실패", updateError);
+      return false;
+    }
+
+    return true;
+  }
+
+  const { data, error: insertError } = await supabase
+    .from("Posts")
+    .insert([
+      {
+        title,
+        content,
+        user_id: session.user.id,
+        status: state,
+      },
+    ])
+    .select("id")
+    .single();
+
+  if (insertError) {
+    console.error("게시글 생성 실패", insertError);
+    return false;
+  }
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("id", data.id);
+  history.replaceState({}, "", url);
+
   return true;
 }
 
 postCreate();
-
