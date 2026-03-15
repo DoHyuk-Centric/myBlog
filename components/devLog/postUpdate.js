@@ -4,6 +4,7 @@ async function postUpdate() {
   const { data, error } = await supabase
     .from("Posts")
     .select("*")
+    .eq("status", 0)
     .order("id", { ascending: false });
 
   if (error) {
