@@ -50,10 +50,16 @@ function menuHandler() {
 
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
+
+    const header = document.getElementById("header");
     if (isMenuOpen()) {
       openMenu();
+      header.classList.remove("bg-white/30", "dark:bg-black/30");
+      header.classList.add("bg-white", "dark:bg-gray-900");
     } else {
       closeMenu();
+      header.classList.remove("bg-white", "dark:bg-gray-900");
+      header.classList.add("bg-white/30", "dark:bg-black/30");
     }
   });
 
