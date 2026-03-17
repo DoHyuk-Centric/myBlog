@@ -21,6 +21,7 @@ export default defineConfig({
         postCreate: resolve(__dirname, "pages/postCreate.html"),
         profile: resolve(__dirname, "pages/profile.html"),
         terms: resolve(__dirname, "pages/terms.html"),
+        tempPost: resolve(__dirname, "pages/tempPost.html"),
       },
     },
   },
