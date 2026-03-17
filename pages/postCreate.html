@@ -6,8 +6,16 @@
     <title>글쓰기</title>
     <link rel="stylesheet" href="../src/style.css" />
     <link rel="stylesheet" href="../src/scroll.css" />
-    <!-- <script type="module" src="../components/postCreate/resumeDraftPrompt.js"></script> -->
+    
     <script type="module" src="../components/postCreate/loadTempStorage.js"></script>
+    <script type="module" src="../components/header/innerHeader.js"></script>
+    <script type="module" src="../components/header/header.js"></script>
+    <script type="module" src="../components/postCreate/preview/previewcontroler.js"></script>
+    <script type="module" src="../components/postCreate/inputcontent/inputPostEditor.js"></script>
+    <script type="module" src="../components/postCreate/inputcontent/imginput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="../components/postCreate/postCreate.js"></script>
+    <script type="module" src="../components/postCreate/resumeDraftPrompt.js"></script>
   </head>
   <body class="font-[A2Z-SemiBold]">
     <main id="post-section" class="w-full h-full grid grid-cols-1 md:grid-cols-2 pt-15 lg:pt-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
@@ -101,21 +109,6 @@
     </main>
     <div id="toast" class="fixed bottom-8 right-8 bg-gray-800 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300"></div>
 
-    <script type="module" src="../components/header/innerHeader.js"></script>
-    <script type="module" src="../components/header/header.js"></script>
-    <script type="module" src="../components/postCreate/preview/previewcontroler.js"></script>
-
-    <!-- 버튼 상호작용 -->
-     <script type="module" src="../components/postCreate/inputcontent/inputPostEditor.js"></script>
-
-    <!-- textarea input -->
-    <script type="module" src="../components/postCreate/inputcontent/imginput.js"></script>
     
-    <!-- marked 사용(CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <!-- DB로 정보 전달 -->
-     <script type="module" src="../components/postCreate/postCreate.js"></script>
-     <script type="module" src="../components/postCreate/resumeDraftPrompt.js"></script>
   </body>
 </html>
