@@ -64,7 +64,7 @@
   @media (width <= 1024px) {
     grid-column: 1 / -1 ;
     .post-title, .post-subtitle, .post-body{
-      grid-column: 2 / span 10;
+      grid-column: 1 / -1;
     }
   }
 }

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>내 정보 | 개인 블로그</title>
     <link rel="stylesheet" href="/src/scroll.css" />
-    <link rel="stylesheet" href="/src/style/date.css" />
     <script type="module" src="/components/header/innerHeader.js"></script>
     <script type="module" src="/components/header/header.js"></script>
     <script type="module" src="/src/main.js"></script>
@@ -80,29 +79,29 @@
             <li
               class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
             >
-              <span class="font-semibold">아이디</span>
+              <span class="font-semibold text-nowrap">아이디</span>
               <span id="user-id" class="py-3 px-2"></span>
             </li>
             <li
               class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
             >
-              <span class="font-semibold">닉네임</span>
+              <span class="font-semibold text-nowrap">닉네임</span>
               <input
                 id="profileNickName"
                 type="text"
-                class="text-end w-70 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
+                class="text-end w-40 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
                 disabled
                 placeholder="닉네임"
               />
             </li>
             <li class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700">
-              <span class="font-semibold">생년월일</span>
-              <input id="profileBirth" type="text" class="py-3 text-end placeholder:text-black dark:placeholder:text-white rounded" disabled inputmode="numeric" pattern="[0-9]*" placeholder="생년월일"/>
+              <span class="font-semibold text-nowrap">생년월일</span>
+              <input id="profileBirth" type="text" class="py-3 w-40 px-2 text-end placeholder:text-black dark:placeholder:text-white rounded" disabled inputmode="numeric" pattern="[0-9]*" placeholder="생년월일"/>
             </li>
             <li
               class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
             >
-              <span class="font-semibold">이메일</span>
+              <span class="font-semibold text-nowrap">이메일</span>
               <input
                 id="profileEmail"
                 type="email"
@@ -114,11 +113,11 @@
             <li
               class="flex justify-between items-center pt-2 pb-1 border-b border-gray-200 dark:border-gray-700"
             >
-              <span class="font-semibold">전화번호</span>
+              <span class="font-semibold text-nowrap">전화번호</span>
               <input
                 id="profileTellNum"
                 type="tel"
-                class="text-end w-70 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
+                class="text-end w-40 py-3 px-2 placeholder:text-black dark:placeholder:text-white"
                 disabled
                 placeholder="전화번호"
               />

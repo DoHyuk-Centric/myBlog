@@ -21,16 +21,16 @@
     <!--메인-->
     <main
       id="main"
-      class="maincontainer bg-gray-300 dark:bg-gray-800 dark:text-gray-200 flex-1 pb-20"
+      class="maincontainer bg-white dark:bg-gray-800 dark:text-gray-200 flex-1 pb-20"
     >
       <section class="post-layout">
         <article class="post-hero">
           <h1
             id="post-title"
-            class="post-title text-4xl mt-20 lg:mt-25 pb-5 bg-white dark:bg-gray-800 px-10 py-10 rounded-t-2xl"
+            class="post-title text-2xl md:text-4xl mt-20 lg:mt-25 pb-2 lg:pb-5 bg-white dark:bg-gray-800 px-2 py-2 lg:px-10 lg:py-10 rounded-t-2xl"
           ></h1>
-          <div class="post-subtitle pb-2 border-b-2 dark:border-b-4 bg-white dark:bg-gray-800 border-gray-200 border-dashed dark:border-solid dark:border-gray-700 px-10">
-            <div class="post-meta">
+          <div class="post-subtitle pb-2 border-b-2 dark:border-b-4 bg-white dark:bg-gray-800 border-gray-200 border-dashed dark:border-solid dark:border-gray-700 px-2 lg:px-10">
+            <div class="post-meta text-sm md:text-base">
               <p id="post-author" class="post-author"></p>
               <time id="post-date" class="post-date" datetime=""></time>
               <div id="correctionInfo" class="hidden text-gray-300 dark:text-gray-600 gap-2">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="post-ButtonComponent relative">
-              <div id="postMoreBtnEvent" class="post-moreComponentBtn flex flex-col gap-5 absolute w-10 justify-center duration-300 ease-out top-24 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 hidden">
+              <div id="postMoreBtnEvent" class="post-moreComponentBtn bg-gray-50 rounded-2xl dark:bg-gray-800 flex flex-col gap-5 absolute w-15 h-25 justify-center duration-300 ease-out top-24 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 hidden">
                 <button id="postBtnCorrection_mobile" class="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 rounded-xl" type="button">
                   수정
                 </button>
@@ -53,8 +53,8 @@
                 type="button"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
@@ -83,9 +83,9 @@
           <div class="post-body">
             <div
               id="post-content"
-              class="post-content bg-white dark:bg-gray-800 rounded-b-2xl p-10 r prose max-w-none dark:prose-invert post-contents pt-[50px]"
+              class="post-content text-sm lg:text-base bg-white dark:bg-gray-800 rounded-b-2xl px-2 r prose max-w-none dark:prose-invert post-contents pt-2 lg:pt-12.5"
             ></div>
-            <aside class="post-aside-right border-l-4 pl-10 border-gray-400 dark:border-gray-700">
+            <aside class="post-aside-right border-l-4 pl-5 border-gray-400 dark:border-gray-700">
               <div id="postAsideRight" class="text-xs flex flex-col gap-5 w-full">
                 <!-- aside 영역 -->
               </div>
@@ -94,22 +94,12 @@
         </article>
       </section>
     </main>
-    <footer
-      class="footer flex border-t dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
-    >
-      <div class="flex items-center gap-3 p-10">
-        <img
-          width="28"
-          height="28"
-          src="https://img.icons8.com/tiny-color/28/code.png"
-          alt="code"
-        />
-        <h1 class="text-xl hidden sm:block">개인 개발 블로그</h1>
-        <h1 class="text-xl block sm:hidden">개발 블로그</h1>
+    <footer class="footer flex flex-col sm:flex-row sm:justify-between sm:p-5 dark:bg-gray-900 dark:text-white gap-2 p-2">
+      <div class="flex items-center gap-3">
+        <img class="invert dark:invert-0" width="28" height="28" src="../img/catpaw.svg" alt="홈페이지 로고" />
+        <h4 class="text-sm md:text-lg lg:text-xl">DoHyek.dev</h4>
       </div>
-      <div class="p-10 flex-grow text-right">
-        <p>© 2026 개인 개발 블로그. All rights reserved.</p>
-      </div>
+      <p class="text-[10px] md:text-base sm:text-end">© 2026 개발 블로그. <span class="text-nowrap">All rights reserved.</span></p>
     </footer>
   </body>
 </html>

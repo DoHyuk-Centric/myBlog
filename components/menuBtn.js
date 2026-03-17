@@ -2,7 +2,7 @@ function menuHandler() {
   const menuBtn = document.getElementById("menuBtn");
   const menuExitBtn = document.getElementById("menuExitBtn");
   const menuBar = document.getElementById("menuBar");
-  
+
   let lastFocusElement = null;
 
   // 메뉴가 열려있는지 판단
@@ -50,15 +50,23 @@ function menuHandler() {
 
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
+
+    const header = document.getElementById("header");
     if (isMenuOpen()) {
       openMenu();
+      header.classList.remove("bg-white/30", "dark:bg-black/30");
+      header.classList.add("bg-white", "dark:bg-gray-900");
     } else {
       closeMenu();
+      header.classList.remove("bg-white", "dark:bg-gray-900");
+      header.classList.add("bg-white/30", "dark:bg-black/30");
     }
   });
 
   menuExitBtn.addEventListener("click", () => {
     closeMenu();
+    header.classList.remove("bg-white", "dark:bg-gray-900");
+    header.classList.add("bg-white/30", "dark:bg-black/30");
   });
 
   document.addEventListener("click", (e) => {
@@ -71,8 +79,8 @@ function menuHandler() {
     }
   });
   document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && !isMenuOpen()){
-        closeMenu();
+    if (e.key === "Escape" && !isMenuOpen()) {
+      closeMenu();
     }
   })
 }

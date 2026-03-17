@@ -33,15 +33,15 @@ async function postUpdate() {
     ? `<img class="object-cover rounded-2xl border border-gray-300 dark:border-gray-700 ml-auto" width="150" height="150" src="${post.imageURL}" alt="" />` : "";
 
     postli.innerHTML = `
-      <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-4 mb-4 bg-white dark:bg-gray-800 shadow-md">
+      <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-2 mb-2 sm:p-4 sm:mb-4 bg-white dark:bg-gray-800 shadow-md">
         <a class="flex-col" href="/pages/post.html?id=${post.id}">
           <div class="flex justify-end flex-col sm:justify-center">
             <div class="flex justify-between sm:justify-start">
-              <h3 class="text-xl lg:text-3xl font-bold mb-2">${post.title}</h3>
+              <h3 class="text-sm sm:text-xl lg:text-3xl font-bold mb-0.5 sm:mb-2">${post.title}</h3>
               <time class="text-[10px] lg:text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
             </div>
             <div class="flex">
-              <p class="mr-1 lg:mr-5 lg:mb-2 text-sm lg:text-base line-clamp-2">${post.content}</p>
+              <p class="mr-0.5 mb-0.5 sm:mr-1 lg:mr-5 lg:mb-2 text-xs sm:text-sm lg:text-base line-clamp-2">${post.content}</p>
               ${imgUrlHtml}
             </div>
           </div>
