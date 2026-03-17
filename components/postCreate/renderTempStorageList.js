@@ -35,7 +35,7 @@ async function loadTempPost() {
       "relative w-[min(92vw,700px)] list-none rounded-2xl border border-gray-200 bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-gray-900";
 
     const link = document.createElement("a");
-    link.href = `../pages/postCorrection.html?id=${post.id}`;
+    link.href = `../pages/postCreate.html?id=${post.id}`;
     link.className = "block p-5 lg:p-6 no-underline text-inherit";
 
     const title = document.createElement("h3");

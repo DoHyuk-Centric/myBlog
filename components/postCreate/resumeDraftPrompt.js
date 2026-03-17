@@ -1,53 +1,95 @@
 import { supabase } from "../../src/supabase.js";
-resumeDraftPrompt();
+
+initDraftPage();
+
+async function initDraftPage() {
+  const postId = new URLSearchParams(window.location.search).get("id");
+
+  if (postId) {
+    await loadDraftById(postId);
+    return;
+  }
+
+  await resumeDraftPrompt();
+}
+
 async function resumeDraftPrompt() {
-    const lastestTemp = await searchConditionalTable();
-    if (!lastestTemp) return;
+  const latestTemp = await searchConditionalTable();
+  if (!latestTemp) return;
 
-    const isResume = confirm("최근 작성중인 글이 있습니다. 이어서 작성하시겠습니까?");
+  const isResume = confirm("최근 작성중인 글이 있습니다. 이어서 작성하시겠습니까?");
 
-    if (isResume) {
-        loadTable(lastestTemp);
-    }
+  if (!isResume) return;
 
+  fillForm(latestTemp);
+  updateUrl(latestTemp.id);
 }
 
 export async function searchConditionalTable() {
-    const {
-        data: { session },
-        error: sessionError,
-    } = await supabase.auth.getSession();
+  const {
+    data: { session },
+    error: sessionError,
+  } = await supabase.auth.getSession();
 
-    if (sessionError || !session) {
-        console.error("로그인 상태가 아닙니다.", sessionError);
-        return null;
-    }
+  if (sessionError || !session) {
+    console.error("로그인 상태가 아닙니다.", sessionError);
+    return null;
+  }
 
-    const { data: lastesTemp, error } = await supabase
-        .from("Posts")
-        .select("*")
-        .eq("user_id", session.user.id)
-        .eq("status", 1)
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
+  const { data: latestTemp, error } = await supabase
+    .from("Posts")
+    .select("*")
+    .eq("user_id", session.user.id)
+    .eq("status", 1)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
 
-    if (error) {
-        console.error("최근 임시저장 글 조회 실패", error);
-        return null;
-    }
+  if (error) {
+    console.error("최근 임시저장 글 조회 실패", error);
+    return null;
+  }
 
-    return lastesTemp;
+  return latestTemp;
 }
 
-function loadTable(post) {
-    const title = document.getElementById("title");
-    const content = document.getElementById("content");
-    
-    title.textContent = post.title ?? "";
-    content.textContent = post.content ?? "";
+async function loadDraftById(postId) {
+  const {
+    data: { session },
+    error: sessionError,
+  } = await supabase.auth.getSession();
 
-    const url = new URL(window.location.href);
-    url.searchParams.set("id", post.id);
-    history.replaceState({}, "", url);
+  if (sessionError || !session) {
+    console.error("로그인 상태가 아닙니다.", sessionError);
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from("Posts")
+    .select("*")
+    .eq("id", postId)
+    .eq("user_id", session.user.id)
+    .eq("status", 1)
+    .single();
+
+  if (error) {
+    console.error("임시저장 글 조회 실패", error);
+    return;
+  }
+
+  fillForm(data);
+}
+
+function fillForm(post) {
+  const title = document.getElementById("title");
+  const content = document.getElementById("content");
+
+  title.value = post.title ?? "";
+  content.value = post.content ?? "";
+}
+
+function updateUrl(postId) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("id", postId);
+  history.replaceState({}, "", url);
 }
