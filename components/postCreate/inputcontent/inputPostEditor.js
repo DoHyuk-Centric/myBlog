@@ -1,5 +1,7 @@
 import {imgInput} from "./imginput.js";
 
+export const imageMap = new Map();
+
 function inputPostEditor() {
   const content = document.getElementById("content");
 
@@ -210,10 +212,11 @@ function inputPostEditor() {
       const start = content.selectionStart;
       const end = content.selectionEnd;
       const text = content.value;
-
-      const imgUrl = await imgInput();
+      
+      const { file, previewUrl } = await imgInput();
+      imageMap.set(previewUrl, file);
       imgWrapper.classList.add("hidden");
-      const innerText = `![이미지 이름](${imgUrl})`;
+      const innerText = `![이미지 이름](${previewUrl})`;
   
       
       content.value = text.slice(0, start) + "\n" + innerText + text.slice(end);
@@ -224,6 +227,7 @@ function inputPostEditor() {
       content.focus();
     }catch(err){
       console.log(err);
+      imgWrapper.classList.add("hidden");
     }
     
   });

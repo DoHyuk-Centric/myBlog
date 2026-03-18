@@ -1,5 +1,6 @@
 import { supabase } from "../../src/supabase.js";
-import { handlerTempStorage } from "./loadTempStorage.js"
+import { handlerTempStorage } from "./loadTempStorage.js";
+import { replacePreviewImagesToUploadedUrls } from "./inputcontent/replacePreviewImagesToUploadedUrls.js";
 
 function postCreate() {
   const title = document.getElementById("title");
@@ -42,7 +43,7 @@ function showToast(message) {
   }, 2000);
 }
 
-async function savePost(title, content, state) {
+async function savePost(title, rawContent, state) {
   const {
     data: { session },
     error: sessionError,
@@ -53,8 +54,21 @@ async function savePost(title, content, state) {
     return false;
   }
 
-  if (title.trim() === "" || content.trim() === "") {
+  if (title.trim() === "" || rawContent.trim() === "") {
     showToast("내용이 없습니다!");
+    return false;
+  }
+
+  let finalContent = rawContent;
+
+  try {
+    // 발행 저장일 때만 실제 업로드 + URL 치환
+    if (state === 0) {
+      finalContent = await replacePreviewImagesToUploadedUrls(rawContent);
+    }
+  } catch (error) {
+    console.error("이미지 업로드/치환 실패", error);
+    showToast("이미지 처리 중 오류가 발생했습니다.");
     return false;
   }
 
@@ -66,7 +80,7 @@ async function savePost(title, content, state) {
       .from("Posts")
       .update({
         title,
-        content,
+        content: finalContent,
         status: state,
       })
       .eq("id", postId)
@@ -85,7 +99,7 @@ async function savePost(title, content, state) {
     .insert([
       {
         title,
-        content,
+        content: finalContent,
         user_id: session.user.id,
         status: state,
       },

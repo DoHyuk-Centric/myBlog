@@ -14,20 +14,13 @@ export function imgInput() {
         return reject("이미지 아님");
       }
 
-      const ext = file.name.split(".").pop();
-      const filePath = `posts/${crypto.randomUUID()}.${ext}`;
-
-      const { error } = await supabase.storage
-        .from("Post")
-        .upload(filePath, file, { cacheControl: "31536000", upsert: false });
-
-      if (error) {
-        return error;
-      }
-      
-      const {data} = supabase.storage.from("Post").getPublicUrl(filePath);
-
-      resolve(data.publicUrl);
+      const previewUrl = URL.createObjectURL(file);
+      resolve({
+        file,
+        previewUrl,
+      });
+      imageInput.click();
     };
   });
 }
+
