@@ -15,4 +15,6 @@ function previewWrap() {
     contentInput.style.height = "auto";
     contentInput.style.height = contentInput.scrollHeight + "px";
   });
+
+  previewTitle.textContent = titleInput.value;
 }
