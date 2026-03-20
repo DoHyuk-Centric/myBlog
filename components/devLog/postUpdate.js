@@ -1,11 +1,18 @@
 import { supabase } from "../../src/supabase.js";
+import { updatePostList } from "./updatePostList.js";
 
-async function postUpdate() {
-  const { data, error } = await supabase
+const POSTS_PER_PAGE = 10;
+
+async function postUpdate(page = 0) {
+  const from = page * POSTS_PER_PAGE;
+  const to = from + POSTS_PER_PAGE - 1;
+
+  const { data, error, count } = await supabase
     .from("Posts")
-    .select("*")
+    .select("*", { count: "exact" })
     .eq("status", 0)
-    .order("id", { ascending: false });
+    .order("id", { ascending: false })
+    .range(from, to);
 
   if (error) {
     console.error("에러:", error);
@@ -22,35 +29,53 @@ async function postUpdate() {
     return;
   }
 
-  
   data.forEach(post => {
     const postli = document.createElement("li");
-    postli.className = "";
-
     const showDate = post.created_at.split("T")[0];
 
-    const imgUrlHtml = post.imageURL
-    ? `<img class="object-cover rounded-2xl border border-gray-300 dark:border-gray-700 ml-auto" width="150" height="150" src="${post.imageURL}" alt="" />` : "";
+    const article = document.createElement("article");
+    article.className = "post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-2 mb-2 sm:p-4 sm:mb-4 bg-white dark:bg-gray-800 shadow-md";
 
-    postli.innerHTML = `
-      <article class="post-card cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 border rounded-lg p-2 mb-2 sm:p-4 sm:mb-4 bg-white dark:bg-gray-800 shadow-md">
-        <a class="flex-col" href="/pages/post.html?id=${post.id}">
-          <div class="flex justify-end flex-col sm:justify-center">
-            <div class="flex justify-between sm:justify-start">
-              <h3 class="text-sm sm:text-xl lg:text-3xl font-bold mb-0.5 sm:mb-2">${post.title}</h3>
-              <time class="text-[10px] lg:text-sm text-gray-500 sm:ml-auto" datetime="${showDate}">${showDate}</time>
-            </div>
-            <div class="flex">
-              <p class="mr-0.5 mb-0.5 sm:mr-1 lg:mr-5 lg:mb-2 text-xs sm:text-sm lg:text-base line-clamp-2">${post.content}</p>
-              ${imgUrlHtml}
-            </div>
-          </div>
-        </a>
-      </article>
-    `;
+    const a = document.createElement("a");
+    a.className = "flex-col";
+    a.href = `/pages/post.html?id=${post.id}`;
 
+    const outerDiv = document.createElement("div");
+    outerDiv.className = "flex justify-end flex-col sm:justify-center";
+
+    const topDiv = document.createElement("div");
+    topDiv.className = "flex justify-between sm:justify-start";
+
+    const h3 = document.createElement("h3");
+    h3.className = "text-sm sm:text-xl lg:text-3xl font-bold mb-0.5 sm:mb-2 line-clamp-1";
+    h3.textContent = post.title;
+
+    const time = document.createElement("time");
+    time.className = "text-[10px] lg:text-sm text-gray-500 sm:ml-auto text-nowrap";
+    time.setAttribute("datetime", showDate);
+    time.textContent = showDate;
+
+    const bottomDiv = document.createElement("div");
+    bottomDiv.className = "flex";
+
+    const p = document.createElement("p");
+    p.className = "mr-0.5 mb-0.5 sm:mr-1 lg:mr-5 lg:mb-2 text-xs sm:text-sm lg:text-base line-clamp-2";
+    p.textContent = post.content;
+
+    topDiv.appendChild(h3);
+    topDiv.appendChild(time);
+    bottomDiv.appendChild(p);
+    outerDiv.appendChild(topDiv);
+    outerDiv.appendChild(bottomDiv);
+    a.appendChild(outerDiv);
+    article.appendChild(a);
+    postli.appendChild(article);
     container.appendChild(postli);
+  });
+
+  updatePostList(count, POSTS_PER_PAGE, page, (selectedPage) => {
+    postUpdate(selectedPage);
   });
 }
 
-document.addEventListener("DOMContentLoaded", postUpdate);
+document.addEventListener("DOMContentLoaded", () => postUpdate(0));
