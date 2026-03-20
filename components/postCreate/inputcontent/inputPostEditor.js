@@ -1,4 +1,4 @@
-import {imgInput} from "./imginput.js";
+import { imgInput } from "./imginput.js";
 
 export const imageMap = new Map();
 
@@ -25,24 +25,18 @@ function inputPostEditor() {
     const end = content.selectionEnd;
     const text = content.value;
 
-    // 현재 줄 시작 인덱스
     const lineStart = text.lastIndexOf("\n", start - 1) + 1;
 
-    // 현재 줄 끝 인덱스
     const lineEnd = text.indexOf("\n", start);
     const realLineEnd = lineEnd === -1 ? text.length : lineEnd;
 
-    // 현재 줄 텍스트
     const lineText = text.slice(lineStart, realLineEnd);
 
-    // 줄 맨 앞의 #, ##, ###, #### (+ 공백) 제거
     const cleanedLine = lineText.replace(/^#{1,4}\s*/, "");
 
-    // 전체 텍스트 재구성 (무조건 # 삽입)
     content.value =
       text.slice(0, lineStart) + "# " + cleanedLine + text.slice(realLineEnd);
 
-    // 커서 위치 보정
     const diff = lineText.length - cleanedLine.length;
     content.selectionStart = start - diff + 2;
     content.selectionEnd = end - diff + 2;
@@ -187,49 +181,45 @@ function inputPostEditor() {
     const end = content.selectionEnd;
     const text = content.value;
 
-    // 현재 커서 위치가 속한 줄의 시작 위치 찾기
-    const lineStart = text.lastIndexOf("\n", start - 1) + 1; // 없으면 -1 + 1 = 0
+    const lineStart = text.lastIndexOf("\n", start - 1) + 1;
 
-    // 줄의 맨 앞에 '> ' 삽입
     content.value = text.slice(0, lineStart) + "> " + text.slice(lineStart);
 
-    // 커서를 삽입한 '> ' 뒤로 이동
-    const cursorPos = start + 2; // '> ' 길이 2
+    const cursorPos = start + 2;
     content.selectionStart = content.selectionEnd = cursorPos;
 
     content.focus();
   });
 
-  // img 버튼 눌렀을경우 동작 구역
-  imgInputBtn.addEventListener("click", async(e) => {
+  imgInputBtn.addEventListener("click", async (e) => {
     e.stopPropagation();
 
-    
-    
+
+
     imgWrapper.classList.remove("hidden");
-    
-    try{
+
+    try {
       const start = content.selectionStart;
       const end = content.selectionEnd;
       const text = content.value;
-      
+
       const { file, previewUrl } = await imgInput();
       imageMap.set(previewUrl, file);
       imgWrapper.classList.add("hidden");
       const innerText = `![이미지 이름](${previewUrl})`;
-  
-      
+
+
       content.value = text.slice(0, start) + "\n" + innerText + text.slice(end);
-      
+
       const cursorPos = end + innerText.length + 1;
       content.selectionStart = content.selectionEnd = cursorPos;
-      
+
       content.focus();
-    }catch(err){
+    } catch (err) {
       console.log(err);
       imgWrapper.classList.add("hidden");
     }
-    
+
   });
   imgAdd.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -238,15 +228,13 @@ function inputPostEditor() {
     imgWrapper.classList.add("hidden");
   })
 
-  // 코드 버튼 눌렀을때 동작 구역
   codeInputBtn.addEventListener("click", () => {
     const start = content.selectionStart;
     const end = content.selectionEnd;
     const text = content.value;
 
     if (start === end) {
-      // 현재 커서 위치가 속한 줄의 시작 위치 찾기
-      const lineStart = text.lastIndexOf("\n", start - 1) + 1; // 없으면 -1 + 1 = 0
+      const lineStart = text.lastIndexOf("\n", start - 1) + 1;
 
       content.value =
         text.slice(0, lineStart) +
@@ -271,6 +259,27 @@ function inputPostEditor() {
         text.slice(end);
       content.selectionStart = start + 5;
       content.selectionEnd = end + 5;
+    }
+
+    content.focus();
+  });
+
+  linkInputBtn.addEventListener("click", () => {
+    const start = content.selectionStart;
+    const end = content.selectionEnd;
+    const text = content.value;
+
+    if (start === end) {
+      const linkTemplate = "[링크 텍스트](url)";
+      content.value = text.slice(0, start) + linkTemplate + text.slice(end);
+      content.selectionStart = start + 1;
+      content.selectionEnd = start + 7;
+    } else {
+      const selectedText = text.slice(start, end);
+      const linkTemplate = `[${selectedText}](url)`;
+      content.value = text.slice(0, start) + linkTemplate + text.slice(end);
+      content.selectionStart = start + selectedText.length + 3;
+      content.selectionEnd = start + selectedText.length + 6;
     }
 
     content.focus();
