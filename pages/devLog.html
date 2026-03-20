@@ -14,6 +14,7 @@
     <script type="module" src="/components/devLog/calender.js"></script>
     <script type="module" src="/components/devLog/login/devLoginCheck.js"></script>
     <script type="module" src="/components/devLog/postUpdate.js"></script>
+    <script type="module" src="/components/devLog/updatePostList.js"></script>
 </head>
 
 <body class="scroll font-[A2Z-SemiBold] min-h-screen flex flex-col">
@@ -32,6 +33,7 @@
                     <ul id="posts-container" class="pt-2 p-1 lg:pt-3">
                         <li><!-- 카드 --></li>
                     </ul>
+                    <div id="posts-listNumber" class="text-center"></div>
                 </aside>
 
                 <div class="hidden lg:flex flex-col gap-3 w-90">
@@ -105,16 +107,16 @@
                                 <button class="border border-gray-400 rounded-xl h-15 w-15 dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer"><span class="choicemonth">12</span>월</button>
                                 </div>
                             </div>
-                            </div>
+                        </div>
 
                             <div class="grid grid-cols-7 text-center mt-2 border-b border-gray-300 dark:border-gray-600 pb-2">
-                            <div class="text-red-500 dark:text-red-400">일</div>
-                            <div>월</div>
-                            <div>화</div>
-                            <div>수</div>
-                            <div>목</div>
-                            <div>금</div>
-                            <div class="text-blue-500 dark:text-blue-400">토</div>
+                                <div class="text-red-500 dark:text-red-400">일</div>
+                                <div>월</div>
+                                <div>화</div>
+                                <div>수</div>
+                                <div>목</div>
+                                <div>금</div>
+                                <div class="text-blue-500 dark:text-blue-400">토</div>
                             </div>
 
                             <div id="calendar_day" class="grid grid-cols-7 text-center gap-y-8 mt-2 mb-2">
@@ -122,8 +124,7 @@
                             </div>
 
                             <div id="calendarHoliday" class="holiday-info hidden mt-5 p-2 border-t border-gray-400 dark:border-gray-600 w-full flex gap-1">
-                            <ul id="calendarHolidayInfo" class="pl-8 py-2 text-gray-600 dark:text-gray-400 flex flex-col gap-2 text-sm">
-                            </ul>
+                                <ul id="calendarHolidayInfo" class="pl-8 py-2 text-gray-600 dark:text-gray-400 flex flex-col gap-2 text-sm"></ul>
                             </div>
                         </div>
                         </div>
