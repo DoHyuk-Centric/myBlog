@@ -32,5 +32,5 @@ async function postDelete(postId) {
     return;
   }
 
-  window.location.href = "/pages/devlog.html";
+  window.location.href = "/pages/devLog.html";
 }
