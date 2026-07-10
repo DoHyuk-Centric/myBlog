@@ -17,7 +17,8 @@
 **🔗 [dohyuk.dev](https://dohyuk.dev)**
 
 ## 프로젝트 소개 & 동기
-React, Vue 같은 프레임워크 없이 Vanilla JS만으로 SPA를 구현한 개인 기술 블로그입니다.
+React, Vue 같은 프레임워크 없이 Vanilla JS만으로 만든 개인 기술 블로그입니다.
+Vite의 멀티 페이지 빌드를 사용하는 MPA 구조로, 페이지마다 필요한 스크립트만 로드합니다.
 
 ## 📦 직접 만든 npm 패키지
 ### [`npm 바로가기`](https://www.npmjs.com/package/markdown-block-preview) [`Github 바로가기`](https://github.com/DoHyuk-Centric/markdown-block-preview)
@@ -28,11 +29,11 @@ npm install markdown-block-preview
 ```
  
 ```js
-import { BlockPreview } from 'markdown-block-preview';
- 
-const preview = new BlockPreview({
-  editor: document.querySelector('#editor'),
-  output: document.querySelector('#preview'),
+import { setupMarkdownPreview } from 'markdown-block-preview';
+
+setupMarkdownPreview({
+  textarea: document.getElementById('content'),
+  preview: document.getElementById('preview-content'),
 });
 ```
  
