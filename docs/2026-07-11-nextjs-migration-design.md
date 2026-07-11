@@ -6,7 +6,7 @@
 
 - 14개의 정적 HTML 페이지(`pages/*.html`) + `components/*` Vanilla JS 모듈, **Vite** 멀티페이지 번들
 - **Supabase(BaaS)** 를 클라이언트에서 직접 호출: Postgres(`Posts`, `userInfo`), Auth(GitHub/Google OAuth), Storage(이미지), Edge Function(공휴일 프록시)
-- **GitHub Pages** 정적 배포(`dohyuk.dev`)
+- **Vercel** 정적 배포(`dohyuk.dev`)
 
 이 구조의 한계:
 1. **SEO 취약** — 게시글이 CSR로 렌더링돼 크롤러가 본문/제목을 못 읽음. `description`·Open Graph·`canonical`·JSON-LD·sitemap 전무. 게시글별 동적 메타태그 없음.
@@ -17,7 +17,7 @@
 
 | 영역 | 전환 후 |
 |------|---------|
-| 프론트엔드 | **Next.js 15 App Router + TypeScript + Tailwind v4** (SSR/RSC로 SEO 확보) |
+| 프론트엔드 | **Next.js 16 App Router + TypeScript + Tailwind v4** (SSR/RSC로 SEO 확보) |
 | 백엔드 | **NestJS** 별도 API 서버 (TypeScript) |
 | DB | **자체 PostgreSQL + Prisma** (Supabase Postgres에서 데이터 이관) |
 | 인증 | **자체 OAuth(GitHub/Google) + JWT** (Supabase Auth 완전 탈피) |
@@ -193,7 +193,7 @@ model Post {
 ```
 
 - **Next**: `output: "standalone"`으로 슬림 Docker 이미지.
-- **DNS**: `dohyuk.dev` A레코드를 GitHub Pages → VPS IP로 전환. `api` 서브도메인 추가.
+- **DNS**: `dohyuk.dev` A레코드를 Vercel → VPS IP로 전환. `api` 서브도메인 추가.
 - **환경변수**: `apps/api/.env`(DB URL, JWT secret, OAuth client id/secret, `HOLIDAY_KEY`, MinIO 키), `apps/web/.env`(API base URL, 공개 사이트 URL). 기존 `.gitignore` 시크릿 위생 규칙([scripts/check-no-tracked-env.sh](../scripts/check-no-tracked-env.sh)) 유지.
 - **CI/CD**: 기존 [.github/workflows/secrets.yml](../.github/workflows/secrets.yml)(gitleaks/env 검사) 유지 + 빌드/타입체크 + VPS 배포(SSH `docker compose pull && up -d` 또는 GHCR 이미지 푸시) 워크플로 추가.
 
@@ -228,7 +228,7 @@ model Post {
 - **M4 — 게시글 + SEO**: `/posts/[id]` SSR + `generateMetadata` + JSON-LD + OG 이미지, `/devlog` 목록, sitemap/robots, 301 리다이렉트.
 - **M5 — 에디터 & 업로드**: 마크다운 에디터 이식(리스크 §6-1), UploadModule + MinIO, 이미지 지연 업로드 패턴.
 - **M6 — 데이터 이관**: Supabase → 자체 Postgres/MinIO, 이미지 URL 치환, 검증.
-- **M7 — 인프라 & 컷오버**: docker-compose + Nginx + TLS, DNS 전환, GitHub Pages 폐기, 릴리즈 **v2.0.0** 태깅.
+- **M7 — 인프라 & 컷오버**: docker-compose + Nginx + TLS, DNS 전환, Vercel 배포 폐기, 릴리즈 **v2.0.0** 태깅.
 
 ---
 
